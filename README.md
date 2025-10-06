@@ -1,3 +1,3 @@
-# respi
+# Respi
 
-A new Flutter project.
+This is a part of our Respi project in Flutter. Respi is a court booking app.
