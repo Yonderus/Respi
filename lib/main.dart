@@ -17,9 +17,12 @@ class MainApp extends StatelessWidget {
       home: Scaffold(
         body: Center(
           child: Container(
-            color: const Color.fromARGB(255, 72, 72, 72),
             width: 340,
             height: 550,
+            decoration: BoxDecoration(
+              color: const Color.fromARGB(255, 72, 72, 72),
+              borderRadius: BorderRadius.circular(16),
+            ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
