@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:respi/catalog/catalog_page.dart';
+import 'package:respi/catalog/demos/buttons_demo.dart';
 import 'package:respi/features/auth/presentation/page/login_page.dart';
 
 void main() {
@@ -13,7 +14,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: CatalogPage(),
+      home: DemoButtons(),
     );
   }
 }
