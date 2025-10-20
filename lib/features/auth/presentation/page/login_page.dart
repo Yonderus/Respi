@@ -105,11 +105,11 @@ class LoginPage extends StatelessWidget {
                     const SizedBox(height: 15),
 
                     // 📧 Campos de texto
-                    app_text_field(' Email', Icons.email),
+                    app_text_field(' Email', Icons.email, false),
 
                     const SizedBox(height: 12),
 
-                    app_text_field(' Password', Icons.lock),
+                    app_text_field(' Password', Icons.lock, true),
 
                     const SizedBox(height: 25),
 
