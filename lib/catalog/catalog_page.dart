@@ -23,7 +23,6 @@ class CatalogPage extends StatelessWidget {
               'Botones',
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
-            onTap: () {},
           ),
           const Divider(),
           ListTile(),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class DemoButtons {
+class DemoButtons extends StatelessWidget {
   static Widget demoButton(String text) {
     return ElevatedButton(
       onPressed: () => print('$text pressed'),
@@ -11,5 +11,11 @@ class DemoButtons {
       ),
       child: Text(text),
     );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    throw UnimplementedError();
   }
 }
