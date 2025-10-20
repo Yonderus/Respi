@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:respi/catalog/widgets/app_bar_widget.dart';
 
 class DemoButtons extends StatelessWidget {
   const DemoButtons({super.key});
@@ -6,10 +7,8 @@ class DemoButtons extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Botones de la App'),
-        backgroundColor: const Color.fromARGB(255, 161, 161, 157),
-      ),
+      appBar: AppBarWidget(texto: 'Botones'),
+
       body: Container(
         decoration: BoxDecoration(color: Colors.grey[900]),
         child: Center(
