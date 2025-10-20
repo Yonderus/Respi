@@ -15,6 +15,7 @@ class DemoButtons extends StatelessWidget {
         child: Center(
           child: Column(
             children: [
+              //Primer botón
               Container(
                 margin: const EdgeInsets.only(top: 100, bottom: 20),
                 width: 350,
@@ -30,6 +31,7 @@ class DemoButtons extends StatelessWidget {
                   style: TextStyle(color: Colors.black, fontSize: 16),
                 ),
               ),
+              //Segundo botón
               Container(
                 margin: const EdgeInsets.only(top: 100, bottom: 20),
                 width: 250,
@@ -44,6 +46,7 @@ class DemoButtons extends StatelessWidget {
                   style: TextStyle(color: Colors.black, fontSize: 16),
                 ),
               ),
+              //Tercer botón
               Container(
                 margin: const EdgeInsets.only(top: 100, bottom: 20),
                 width: 200,
@@ -76,7 +79,7 @@ class DemoButtons extends StatelessWidget {
                   ],
                 ),
               ),
-
+              //Cuarto botón
               Container(
                 margin: const EdgeInsets.only(top: 100, bottom: 20),
                 child: Icon(Icons.arrow_back, size: 40, color: Colors.white),
