@@ -12,7 +12,10 @@ class DemoContainment extends StatelessWidget {
       body: Container(
         decoration: const BoxDecoration(color: Color(0xFF6B6B6B)),
 
-        child: Center(child: Container()),
+        child: Center(child: Column(children: [
+            Container()
+          ],
+        )),
       ),
     );
   }
