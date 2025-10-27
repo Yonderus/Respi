@@ -10,112 +10,126 @@ class DemoButtons extends StatelessWidget {
       appBar: AppBarWidget(texto: 'Botones'),
 
       body: Container(
-        decoration: BoxDecoration(color: Color(0xFF6B6B6B)),
+        decoration: BoxDecoration(color: Colors.grey[900]),
+
         child: Center(
-          child: Column(
-            children: [
-              Container(
-                margin: const EdgeInsets.only(top: 100, bottom: 20),
-                width: 350,
-                height: 40,
-                child: ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color.fromARGB(255, 196, 240, 52),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    elevation: 0,
-                  ),
-                  child: const Text(
-                    'Aquí dentro va un texto',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-              ),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                //Primer botón
+                Container(
+                  margin: const EdgeInsets.only(top: 100, bottom: 20),
 
-              Container(
-                margin: const EdgeInsets.only(top: 100, bottom: 20),
-                width: 250,
-                height: 40,
+                  child: SizedBox(
+                    width: 350,
+                    height: 40,
 
-                child: ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color.fromARGB(255, 196, 240, 52),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    elevation: 0,
-                  ),
-                  child: const Text(
-                    'Aquí dentro va un texto',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-              ),
-
-              Container(
-                margin: const EdgeInsets.only(top: 100, bottom: 20),
-                width: 200,
-                height: 125,
-
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [
-                      Color.fromARGB(255, 76, 76, 76),
-                      Color.fromARGB(255, 157, 156, 156),
-                    ],
-                    begin: Alignment.centerRight,
-                    end: Alignment.centerLeft,
-                  ),
-                  borderRadius: BorderRadius.circular(20),
-                ),
-
-                child: ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    // Hacemos el botón transparente: el gradiente lo aplicamos al Container padre
-                    backgroundColor: Colors.transparent,
-                    shadowColor: Colors.transparent,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    elevation: 0,
-                  ),
-                  child: Column(
-                    children: [
-                      Padding(padding: EdgeInsets.only(top: 20)),
-                      Icon(Icons.visibility, size: 40, color: Colors.white),
-                      Text(
-                        'Unirse',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color.fromARGB(
+                          255,
+                          196,
+                          240,
+                          52,
+                        ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
                         ),
                       ),
-                    ],
+                      child: Text(
+                        "Aquí dentro va un texto",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(color: Colors.black),
+                      ),
+                    ),
                   ),
                 ),
-              ),
 
-              Container(
-                margin: const EdgeInsets.only(top: 100, bottom: 20),
-                child: Icon(Icons.arrow_back, size: 40, color: Colors.white),
-              ),
-            ],
+                //Segundo botón
+                Container(
+                  margin: const EdgeInsets.only(top: 70, bottom: 20),
+                  child: SizedBox(
+                    width: 250,
+                    height: 40,
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Color.fromARGB(255, 196, 240, 52),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                      child: Text(
+                        "Aquí va un texto",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(color: Colors.black),
+                      ),
+                    ),
+                  ),
+                ),
+                //Tercer botón
+                Container(
+                  margin: const EdgeInsets.only(top: 70, bottom: 20),
+                  decoration: BoxDecoration(
+                    gradient: const LinearGradient(
+                      colors: [
+                        Color.fromARGB(255, 80, 80, 80),
+                        Color.fromARGB(255, 222, 223, 224),
+                      ],
+                      begin: Alignment.centerLeft,
+                      end: Alignment.centerRight,
+                    ),
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: SizedBox(
+                    width: 200,
+                    height: 125,
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.transparent,
+                        shadowColor: Colors.transparent,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                      ),
+                      child: Column(
+                        children: [
+                          Padding(padding: EdgeInsets.only(top: 20)),
+                          Icon(Icons.visibility, size: 40, color: Colors.white),
+                          Text(
+                            'Unirse',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                //Cuarto botón
+                Container(
+                  margin: const EdgeInsets.only(top: 70, bottom: 20),
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.transparent,
+                      shadowColor: Colors.transparent,
+                    ),
+                    child: Icon(
+                      Icons.arrow_back,
+                      size: 40,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
