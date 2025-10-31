@@ -1,25 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:respi/core/widgets/app_button.dart';
-import 'buildTag.dart';
+import 'package:respi/core/widgets/buildTag.dart';
 
 // ignore: camel_case_types
-class app_container_info extends StatelessWidget {
-  final String routeImg;
+class app_container_join extends StatelessWidget {
+  final int? personasNecesarias;
   final String text;
-  final String price;
+  final double pricePerson;
+  final String? level;
+  final String routeImage;
 
-  const app_container_info({
+  const app_container_join({
     super.key,
-    required this.routeImg,
+    this.personasNecesarias,
     required this.text,
-    required this.price,
+    required this.pricePerson,
+    this.level,
+    required this.routeImage,
   });
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: 400,
-      height: 250,
+      height: 240,
       child: Card(
         child: Stack(
           fit: StackFit.expand,
@@ -29,11 +33,28 @@ class app_container_info extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12),
                 image: DecorationImage(
-                  image: AssetImage(routeImg),
+                  image: AssetImage(routeImage),
                   fit: BoxFit.cover,
                 ),
               ),
             ),
+
+            // Etiquetas arriba de la imagen
+            if (personasNecesarias != null)
+              Positioned(
+                top: 10,
+                left: 10,
+                child: buildTag(
+                  "Faltan $personasNecesarias persona",
+                  backgroundColor: const Color(0xFFDDF864),
+                ),
+              ),
+            if (level != null)
+              Positioned(
+                top: 10,
+                right: 10,
+                child: buildTag(level!, backgroundColor: Colors.grey.shade300),
+              ),
 
             // Contenedor blanco en la parte inferior
             Positioned(
@@ -41,7 +62,7 @@ class app_container_info extends StatelessWidget {
               right: 0,
               bottom: 0,
               child: Container(
-                // height: 130,
+                // height: 100,
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: const BorderRadius.vertical(
@@ -70,7 +91,7 @@ class app_container_info extends StatelessWidget {
                         ),
 
                         Text(
-                          "$price€\n/hora",
+                          "$pricePerson€\n/persona",
                           style: TextStyle(
                             color: const Color.fromARGB(255, 125, 125, 125),
                             fontSize: 15,
@@ -79,28 +100,10 @@ class app_container_info extends StatelessWidget {
                         ),
                       ],
                     ),
-
-                    const SizedBox(height: 8),
-
-                    // Etiquetas LED y Cristal
-                    Row(
-                      children: [
-                        buildTag(
-                          "Olimpica",
-                          backgroundColor: Colors.grey.shade300,
-                        ),
-                        const SizedBox(width: 8),
-                        buildTag(
-                          "Cubierta",
-                          backgroundColor: Colors.grey.shade300,
-                        ),
-                      ],
-                    ),
-
                     const SizedBox(height: 10),
 
                     // Boton reservar
-                    AppButton(text: "Reservas"),
+                    AppButton(text: "Unirse"),
                   ],
                 ),
               ),
