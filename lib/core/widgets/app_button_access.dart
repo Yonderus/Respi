@@ -15,12 +15,12 @@ class AppButtonAccess extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(top: 70, bottom: 20),
+      margin: const EdgeInsets.only(top: 20, bottom: 20),
       decoration: BoxDecoration(
         gradient: const LinearGradient(
           colors: [
             Color.fromARGB(255, 80, 80, 80),
-            Color.fromARGB(255, 222, 223, 224),
+            Color.fromARGB(255, 181, 182, 184),
           ],
           begin: Alignment.centerLeft,
           end: Alignment.centerRight,

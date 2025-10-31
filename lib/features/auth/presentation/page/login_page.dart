@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:respi/core/widgets/app_text_field.dart';
 import 'package:respi/core/widgets/app_title_text.dart';
+import 'package:respi/features/auth/presentation/page/home_page.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -24,7 +25,7 @@ class LoginPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              // 🖼 Logo superior
+              // Logo superior
               Image.asset(
                 'lib/assets/images/Respi_Image_1.png',
                 width: 120,
@@ -32,7 +33,7 @@ class LoginPage extends StatelessWidget {
               ),
               const SizedBox(height: 30),
 
-              // 🟫 Contenedor principal
+              // Contenedor principal
               Container(
                 padding: const EdgeInsets.all(40),
                 width: 340,
@@ -48,7 +49,7 @@ class LoginPage extends StatelessWidget {
                   ],
                 ),
 
-                // 📋 Contenido del login
+                // Contenido del login
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -61,7 +62,7 @@ class LoginPage extends StatelessWidget {
                     ),
                     const SizedBox(height: 20),
 
-                    // 🔘 Botón Google
+                    // Botón Google
                     SizedBox(
                       width: 270,
                       child: ElevatedButton(
@@ -97,14 +98,14 @@ class LoginPage extends StatelessWidget {
                     ),
                     const SizedBox(height: 15),
 
-                    // 🧩 Separador
+                    // Separador
                     const Text(
                       "--------------- OR ---------------",
                       style: TextStyle(fontSize: 14, color: Colors.white),
                     ),
                     const SizedBox(height: 15),
 
-                    // 📧 Campos de texto
+                    // Campos de texto
                     app_text_field(' Email', Icons.email, false),
 
                     const SizedBox(height: 12),
@@ -113,13 +114,16 @@ class LoginPage extends StatelessWidget {
 
                     const SizedBox(height: 25),
 
-                    // 🟢 Botón de Sign In
+                    // Botón de Sign In
                     SizedBox(
                       width: 270,
                       height: 40,
                       child: ElevatedButton(
                         onPressed: () {
-                          Navigator.pushNamed(context, '/HomePage');
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => HomePage()),
+                          );
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: const Color(0xFFDDF864),
