@@ -23,7 +23,9 @@
 
   "home": "Start",
   "reservations": "Reservierungen",
-  "profile": "Profil"
+  "profile": "Profil",
+
+  "selectcamp": "Ausgewählter Platz"
 
 
 }

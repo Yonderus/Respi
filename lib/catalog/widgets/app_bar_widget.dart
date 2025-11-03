@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:respi/features/preferences/presentation/pages/preferences_page.dart';
+import 'package:respi/providers/bottom_nav_provider.dart';
 
-class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
+class AppBarWidget extends ConsumerWidget implements PreferredSizeWidget {
   final String texto;
 
   const AppBarWidget({super.key, required this.texto});
@@ -10,11 +12,14 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return AppBar(
       leading: IconButton(
         icon: const Icon(Icons.arrow_back_ios_new, color: Colors.black),
-        onPressed: () => Navigator.maybePop(context),
+        onPressed: () {
+          ref.read(bottomNavIndexProvider.notifier).state = 0;
+          Navigator.maybePop(context);
+        },
       ),
 
       //Icono de ajustes en el appbar

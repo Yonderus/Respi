@@ -233,6 +233,12 @@ abstract class AppLocalizations {
   /// In es, this message translates to:
   /// **'Perfil'**
   String get profile;
+
+  /// No description provided for @selectcamp.
+  ///
+  /// In es, this message translates to:
+  /// **'Selecionar Pista'**
+  String get selectcamp;
 }
 
 class _AppLocalizationsDelegate

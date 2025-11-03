@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:respi/features/auth/presentation/page/home_page.dart';
 import 'package:respi/providers/bottom_nav_provider.dart';
 
 class AppBarWidget extends ConsumerWidget implements PreferredSizeWidget {
@@ -28,10 +27,7 @@ class AppBarWidget extends ConsumerWidget implements PreferredSizeWidget {
         onPressed: () {
           // update provider state first, then navigate
           ref.read(bottomNavIndexProvider.notifier).state = 0;
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => HomePage()),
-          );
+          Navigator.maybePop(context);
         }, //=> Navigator.maybePop(context),
       ),
       backgroundColor: Colors.transparent,

@@ -73,4 +73,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get profile => 'Profil';
+
+  @override
+  String get selectcamp => 'Ausgewählter Platz';
 }
