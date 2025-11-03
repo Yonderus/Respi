@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:respi/catalog/widgets/app_bar_widget.dart';
 import 'package:respi/core/l10n/app_localizations.dart';
-import 'package:respi/core/widgets/app_bar_main.dart';
 import '../providers/preferences_provider.dart';
 import '../widgets/theme_card.dart';
 import '../widgets/language_card.dart';
@@ -16,7 +16,7 @@ class PreferencesPage extends ConsumerWidget {
     final language = ref.watch(languageProvider);
 
     return Scaffold(
-      appBar: AppBarWidget(texto: l10n.preferences),
+      appBar: AppBarWidget(texto: l10n.preferences, flecha: true),
 
       body: Center(
         child: Column(

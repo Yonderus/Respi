@@ -17,7 +17,7 @@ class _BookingPageState extends ConsumerState<BookingPage> {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
     return Scaffold(
-      appBar: AppBarWidget(texto: 'Reservar Pistas'),
+      appBar: AppBarWidget(texto: 'Reservar Pistas', flecha: true),
       bottomNavigationBar: AppBottombar(),
 
       body: Column(

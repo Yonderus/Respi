@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:respi/features/auth/presentation/page/booking_page.dart';
+import 'package:respi/features/auth/presentation/page/home_page.dart';
+import 'package:respi/features/auth/presentation/page/profile_page.dart';
 import 'package:respi/providers/bottom_nav_provider.dart';
 
 class AppBottombar extends ConsumerWidget {
@@ -16,7 +19,26 @@ class AppBottombar extends ConsumerWidget {
       onTap: (index) {
         // Actualiza el índice en el provider
         ref.read(bottomNavIndexProvider.notifier).state = index;
+        if (index == 0) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => HomePage()),
+          );
+        }
+        if (index == 1) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => BookingPage()),
+          );
+        }
+        if (index == 2) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => ProfilePage()),
+          );
+        }
       },
+
       iconSize: 30,
       unselectedItemColor: Colors.white,
       selectedItemColor: const Color(0xFFDDF864),

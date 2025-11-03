@@ -7,7 +7,7 @@ import 'package:respi/core/widgets/app_button_access.dart';
 import 'package:respi/core/widgets/app_container_booking.dart';
 import 'package:respi/core/widgets/app_container_review.dart';
 import 'package:respi/features/auth/presentation/page/booking_page.dart';
-import 'package:respi/providers/bottom_nav_provider.dart';
+//import 'package:respi/providers/bottom_nav_provider.dart';
 
 class HomePage extends ConsumerWidget {
   const HomePage({super.key});
@@ -17,9 +17,8 @@ class HomePage extends ConsumerWidget {
     final l10n = AppLocalizations.of(context)!;
 
     return Scaffold(
-      appBar: AppBarWidget(
-        texto: l10n.welcomeRespiExcl /*'¡Bienvendio a Respi!'*/,
-      ),
+      appBar: AppBarWidget(texto: l10n.welcomeRespiExcl, flecha: false),
+
       bottomNavigationBar: AppBottombar(),
       body: Container(
         decoration: BoxDecoration(color: Color.fromARGB(255, 209, 211, 204)),

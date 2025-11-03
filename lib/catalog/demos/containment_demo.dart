@@ -12,7 +12,7 @@ class DemoContainment extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarWidget(texto: "Contenedores"),
+      appBar: AppBarWidget(texto: "Contenedores", flecha: true),
 
       body: Container(
         decoration: BoxDecoration(color: backgroundColor),
