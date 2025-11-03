@@ -11,26 +11,37 @@ class ProfilePage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     //final l10n = AppLocalizations.of(context)!;
 
-    return Scaffold(
-      appBar: AppBarWidget(texto: 'Perfil', flecha: true),
-      bottomNavigationBar: AppBottombar(),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
 
-      // body: Container(
-      //   decoration: BoxDecoration(color: Color.fromARGB(255, 209, 211, 204)),
+      children: [
+        Card(
+          color: Colors.blue,
 
-      //   child: Column(
-      //     children: [
-      //       //TEXTO DE ACCESO RAPIDO
-      //       Column(
-      //         children: [
-      //           Card(
-      //             child: Title(color: Colors.red, child: Icon(Icons.abc)),
-      //           ),
-      //         ],
-      //       ),
-      //     ],
-      //   ),
-      // ),
+          child: ListTile(
+            title: Text('Language'),
+            leading: const Icon(Icons.language),
+          ),
+        ),
+      ],
     );
+
+    // body: Container(
+    //   decoration: BoxDecoration(color: Color.fromARGB(255, 209, 211, 204)),
+
+    //   child: Column(
+    //     children: [
+    //       //TEXTO DE ACCESO RAPIDO
+    //       Column(
+    //         children: [
+    //           Card(
+    //             child: Title(color: Colors.red, child: Icon(Icons.abc)),
+    //           ),
+    //         ],
+    //       ),
+    //     ],
+    //   ),
+    // ),
   }
 }

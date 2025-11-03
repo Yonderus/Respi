@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:respi/features/preferences/presentation/pages/preferences_page.dart';
 import 'package:respi/providers/bottom_nav_provider.dart';
 
 class AppBarWidget extends ConsumerWidget implements PreferredSizeWidget {
@@ -33,22 +32,6 @@ class AppBarWidget extends ConsumerWidget implements PreferredSizeWidget {
               },
             )
           : null,
-
-      // Icono de ajustes
-      actions: [
-        IconButton(
-          icon: const Icon(
-            Icons.settings,
-            color: Color.fromARGB(255, 172, 172, 172),
-          ),
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const PreferencesPage()),
-            );
-          },
-        ),
-      ],
 
       backgroundColor: Colors.transparent,
       flexibleSpace: Container(
