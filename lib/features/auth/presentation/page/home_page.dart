@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:respi/catalog/widgets/app_bar_widget.dart';
 import 'package:respi/core/l10n/app_localizations.dart';
 import 'package:respi/core/widgets/app_bottomBar.dart';
@@ -6,12 +7,13 @@ import 'package:respi/core/widgets/app_button_access.dart';
 import 'package:respi/core/widgets/app_container_booking.dart';
 import 'package:respi/core/widgets/app_container_review.dart';
 import 'package:respi/features/auth/presentation/page/booking_page.dart';
-import 'package:respi/features/auth/presentation/page/login_page.dart';
+import 'package:respi/providers/bottom_nav_provider.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends ConsumerWidget {
   const HomePage({super.key});
+
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context)!;
 
     return Scaffold(
@@ -60,12 +62,7 @@ class HomePage extends StatelessWidget {
                   AppButtonAccess(
                     text: l10n.joinin,
                     icon: Icons.visibility,
-                    function: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => LoginPage()),
-                      );
-                    },
+                    function: () {},
                   ),
                 ],
               ),

@@ -1,45 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:respi/core/l10n/app_localizations.dart';
+import 'package:respi/providers/bottom_nav_provider.dart';
 
-class AppBottombar extends ConsumerStatefulWidget {
+class AppBottombar extends ConsumerWidget {
   const AppBottombar({super.key});
 
   @override
-  AppBottombarState createState() => AppBottombarState();
-}
-
-class AppBottombarState extends ConsumerState<AppBottombar> {
-  int Indice_Actual = 0; // Índice de la pestaña seleccionada
-
-  @override
-  Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context)!;
+  Widget build(BuildContext context, WidgetRef ref) {
+    // Escucha el valor actual del índice
+    final indiceActual = ref.watch(bottomNavIndexProvider);
 
     return BottomNavigationBar(
       backgroundColor: const Color.fromARGB(255, 86, 85, 85),
-      currentIndex: Indice_Actual,
+      currentIndex: indiceActual,
       onTap: (index) {
-        setState(() {
-          Indice_Actual = index;
-        });
+        // Actualiza el índice en el provider
+        ref.read(bottomNavIndexProvider.notifier).state = index;
       },
       iconSize: 30,
       unselectedItemColor: Colors.white,
       selectedItemColor: const Color(0xFFDDF864),
-      items: [
-        BottomNavigationBarItem(
-          icon: Icon(Icons.home),
-          label: l10n.home /*'Inicio'*/,
-        ),
+      items: const [
+        BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Inicio'),
         BottomNavigationBarItem(
           icon: Icon(Icons.calendar_today),
-          label: l10n.reservations /*'Reservas'*/,
+          label: 'Reservas',
         ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.person),
-          label: l10n.profile /*'Perfil'*/,
-        ),
+        BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Perfil'),
       ],
     );
   }
