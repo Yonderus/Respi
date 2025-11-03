@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:respi/core/l10n/app_localizations.dart';
-import 'package:respi/core/theme/app_colors.dart';
-import 'package:respi/features/preferences/presentation/providers/preferences_provider.dart';
 
 class AppBottombar extends ConsumerStatefulWidget {
   const AppBottombar({super.key});

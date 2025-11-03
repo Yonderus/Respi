@@ -55,6 +55,7 @@ class DemoContainment extends StatelessWidget {
                   route: "lib/assets/images/tennis.png",
                   sport: "Tenis",
                   locate: "Pista 5",
+                  stars: 4,
                 ),
               ],
             ),

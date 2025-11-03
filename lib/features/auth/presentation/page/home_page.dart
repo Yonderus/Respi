@@ -4,6 +4,8 @@ import 'package:respi/core/l10n/app_localizations.dart';
 import 'package:respi/core/widgets/app_bottomBar.dart';
 import 'package:respi/core/widgets/app_button_access.dart';
 import 'package:respi/core/widgets/app_container_booking.dart';
+import 'package:respi/core/widgets/app_container_review.dart';
+import 'package:respi/features/auth/presentation/page/booking_page.dart';
 import 'package:respi/features/auth/presentation/page/login_page.dart';
 
 class HomePage extends StatelessWidget {
@@ -48,7 +50,10 @@ class HomePage extends StatelessWidget {
                     text: l10n.newReservation,
                     icon: Icons.calendar_today,
                     function: () {
-                      Navigator.pushNamed(context, '/login');
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => BookingPage()),
+                      );
                     },
                   ),
                   Padding(padding: EdgeInsets.only(left: 40)),
@@ -64,6 +69,7 @@ class HomePage extends StatelessWidget {
                   ),
                 ],
               ),
+
               //TEXTO DE PRÓXIMAS RESERVAS
               Container(
                 margin: const EdgeInsets.only(left: 40, top: 20),
@@ -108,6 +114,42 @@ class HomePage extends StatelessWidget {
                     data: '27/10/2025',
                     time: '18:30',
                     locate: 'Bocairent',
+                  ),
+                ],
+              ),
+
+              // RESEÑAS DE RESERVAS REALIZADAS
+              Container(
+                margin: const EdgeInsets.only(left: 40, top: 20),
+                child: Align(
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    'Reseñas de Reservas',
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+
+              Column(
+                children: [
+                  Padding(padding: EdgeInsets.all(10)),
+                  app_container_review(
+                    route: 'lib/assets/images/tennis.png',
+                    sport: 'Tenis',
+                    locate: 'Pista 12',
+                    stars: 4,
+                  ),
+                  Padding(padding: EdgeInsets.all(10)),
+                  app_container_review(
+                    route: 'lib/assets/images/basketball.png',
+                    sport: 'Baloncesto',
+                    locate: 'Cancha 3',
+                    stars: 5,
                   ),
                 ],
               ),
