@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:respi/app/theme/app_colors.dart';
+import 'package:respi/core/theme/app_colors.dart';
 
 // ignore: camel_case_types
 class app_container_review extends StatelessWidget {

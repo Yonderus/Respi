@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:respi/app/theme/app_colors.dart';
+import 'package:respi/core/theme/app_colors.dart';
 import 'package:respi/catalog/widgets/app_bar_widget.dart';
 import 'package:respi/core/widgets/app_container_booking.dart';
 import 'package:respi/core/widgets/app_container_info.dart';

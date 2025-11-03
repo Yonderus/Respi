@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:respi/catalog/widgets/app_bar_widget.dart';
+import 'package:respi/core/l10n/app_localizations.dart';
 import 'package:respi/core/widgets/app_bottomBar.dart';
 import 'package:respi/core/widgets/app_button_access.dart';
 import 'package:respi/core/widgets/app_container_booking.dart';
@@ -9,8 +10,12 @@ class HomePage extends StatelessWidget {
   const HomePage({super.key});
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
     return Scaffold(
-      appBar: AppBarWidget(texto: '¡Bienvendio a Respi!'),
+      appBar: AppBarWidget(
+        texto: l10n.welcomeRespiExcl /*'¡Bienvendio a Respi!'*/,
+      ),
       bottomNavigationBar: AppBottombar(),
       body: Container(
         decoration: BoxDecoration(color: Color.fromARGB(255, 209, 211, 204)),
@@ -23,7 +28,7 @@ class HomePage extends StatelessWidget {
                 child: Align(
                   alignment: Alignment.topLeft,
                   child: Text(
-                    'Acceso Rápido',
+                    l10n.fastAcces,
                     textAlign: TextAlign.left,
                     style: TextStyle(
                       color: Colors.black,
@@ -40,7 +45,7 @@ class HomePage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   AppButtonAccess(
-                    text: 'Reserva nueva',
+                    text: l10n.newReservation,
                     icon: Icons.calendar_today,
                     function: () {
                       Navigator.pushNamed(context, '/login');
@@ -48,7 +53,7 @@ class HomePage extends StatelessWidget {
                   ),
                   Padding(padding: EdgeInsets.only(left: 40)),
                   AppButtonAccess(
-                    text: 'Unirse',
+                    text: l10n.joinin,
                     icon: Icons.visibility,
                     function: () {
                       Navigator.push(
@@ -65,7 +70,7 @@ class HomePage extends StatelessWidget {
                 child: Align(
                   alignment: Alignment.topLeft,
                   child: Text(
-                    'Próximas Reservas',
+                    l10n.upcomingReservations,
                     textAlign: TextAlign.left,
                     style: TextStyle(
                       color: Colors.black,
@@ -81,7 +86,7 @@ class HomePage extends StatelessWidget {
                   Padding(padding: EdgeInsets.all(10)),
                   app_container_booking(
                     route: 'lib/assets/images/basketball.png',
-                    sport: 'Baloncesto',
+                    sport: l10n.basketball,
                     data: '27/10/2025',
                     time: '18:30',
                     locate: 'Bocairent',
@@ -90,7 +95,7 @@ class HomePage extends StatelessWidget {
                   Padding(padding: EdgeInsets.all(10)),
                   app_container_booking(
                     route: 'lib/assets/images/football.png',
-                    sport: 'Fútbol',
+                    sport: l10n.football,
                     data: '27/10/2025',
                     time: '18:30',
                     locate: 'Bocairent',
@@ -99,7 +104,7 @@ class HomePage extends StatelessWidget {
                   Padding(padding: EdgeInsets.all(10)),
                   app_container_booking(
                     route: 'lib/assets/images/padel-racket.png',
-                    sport: 'Pádel',
+                    sport: l10n.padel,
                     data: '27/10/2025',
                     time: '18:30',
                     locate: 'Bocairent',

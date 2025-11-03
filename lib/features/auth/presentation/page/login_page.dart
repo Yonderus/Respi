@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:respi/core/l10n/app_localizations.dart';
 import 'package:respi/core/widgets/app_text_field.dart';
 import 'package:respi/core/widgets/app_title_text.dart';
 import 'package:respi/features/auth/presentation/page/home_page.dart';
@@ -8,6 +9,8 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
@@ -54,10 +57,12 @@ class LoginPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const AppTitleText(text: "Bienvenido a ResPi"),
+                    AppTitleText(
+                      text: l10n.welcomeRespi /*"Bienvenido a ResPi"*/,
+                    ),
                     const SizedBox(height: 6),
-                    const Text(
-                      "Sign in to continue",
+                    Text(
+                      l10n.signinContinue,
                       style: TextStyle(fontSize: 14, color: Colors.white),
                     ),
                     const SizedBox(height: 20),
@@ -85,11 +90,14 @@ class LoginPage extends StatelessWidget {
                                 height: 20,
                               ),
                             ),
-                            const Align(
+                            Align(
                               alignment: Alignment.center,
                               child: Text(
-                                "Continue with Google",
-                                style: TextStyle(fontWeight: FontWeight.w600),
+                                l10n.continueGoogle,
+                                /*"Continue with Google"*/
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                ),
                               ),
                             ),
                           ],
@@ -99,18 +107,22 @@ class LoginPage extends StatelessWidget {
                     const SizedBox(height: 15),
 
                     // Separador
-                    const Text(
-                      "--------------- OR ---------------",
+                    Text(
+                      "--------------- ${l10n.or} ---------------",
                       style: TextStyle(fontSize: 14, color: Colors.white),
                     ),
                     const SizedBox(height: 15),
 
                     // Campos de texto
-                    app_text_field(' Email', Icons.email, false),
+                    app_text_field(l10n.email /*' Email'*/, Icons.email, false),
 
                     const SizedBox(height: 12),
 
-                    app_text_field(' Password', Icons.lock, true),
+                    app_text_field(
+                      l10n.password /*' Password'*/,
+                      Icons.lock,
+                      true,
+                    ),
 
                     const SizedBox(height: 25),
 
@@ -132,8 +144,9 @@ class LoginPage extends StatelessWidget {
                             borderRadius: BorderRadius.circular(8),
                           ),
                         ),
-                        child: const Text(
-                          "Sign In",
+                        child: Text(
+                          l10n.signin,
+                          /*"Sign In"*/
                           style: TextStyle(fontWeight: FontWeight.bold),
                         ),
                       ),

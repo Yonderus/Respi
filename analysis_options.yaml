@@ -1,1 +1,8 @@
 include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  plugins:
+    - custom_lint
+#Con este archivo abilitamos riverpod_lint
+# A partir de ese momento, nuestro IDE mostrará advertencias si cometemos 
+#errores comunes al usar Riverpod en nuestro código.

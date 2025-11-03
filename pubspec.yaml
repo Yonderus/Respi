@@ -9,14 +9,26 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  intl: any
+  flutter_riverpod: ^3.0.3
+  shared_preferences: ^2.5.3
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^5.0.0
+  custom_lint: ^0.8.0
+  riverpod_lint: ^3.0.3
 
 flutter:
   uses-material-design: true
-
+  generate: true
   assets:
     - lib/assets/images/
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "/assets/Respi_Image_1.png"

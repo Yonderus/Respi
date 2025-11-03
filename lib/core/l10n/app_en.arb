@@ -1,0 +1,29 @@
+{
+  
+  "helloWorld": "Hello World!",
+  "signinContinue": "Sign in to continue",
+  "welcomeRespi": "Welcome to ResPi",
+  "continueGoogle": "Continue with Google",
+  "email": " email",
+  "password": " password",
+  "or": "OR",
+  "signin": "Sign In",
+  "welcomeRespiExcl": "Welcome to ResPi!",
+
+  "fastAcces": "Fast Acces",
+  "newReservation": "New reservation",
+  "joinin": "Join In a game",
+  "basketball": "Basketball",
+  "football": "Football",
+  "padel": "Padel",
+  "upcomingReservations": "Upcoming Reservations",
+  "preferences": "Preferences",
+  "darkMode": "Dark Mode",
+  "language": "Language",
+
+  "home": "Home",
+  "reservations": "Reservations",
+  "profile": "Profile"
+
+
+}
