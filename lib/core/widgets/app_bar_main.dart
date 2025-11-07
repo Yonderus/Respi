@@ -26,8 +26,7 @@ class AppBarWidget extends ConsumerWidget implements PreferredSizeWidget {
         icon: Icon(starterIcon, color: Colors.black),
         onPressed: () {
           // update provider state first, then navigate
-          ref.read(bottomNavIndexProvider.notifier).state = 0;
-          Navigator.maybePop(context);
+          ref.read(bottomNavIndexProvider.notifier).state = 1;
         }, //=> Navigator.maybePop(context),
       ),
       backgroundColor: Colors.transparent,

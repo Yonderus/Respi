@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:respi/features/auth/presentation/page/booking_page.dart';
 import 'package:respi/features/auth/presentation/page/home_page.dart';
+import 'package:respi/features/auth/presentation/page/join_page.dart';
 import 'package:respi/features/auth/presentation/page/profile_page.dart';
 import 'package:respi/providers/bottom_nav_provider.dart';
 
@@ -14,7 +15,7 @@ class AppBottombar extends ConsumerWidget {
     final indiceActual = ref.watch(bottomNavIndexProvider);
 
     return BottomNavigationBar(
-      backgroundColor: const Color.fromARGB(255, 86, 85, 85),
+      backgroundColor: const Color.fromARGB(255, 89, 89, 89),
       currentIndex: indiceActual,
       onTap: (index) {
         // Actualiza el índice en el provider
@@ -34,6 +35,12 @@ class AppBottombar extends ConsumerWidget {
         if (index == 2) {
           Navigator.push(
             context,
+            MaterialPageRoute(builder: (context) => JoinPage()),
+          );
+        }
+        if (index == 3) {
+          Navigator.push(
+            context,
             MaterialPageRoute(builder: (context) => ProfilePage()),
           );
         }
@@ -48,6 +55,7 @@ class AppBottombar extends ConsumerWidget {
           icon: Icon(Icons.calendar_today),
           label: 'Reservas',
         ),
+        BottomNavigationBarItem(icon: Icon(Icons.group), label: 'Unirse'),
         BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Perfil'),
       ],
     );

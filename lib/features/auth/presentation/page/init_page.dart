@@ -35,30 +35,6 @@ class InitPage extends StatelessWidget {
             ),
 
             //Botones de ACCESO RAPIDO
-            // Row(
-            //   mainAxisAlignment: MainAxisAlignment.center,
-            //   crossAxisAlignment: CrossAxisAlignment.center,
-            //   children: [
-            //     AppButtonAccess(
-            //       text: l10n.newReservation,
-            //       icon: Icons.calendar_today,
-            //       function: () {
-            //         Navigator.push(
-            //           context,
-            //           MaterialPageRoute(builder: (context) => BookingPage()),
-            //         );
-            //       },
-            //     ),
-            //     Padding(padding: EdgeInsets.only(left: 40)),
-            //     AppButtonAccess(
-            //       text: l10n.joinin,
-            //       icon: Icons.visibility,
-            //       function: () {},
-            //     ),
-            //   ],
-            // ),
-
-            //Botones de ACCESO RAPIDO
             // BOTONES DE ACCESO RÁPIDO (RESPONSIVE)
             Padding(
               padding: const EdgeInsets.symmetric(

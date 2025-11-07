@@ -37,6 +37,8 @@ class DemoContainment extends StatelessWidget {
                   routeImg: 'lib/assets/images/fondo-basket.png',
                   text: 'Cancha de Baloncesto',
                   price: '27',
+                  etiqueta1: 'Concreto',
+                  etiqueta2: 'Exterior',
                 ),
 
                 //Tercer Contenedor
