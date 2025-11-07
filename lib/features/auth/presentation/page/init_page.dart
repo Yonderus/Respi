@@ -95,7 +95,7 @@ class InitPage extends StatelessWidget {
               children: [
                 Padding(padding: EdgeInsets.all(10)),
                 app_container_booking(
-                  route: 'lib/assets/images/basketball.png',
+                  route: 'lib/assets/images/basketball-ball-variant.png',
                   sport: l10n.basketball,
                   data: '27/10/2025',
                   time: '18:30',
@@ -113,7 +113,7 @@ class InitPage extends StatelessWidget {
 
                 Padding(padding: EdgeInsets.all(10)),
                 app_container_booking(
-                  route: 'lib/assets/images/padel-racket.png',
+                  route: 'lib/assets/images/raqueta-de-padel.png',
                   sport: l10n.padel,
                   data: '27/10/2025',
                   time: '18:30',
@@ -150,7 +150,7 @@ class InitPage extends StatelessWidget {
                 ),
                 Padding(padding: EdgeInsets.all(10)),
                 app_container_review(
-                  route: 'lib/assets/images/basketball.png',
+                  route: 'lib/assets/images/basketball-ball-variant.png',
                   sport: 'Baloncesto',
                   locate: 'Cancha 3',
                   stars: 5,

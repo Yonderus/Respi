@@ -19,20 +19,20 @@ class AppBarWidget extends ConsumerWidget implements PreferredSizeWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return AppBar(
       automaticallyImplyLeading: false, // control manual del leading
-      // Flecha de retroceso condicional
-      leading: flecha
-          ? IconButton(
-              icon: const Icon(
-                Icons.arrow_back_ios_new,
-                color: Color.fromARGB(255, 0, 0, 0),
-              ),
-              onPressed: () {
-                ref.read(bottomNavIndexProvider.notifier).state = 0;
-                Navigator.maybePop(context);
-              },
-            )
-          : null,
 
+      // Flecha de retroceso condicional
+      // leading: flecha
+      //     ? IconButton(
+      //         icon: const Icon(
+      //           Icons.arrow_back_ios_new,
+      //           color: Color.fromARGB(255, 0, 0, 0),
+      //         ),
+      //         onPressed: () {
+      //           ref.read(bottomNavIndexProvider.notifier).state = 0;
+      //           Navigator.maybePop(context);
+      //         },
+      //       )
+      //     : null,
       backgroundColor: Colors.transparent,
       flexibleSpace: Container(
         decoration: const BoxDecoration(
