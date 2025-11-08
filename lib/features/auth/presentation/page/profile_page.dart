@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:respi/catalog/catalog_page.dart';
 import 'package:respi/catalog/widgets/app_bar_widget.dart';
 //import 'package:respi/core/l10n/app_localizations.dart';
 import 'package:respi/core/widgets/app_bottomBar.dart';
+import 'package:respi/features/preferences/presentation/pages/preferences_page.dart';
 
 class ProfilePage extends ConsumerWidget {
   const ProfilePage({super.key});
@@ -20,8 +22,12 @@ class ProfilePage extends ConsumerWidget {
           color: Colors.blue,
 
           child: ListTile(
-            title: Text('Language'),
-            leading: const Icon(Icons.language),
+            title: Text('Settings'),
+            leading: const Icon(Icons.settings),
+            onTap: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => PreferencesPage()),
+            ),
           ),
         ),
       ],
