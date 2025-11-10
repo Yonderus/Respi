@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:respi/core/theme/app_colors.dart';
 
 // ignore: camel_case_types
 class app_container_review extends StatelessWidget {
@@ -20,78 +19,94 @@ class app_container_review extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final cs = theme.colorScheme;
+    final screenWidth = MediaQuery.of(
+      context,
+    ).size.width; // ancho del dispositivo
 
-    return SizedBox(
-      width: 420,
-      height: 100,
-      child: ElevatedButton(
-        onPressed: () {},
-        style: ElevatedButton.styleFrom(
-          backgroundColor: cs.surface,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20),
-          ),
-          padding: const EdgeInsets.all(12),
-        ),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Container(
-              width: 75,
-              height: 75,
-              decoration: BoxDecoration(
-                color: cs.primary,
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Image.asset(
-                  route,
-                  width: 40,
-                  height: 40,
-                  fit: BoxFit.contain,
-                ),
-              ),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      child: SizedBox(
+        width: screenWidth, // ocupa todo el ancho del dispositivo
+        height: 100,
+        child: ElevatedButton(
+          onPressed: () {},
+          style: ElevatedButton.styleFrom(
+            backgroundColor: cs.surface,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
             ),
-            const SizedBox(width: 22),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  sport,
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: cs.onSurface,
-                  ), // changed
+            padding: const EdgeInsets.all(12),
+            elevation: 1,
+          ),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              // Imagen del deporte
+              Container(
+                width: 75,
+                height: 75,
+                decoration: BoxDecoration(
+                  color: cs.primary,
+                  borderRadius: BorderRadius.circular(12),
                 ),
-                Text(
-                  locate,
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: cs.onSurface.withOpacity(0.7), // changed
-                  ),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Image.asset(route, fit: BoxFit.contain),
                 ),
-                Row(
+              ),
+
+              const SizedBox(width: 20),
+
+              // texto e informacion
+              Expanded(
+                // se adapta al espacio restante
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Row(
+                    // Nombre del deporte
+                    Text(
+                      sport,
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: cs.onSurface,
+                        fontWeight: FontWeight.w600,
+                      ),
+                      overflow: TextOverflow.ellipsis, // evita desbordes
+                    ),
+
+                    const SizedBox(height: 4),
+
+                    // Localizacion
+                    Text(
+                      locate,
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: cs.onSurface.withValues(alpha: 0.7),
+                      ),
+                      overflow: TextOverflow.ellipsis, // evita texto largo
+                    ),
+
+                    const SizedBox(height: 6),
+
+                    // Estrellas
+                    Wrap(
+                      // se adapta si el espacio es pequeño
+                      spacing: 4,
                       children: List.generate(
                         5,
-                        (index) => Padding(
-                          padding: const EdgeInsets.only(right: 4),
-                          child: Icon(
-                            index < stars ? Icons.star : Icons.star_border,
-                            size: 16,
-                            color: cs.primary,
-                          ),
+                        (index) => Icon(
+                          index < stars ? Icons.star : Icons.star_border,
+                          size: 18,
+                          color: cs.primary,
                         ),
                       ),
                     ),
                   ],
                 ),
-              ],
-            ),
-          ],
+              ),
+            ],
+          ),
         ),
       ),
     );

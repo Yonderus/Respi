@@ -56,6 +56,7 @@ class InitPage extends StatelessWidget {
                             ),
                           );
                         },
+                        izquierda: false,
                       ),
                     ),
                   ),
@@ -66,6 +67,7 @@ class InitPage extends StatelessWidget {
                         text: l10n.joinin,
                         icon: Icons.visibility,
                         function: () {},
+                        izquierda: true,
                       ),
                     ),
                   ),

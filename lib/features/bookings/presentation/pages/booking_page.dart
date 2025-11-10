@@ -69,12 +69,7 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                 child: Image.asset('lib/assets/images/animacionCarga.gif'),
               ),
               error: (err, stack) => Center(
-                child: Text(
-                  'Error: $err',
-                  style: TextStyle(
-                    color: cs.error,
-                  ), // 🎨 color del tema para errores
-                ),
+                child: Text('Error: $err', style: TextStyle(color: cs.error)),
               ),
             ),
           ),

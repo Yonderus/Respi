@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 
-Widget buildTag(BuildContext context, String text, {Color? backgroundColor}) {
+Widget buildTag(
+  BuildContext context,
+  String text, {
+  Color? textColor,
+  Color? backgroundColor,
+}) {
   // Gris clarito que combina bien con ambos temas
   final theme = Theme.of(context);
   final cs = theme.colorScheme;
@@ -16,7 +21,7 @@ Widget buildTag(BuildContext context, String text, {Color? backgroundColor}) {
       style: TextStyle(
         fontWeight: FontWeight.w500,
         fontSize: 12,
-        color: cs.onTertiary,
+        color: textColor ?? cs.onTertiary,
       ),
     ),
   );

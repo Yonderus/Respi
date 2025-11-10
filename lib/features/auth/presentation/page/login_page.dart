@@ -62,20 +62,13 @@ class _LoginPageState extends ConsumerState<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final cs = theme.colorScheme;
     final l10n = AppLocalizations.of(context)!;
 
     return Scaffold(
+      backgroundColor: theme.scaffoldBackgroundColor,
       body: Container(
-        decoration: const BoxDecoration(
-          gradient: SweepGradient(
-            center: Alignment.topLeft,
-            startAngle: -7.0,
-            colors: [
-              Color.fromARGB(255, 255, 255, 255),
-              Color.fromARGB(255, 91, 91, 91),
-            ],
-          ),
-        ),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -93,12 +86,14 @@ class _LoginPageState extends ConsumerState<LoginPage> {
               Container(
                 padding: const EdgeInsets.all(40),
                 width: 340,
+
                 decoration: BoxDecoration(
-                  color: const Color.fromARGB(255, 72, 72, 72),
+                  color: cs.surface,
                   borderRadius: BorderRadius.circular(16),
+
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.5),
+                      color: Colors.black.withValues(alpha: 0.5),
                       blurRadius: 10,
                       offset: const Offset(0, 5),
                     ),
@@ -112,12 +107,13 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       AppTitleText(
+                        color: cs.primary,
                         text: l10n.welcomeRespi /*"Bienvenido a ResPi"*/,
                       ),
                       const SizedBox(height: 6),
                       Text(
                         l10n.signinContinue,
-                        style: TextStyle(fontSize: 14, color: Colors.white),
+                        style: TextStyle(fontSize: 14, color: cs.onSurface),
                       ),
                       const SizedBox(height: 20),
 
@@ -169,7 +165,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
 
                       // Campos de texto
                       app_text_field(
-                        l10n.email /*' Email'*/,
+                        l10n.email,
                         Icons.email,
                         false,
                         controller: _userCtrl,
@@ -179,12 +175,16 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                           }
                           return null;
                         },
+                        fillColor: cs.surfaceVariant, // fondo de la caja
+                        iconColor: cs.primary, // color del icono
+                        textColor: cs.onSurface, // color del texto
+                        borderColor: cs.inverseSurface, // color del borde
                       ),
 
                       const SizedBox(height: 12),
 
                       app_text_field(
-                        l10n.password /*' Password'*/,
+                        l10n.password,
                         Icons.lock,
                         true,
                         controller: _passCtrl,
@@ -194,6 +194,10 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                           }
                           return null;
                         },
+                        fillColor: cs.surfaceVariant, // fondo de la caja
+                        iconColor: cs.primary, // color del icono
+                        textColor: cs.onSurface, // color del texto
+                        borderColor: cs.inverseSurface, // color del borde
                       ),
 
                       const SizedBox(height: 25),
@@ -206,8 +210,8 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                           onPressed: _loading ? null : _submit,
 
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color(0xFFDDF864),
-                            foregroundColor: Colors.black,
+                            backgroundColor: cs.primary,
+                            foregroundColor: cs.onPrimary,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(8),
                             ),
@@ -226,6 +230,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                       SizedBox(
                         width: 270,
                         height: 40,
+
                         child: ElevatedButton(
                           onPressed: () {
                             Navigator.push(
@@ -236,8 +241,8 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                             );
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color(0xFFDDF864),
-                            foregroundColor: Colors.black,
+                            backgroundColor: cs.primary,
+                            foregroundColor: cs.onPrimary,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(8),
                             ),

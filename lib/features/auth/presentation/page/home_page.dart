@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:respi/catalog/widgets/app_bar_widget.dart';
 import 'package:respi/core/l10n/app_localizations.dart';
@@ -9,8 +7,6 @@ import 'package:respi/features/auth/presentation/page/init_page.dart';
 import 'package:respi/features/join/presentation/pages/join_page.dart';
 import 'package:respi/features/auth/presentation/page/profile_page.dart';
 import 'package:respi/features/preferences/presentation/pages/preferences_page.dart';
-
-//import 'package:respi/providers/bottom_nav_provider.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -38,6 +34,10 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
+    final theme = Theme.of(context);
+    final cs = theme.colorScheme;
+
+    // Textos del AppBar segun la pantalla seleccionada
     List<String> appBarText = <String>[
       l10n.welcomeRespi,
       l10n.reservations,
@@ -46,28 +46,35 @@ class _HomePageState extends State<HomePage> {
     ];
 
     return Scaffold(
-      appBar: AppBarWidget(
-        texto: appBarText.elementAt(_selectedIndex),
-        flecha: _selectedIndex == PreferencesPage,
-      ),
+      appBar: AppBarWidget(texto: appBarText.elementAt(_selectedIndex)),
 
-      //bottomNavigationBar: AppBottombar(),
-      // body: InitPage(),
+      // Cuerpo principal
       body: Center(child: _widgetOptions.elementAt(_selectedIndex)),
+
+      // Barra inferior
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: const Color.fromARGB(255, 89, 89, 89),
+        backgroundColor: cs.surface,
         iconSize: 30,
-        unselectedItemColor: Colors.white,
-        selectedItemColor: const Color(0xFFDDF864),
+        selectedItemColor: cs.primary,
+        unselectedItemColor: cs.onSurface.withValues(alpha: 0.7),
         type: BottomNavigationBarType.fixed,
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Inicio'),
+        items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.calendar_today),
-            label: 'Reservas',
+            icon: const Icon(Icons.home),
+            label: l10n.home,
           ),
-          BottomNavigationBarItem(icon: Icon(Icons.group), label: 'Unirse'),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Perfil'),
+          BottomNavigationBarItem(
+            icon: const Icon(Icons.calendar_today),
+            label: l10n.reservations,
+          ),
+          BottomNavigationBarItem(
+            icon: const Icon(Icons.group),
+            label: l10n.joinParty,
+          ),
+          BottomNavigationBarItem(
+            icon: const Icon(Icons.person),
+            label: l10n.profile,
+          ),
         ],
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
