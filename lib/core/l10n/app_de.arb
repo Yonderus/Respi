@@ -1,0 +1,31 @@
+{
+  
+  "helloWorld": "Hallo Welt!",
+  "signinContinue": "Eiloggen, um fortzufahren",
+  "welcomeRespi": "Willkommen bei ResPi",
+  "continueGoogle": "Mit Google fortfahren",
+  "email": " email",
+  "password": " passwort",
+  "or": "ODER",
+  "signin": "Einloggen",
+  "welcomeRespiExcl": "Willkommen bei ResPi!",
+
+  "fastAcces": "Schneller Zugriff",
+  "newReservation": "Neue Reservierung",
+  "joinin": "Spiel eitreten",
+  "basketball": "Basketball",
+  "football": "Fußball",
+  "padel": "Padel",
+  "upcomingReservations": "Bevorstehende Reservierungen",
+  "preferences": "Einstellungen",
+  "darkMode": "Dunkelmodus",
+  "language": "Sprache",
+
+  "home": "Start",
+  "reservations": "Reservierungen",
+  "profile": "Profil",
+
+  "selectcamp": "Ausgewählter Platz"
+
+
+}

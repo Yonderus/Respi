@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:respi/app/theme/app_colors.dart';
+import 'package:respi/core/theme/app_colors.dart';
 
 // ignore: camel_case_types
 class app_container_review extends StatelessWidget {
   final String route;
   final String sport;
   final String locate;
+  final int stars;
 
   const app_container_review({
     super.key,
     required this.route,
     required this.sport,
     required this.locate,
+    required this.stars,
   });
 
   @override
@@ -78,7 +80,7 @@ class app_container_review extends StatelessWidget {
                         (index) => Padding(
                           padding: const EdgeInsets.only(right: 4),
                           child: Icon(
-                            index < 2 ? Icons.star : Icons.star_border,
+                            index < stars ? Icons.star : Icons.star_border,
                             size: 16,
                             color: const Color(0xFFBFEA44),
                           ),

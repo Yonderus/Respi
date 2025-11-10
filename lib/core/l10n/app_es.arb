@@ -1,0 +1,61 @@
+{
+  "helloWorld": "¡Hola Mundo!",
+  "@helloWorld": {
+    "description": "Este es un texto convencional que muestra el hola mundo"
+  },
+
+  "signinContinue": "Inicia sesión para continuar",
+
+  "welcomeRespi": "Bienvenido a ResPi",
+
+  "continueGoogle": "Seguir con Google",
+
+  "email": " correo",
+   "@email": {
+    "description": "Texto que aparece en la cajita donde se introduce el email"
+  },
+
+  "password": " contraseña",
+  "@password": {
+    "description": "Texto que aparece en la cajita donde se introduce la contraseña"
+  },
+
+  "or": "O",
+  "@or": {
+    "description": "Texto en el separador entre iniciar sesion con correo y contraseña o google"
+  },
+
+  "signin": "Iniciar Session",
+  "@signin": {
+    "description": "texto del boton de iniciar sesion"
+  },
+
+  "welcomeRespiExcl": "¡Bienvenido a ResPi!",
+  "@welcomeRespiExcl": {
+    "description": "igual que el anterior welcome to respi pero con exclamaciones"
+  },
+
+  "fastAcces": "Acceso Rápido",
+  "newReservation": "Nueva Reserva",
+  "joinin": "Unirse a una partida",
+
+  "basketball": "Baloncesto",
+  "football": "Fútbol",
+  "padel": "Pádel",
+
+  "upcomingReservations": "Proximas Reservas",
+  "preferences": "Ajustes",
+  "@preferences": {
+    "description": "titulo appbar de pagina de ajustes"
+  },
+  "darkMode": "Modo Oscuro",
+  "language": "Idioma",
+
+  "home": "Inicio",
+  "reservations": "Reservas",
+  "profile": "Perfil",
+  
+  "selectcamp": "Selecionar Pista"
+
+
+}

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:respi/app/theme/app_colors.dart';
+import 'package:respi/core/theme/app_colors.dart';
 import 'package:respi/catalog/widgets/app_bar_widget.dart';
 import 'package:respi/core/widgets/app_container_booking.dart';
 import 'package:respi/core/widgets/app_container_info.dart';
@@ -12,7 +12,7 @@ class DemoContainment extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarWidget(texto: "Contenedores"),
+      appBar: AppBarWidget(texto: "Contenedores", flecha: true),
 
       body: Container(
         decoration: BoxDecoration(color: backgroundColor),
@@ -37,6 +37,8 @@ class DemoContainment extends StatelessWidget {
                   routeImg: 'lib/assets/images/fondo-basket.png',
                   text: 'Cancha de Baloncesto',
                   price: '27',
+                  etiqueta1: 'Concreto',
+                  etiqueta2: 'Exterior',
                 ),
 
                 //Tercer Contenedor
@@ -55,6 +57,7 @@ class DemoContainment extends StatelessWidget {
                   route: "lib/assets/images/tennis.png",
                   sport: "Tenis",
                   locate: "Pista 5",
+                  stars: 4,
                 ),
               ],
             ),

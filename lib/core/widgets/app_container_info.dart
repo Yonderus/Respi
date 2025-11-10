@@ -7,12 +7,16 @@ class app_container_info extends StatelessWidget {
   final String routeImg;
   final String text;
   final String price;
+  final String etiqueta1;
+  final String etiqueta2;
 
   const app_container_info({
     super.key,
     required this.routeImg,
     required this.text,
     required this.price,
+    required this.etiqueta1,
+    required this.etiqueta2,
   });
 
   @override
@@ -86,12 +90,12 @@ class app_container_info extends StatelessWidget {
                     Row(
                       children: [
                         buildTag(
-                          "Olimpica",
+                          etiqueta1,
                           backgroundColor: Colors.grey.shade300,
                         ),
                         const SizedBox(width: 8),
                         buildTag(
-                          "Cubierta",
+                          etiqueta2,
                           backgroundColor: Colors.grey.shade300,
                         ),
                       ],

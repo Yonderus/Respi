@@ -1,35 +1,61 @@
 import 'package:flutter/material.dart';
-import 'package:respi/app/theme/app_colors.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:respi/features/auth/presentation/page/booking_page.dart';
+import 'package:respi/features/auth/presentation/page/home_page.dart';
+import 'package:respi/features/auth/presentation/page/join_page.dart';
+import 'package:respi/features/auth/presentation/page/profile_page.dart';
+import 'package:respi/providers/bottom_nav_provider.dart';
 
-class AppBottombar extends StatefulWidget {
+class AppBottombar extends ConsumerWidget {
   const AppBottombar({super.key});
 
   @override
-  AppBottombarState createState() => AppBottombarState();
-}
+  Widget build(BuildContext context, WidgetRef ref) {
+    // Escucha el valor actual del índice
+    final indiceActual = ref.watch(bottomNavIndexProvider);
 
-class AppBottombarState extends State<AppBottombar> {
-  int Indice_Actual = 0; // Índice de la pestaña seleccionada
-
-  @override
-  Widget build(BuildContext context) {
     return BottomNavigationBar(
-      backgroundColor: const Color.fromARGB(255, 86, 85, 85),
-      currentIndex: Indice_Actual,
+      backgroundColor: const Color.fromARGB(255, 89, 89, 89),
+      currentIndex: indiceActual,
       onTap: (index) {
-        setState(() {
-          Indice_Actual = index;
-        });
+        // Actualiza el índice en el provider
+        ref.read(bottomNavIndexProvider.notifier).state = index;
+        if (index == 0) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => HomePage()),
+          );
+        }
+        if (index == 1) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => BookingPage()),
+          );
+        }
+        if (index == 2) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => JoinPage()),
+          );
+        }
+        if (index == 3) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => ProfilePage()),
+          );
+        }
       },
+
       iconSize: 30,
       unselectedItemColor: Colors.white,
       selectedItemColor: const Color(0xFFDDF864),
-      items: [
+      items: const [
         BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Inicio'),
         BottomNavigationBarItem(
           icon: Icon(Icons.calendar_today),
           label: 'Reservas',
         ),
+        BottomNavigationBarItem(icon: Icon(Icons.group), label: 'Unirse'),
         BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Perfil'),
       ],
     );

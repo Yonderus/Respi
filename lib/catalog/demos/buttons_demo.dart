@@ -7,7 +7,7 @@ class DemoButtons extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarWidget(texto: 'Botones'),
+      appBar: AppBarWidget(texto: 'Botones', flecha: true),
 
       body: Container(
         decoration: BoxDecoration(color: Colors.grey[900]),

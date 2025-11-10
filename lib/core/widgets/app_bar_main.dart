@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:respi/providers/bottom_nav_provider.dart';
 
-class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
+class AppBarWidget extends ConsumerWidget implements PreferredSizeWidget {
   final String texto;
   final IconData? starterIcon;
   final IconData? finalIcon;
@@ -18,14 +20,13 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return AppBar(
       leading: IconButton(
         icon: Icon(starterIcon, color: Colors.black),
         onPressed: () {
-          if (function != null) {
-            function!();
-          }
+          // update provider state first, then navigate
+          ref.read(bottomNavIndexProvider.notifier).state = 1;
         }, //=> Navigator.maybePop(context),
       ),
       backgroundColor: Colors.transparent,

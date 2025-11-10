@@ -9,7 +9,7 @@ class DemoCommunication extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarWidget(texto: "Comunicación"),
+      appBar: AppBarWidget(texto: "Comunicación", flecha: true),
       body: Row(
         mainAxisAlignment: MainAxisAlignment.center,
 
