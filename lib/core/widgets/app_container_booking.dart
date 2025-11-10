@@ -20,17 +20,21 @@ class app_container_booking extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final cs = theme.colorScheme;
+
     return SizedBox(
       width: 420,
       height: 100,
       child: ElevatedButton(
         onPressed: () {},
         style: ElevatedButton.styleFrom(
-          backgroundColor: outerSpace,
+          backgroundColor: cs.surface, // changed
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20),
           ),
           padding: const EdgeInsets.all(12),
+          elevation: 1,
         ),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -39,7 +43,7 @@ class app_container_booking extends StatelessWidget {
               width: 75,
               height: 75,
               decoration: BoxDecoration(
-                color: const Color(0xFFDDF864),
+                color: cs.primary,
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Padding(
@@ -52,9 +56,7 @@ class app_container_booking extends StatelessWidget {
                 ),
               ),
             ),
-
-            SizedBox(width: 22),
-
+            const SizedBox(width: 22),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -63,35 +65,53 @@ class app_container_booking extends StatelessWidget {
                   sport,
                   style: TextStyle(
                     fontSize: 18,
-                    color: Color.fromRGBO(255, 255, 255, 1),
+                    color: cs.onSurface, // changed
+                    fontWeight: FontWeight.w600, // changed
                   ),
                 ),
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
                 Row(
                   children: [
-                    const Icon(
+                    Icon(
                       Icons.calendar_today,
                       size: 14,
-                      color: Colors.grey,
+                      color: cs.onSurface, // changed
                     ),
                     const SizedBox(width: 4),
                     Text(
                       data,
-                      style: const TextStyle(color: Colors.grey, fontSize: 14),
+                      style: TextStyle(
+                        color: cs.onSurface, // changed
+                        fontSize: 14,
+                      ),
                     ),
                     const SizedBox(width: 12),
-                    const Icon(Icons.access_time, size: 14, color: Colors.grey),
+                    Icon(
+                      Icons.access_time,
+                      size: 14,
+                      color: cs.onSurface, // changed
+                    ),
                     const SizedBox(width: 4),
                     Text(
                       time,
-                      style: TextStyle(color: Colors.grey, fontSize: 14),
+                      style: TextStyle(
+                        color: cs.onSurface, // changed
+                        fontSize: 14,
+                      ),
                     ),
                     const SizedBox(width: 12),
-                    const Icon(Icons.location_on, size: 14, color: Colors.grey),
+                    Icon(
+                      Icons.location_on,
+                      size: 14,
+                      color: cs.onSurface, // changed
+                    ),
                     const SizedBox(width: 4),
                     Text(
                       locate,
-                      style: TextStyle(color: Colors.grey, fontSize: 14),
+                      style: TextStyle(
+                        color: cs.onSurface, // changed
+                        fontSize: 14,
+                      ),
                     ),
                   ],
                 ),

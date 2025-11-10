@@ -11,31 +11,30 @@ class InitPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
+    final theme = Theme.of(context);
+    final cs = theme.colorScheme;
 
     return Container(
-      decoration: BoxDecoration(color: Color.fromARGB(255, 209, 211, 204)),
+      decoration: BoxDecoration(color: theme.scaffoldBackgroundColor),
       child: SingleChildScrollView(
         child: Column(
           children: [
-            //TEXTO DE ACCESO RAPIDO
+            // TEXTO DE ACCESO RÁPIDO
             Container(
               margin: const EdgeInsets.only(left: 40, top: 20),
-              child: Align(
-                alignment: Alignment.topLeft,
-                child: Text(
-                  l10n.fastAcces,
-                  textAlign: TextAlign.left,
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                  ),
+              alignment: Alignment.topLeft,
+              child: Text(
+                l10n.fastAcces,
+                textAlign: TextAlign.left,
+                style: TextStyle(
+                  color: cs.onSurface,
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
             ),
 
-            //Botones de ACCESO RAPIDO
-            // BOTONES DE ACCESO RÁPIDO (RESPONSIVE)
+            // BOTONES DE ACCESO RAPIDO
             Padding(
               padding: const EdgeInsets.symmetric(
                 horizontal: 2.0,
@@ -53,7 +52,7 @@ class InitPage extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => BookingPage(),
+                              builder: (context) => const BookingPage(),
                             ),
                           );
                         },
@@ -74,26 +73,24 @@ class InitPage extends StatelessWidget {
               ),
             ),
 
-            //TEXTO DE PRÓXIMAS RESERVAS
+            // TEXTO DE PROXIMAS RESERVAS
             Container(
               margin: const EdgeInsets.only(left: 40, top: 20),
-              child: Align(
-                alignment: Alignment.topLeft,
-                child: Text(
-                  l10n.upcomingReservations,
-                  textAlign: TextAlign.left,
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                  ),
+              alignment: Alignment.topLeft,
+              child: Text(
+                l10n.upcomingReservations,
+                textAlign: TextAlign.left,
+                style: TextStyle(
+                  color: cs.onSurface,
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
             ),
 
             Column(
               children: [
-                Padding(padding: EdgeInsets.all(10)),
+                const Padding(padding: EdgeInsets.all(10)),
                 app_container_booking(
                   route: 'lib/assets/images/basketball-ball-variant.png',
                   sport: l10n.basketball,
@@ -101,8 +98,7 @@ class InitPage extends StatelessWidget {
                   time: '18:30',
                   locate: 'Bocairent',
                 ),
-
-                Padding(padding: EdgeInsets.all(10)),
+                const Padding(padding: EdgeInsets.all(10)),
                 app_container_booking(
                   route: 'lib/assets/images/football.png',
                   sport: l10n.football,
@@ -110,8 +106,7 @@ class InitPage extends StatelessWidget {
                   time: '18:30',
                   locate: 'Bocairent',
                 ),
-
-                Padding(padding: EdgeInsets.all(10)),
+                const Padding(padding: EdgeInsets.all(10)),
                 app_container_booking(
                   route: 'lib/assets/images/raqueta-de-padel.png',
                   sport: l10n.padel,
@@ -125,30 +120,28 @@ class InitPage extends StatelessWidget {
             // RESEÑAS DE RESERVAS REALIZADAS
             Container(
               margin: const EdgeInsets.only(left: 40, top: 20),
-              child: Align(
-                alignment: Alignment.topLeft,
-                child: Text(
-                  'Reseñas de Reservas',
-                  textAlign: TextAlign.left,
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                  ),
+              alignment: Alignment.topLeft,
+              child: Text(
+                'Reseñas de Reservas',
+                textAlign: TextAlign.left,
+                style: TextStyle(
+                  color: cs.onSurface,
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
             ),
 
             Column(
               children: [
-                Padding(padding: EdgeInsets.all(10)),
+                const Padding(padding: EdgeInsets.all(10)),
                 app_container_review(
                   route: 'lib/assets/images/tennis.png',
                   sport: 'Tenis',
                   locate: 'Pista 12',
                   stars: 4,
                 ),
-                Padding(padding: EdgeInsets.all(10)),
+                const Padding(padding: EdgeInsets.all(10)),
                 app_container_review(
                   route: 'lib/assets/images/basketball-ball-variant.png',
                   sport: 'Baloncesto',

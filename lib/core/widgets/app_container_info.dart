@@ -21,10 +21,15 @@ class app_container_info extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final colorScheme = theme.colorScheme;
+    final textTheme = theme.textTheme;
+
     return SizedBox(
       width: 400,
       height: 250,
       child: Card(
+        color: colorScheme.surface,
         child: Stack(
           fit: StackFit.expand,
           children: [
@@ -39,20 +44,18 @@ class app_container_info extends StatelessWidget {
               ),
             ),
 
-            // Contenedor blanco en la parte inferior
+            // Contenedor inferior
             Positioned(
               left: 0,
               right: 0,
               bottom: 0,
               child: Container(
-                // height: 130,
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: colorScheme.surface.withValues(alpha: 0.95),
                   borderRadius: const BorderRadius.vertical(
                     bottom: Radius.circular(12),
                   ),
                 ),
-
                 padding: const EdgeInsets.symmetric(
                   horizontal: 16,
                   vertical: 10,
@@ -60,25 +63,25 @@ class app_container_info extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    // Línea de información
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
-                      //Linea de Informacion
                       children: [
                         Text(
                           text,
-                          style: TextStyle(
+                          style: textTheme.bodyLarge?.copyWith(
                             fontWeight: FontWeight.bold,
                             fontSize: 19,
+                            color: colorScheme.onSurface,
                           ),
                         ),
-
                         Text(
                           "$price€\n/hora",
-                          style: TextStyle(
-                            color: const Color.fromARGB(255, 125, 125, 125),
-                            fontSize: 15,
+                          textAlign: TextAlign.right,
+                          style: textTheme.bodyMedium?.copyWith(
+                            color: colorScheme.onSurface.withValues(alpha: 0.7),
                             fontWeight: FontWeight.bold,
+                            fontSize: 15,
                           ),
                         ),
                       ],
@@ -91,12 +94,16 @@ class app_container_info extends StatelessWidget {
                       children: [
                         buildTag(
                           etiqueta1,
-                          backgroundColor: Colors.grey.shade300,
+                          backgroundColor: colorScheme.secondary.withValues(
+                            alpha: 0.3,
+                          ),
                         ),
                         const SizedBox(width: 8),
                         buildTag(
                           etiqueta2,
-                          backgroundColor: Colors.grey.shade300,
+                          backgroundColor: colorScheme.secondary.withValues(
+                            alpha: 0.3,
+                          ),
                         ),
                       ],
                     ),
@@ -105,6 +112,7 @@ class app_container_info extends StatelessWidget {
 
                     // Boton reservar
                     Center(child: AppButton(text: "Reservas")),
+                    AppButton(text: "Reservas"),
                   ],
                 ),
               ),

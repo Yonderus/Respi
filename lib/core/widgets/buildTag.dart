@@ -9,7 +9,7 @@ Widget buildTag(
   return Container(
     padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
     decoration: BoxDecoration(
-      color: backgroundColor,
+      color: Colors.white,
       borderRadius: BorderRadius.circular(12),
     ),
     child: Text(
