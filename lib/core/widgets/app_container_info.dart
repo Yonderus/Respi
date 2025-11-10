@@ -111,8 +111,7 @@ class app_container_info extends StatelessWidget {
                     const SizedBox(height: 10),
 
                     // Boton reservar
-                    Center(child: AppButton(text: "Reservas")),
-                    AppButton(text: "Reservas"),
+                    Center(child: AppButton(text: "Reservar")),
                   ],
                 ),
               ),

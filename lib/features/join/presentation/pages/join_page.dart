@@ -29,7 +29,7 @@ class _JoinPageState extends ConsumerState<JoinPage> {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Text(
-              'Selecione una partida:',
+              '${l10n.selectCourt}:',
               style: const TextStyle(
                 color: Colors.black,
                 fontSize: 24,

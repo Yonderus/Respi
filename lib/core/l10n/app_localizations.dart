@@ -245,6 +245,12 @@ abstract class AppLocalizations {
   /// In es, this message translates to:
   /// **'Unirse'**
   String get joinParty;
+
+  /// No description provided for @selectCourt.
+  ///
+  /// In es, this message translates to:
+  /// **'Selecione una partida'**
+  String get selectCourt;
 }
 
 class _AppLocalizationsDelegate

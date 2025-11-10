@@ -79,4 +79,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get joinParty => 'Unirse';
+
+  @override
+  String get selectCourt => 'Selecione una partida';
 }

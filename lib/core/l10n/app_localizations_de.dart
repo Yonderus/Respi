@@ -79,4 +79,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get joinParty => 'Beitreten';
+
+  @override
+  String get selectCourt => 'Wählen Sie ein Platz';
 }

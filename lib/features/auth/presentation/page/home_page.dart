@@ -39,7 +39,7 @@ class _HomePageState extends State<HomePage> {
     List<String> appBarText = <String>[
       l10n.welcomeRespi,
       l10n.reservations,
-      'Unirse',
+      l10n.joinParty,
       l10n.profile,
     ];
 
