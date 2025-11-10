@@ -17,14 +17,14 @@ class LanguageCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDark = ref.watch(themeModeProvider);
+    final theme = Theme.of(context);
+    final cs = theme.colorScheme;
 
     return Card(
-      color: isDark
-          ? const Color.fromARGB(245, 31, 15, 102)
-          : const Color.fromARGB(255, 231, 231, 231),
+      color: cs.surface,
       child: ListTile(
         leading: const Icon(Icons.language),
+        textColor: cs.onSurface,
         title: Text(l10n.language),
         trailing: DropdownButton<AppLanguage>(
           value: language,
@@ -36,6 +36,7 @@ class LanguageCard extends StatelessWidget {
             );
           }).toList(),
           onChanged: (v) {
+            //Si el idioma seleccionado no es igual a null , lo pasamos al provider
             if (v != null) {
               ref.read(languageProvider.notifier).setLanguage(v);
             }

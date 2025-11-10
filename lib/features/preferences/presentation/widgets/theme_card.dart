@@ -17,13 +17,15 @@ class ThemeCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final cs = theme.colorScheme;
+
     return Card(
-      color: isDark
-          ? const Color.fromARGB(245, 31, 15, 102)
-          : const Color.fromARGB(255, 231, 231, 231),
+      color: cs.surface,
       child: ListTile(
         leading: const Icon(Icons.nights_stay_rounded),
         title: Text(l10n.darkMode),
+        textColor: cs.onSurface,
         trailing: Switch(
           value: isDark,
           onChanged: (v) => ref.read(themeModeProvider.notifier).setTheme(v),
