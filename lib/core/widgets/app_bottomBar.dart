@@ -49,6 +49,7 @@ class AppBottombar extends ConsumerWidget {
       iconSize: 30,
       unselectedItemColor: Colors.white,
       selectedItemColor: const Color(0xFFDDF864),
+      type: BottomNavigationBarType.fixed,
       items: const [
         BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Inicio'),
         BottomNavigationBarItem(
