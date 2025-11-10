@@ -11,6 +11,13 @@ final ColorScheme darkColorScheme = const ColorScheme(
   onSecondary: AppColorsDark.textPrimary,
   surface: AppColorsDark.surface, // cards, panels
   onSurface: AppColorsDark.textPrimary,
+  tertiary: AppColorsDark.tagGray,
+  onTertiary: Colors.white,
+  inverseSurface: Color(0xFFBDBDBD), // gris claro (fondo chip no seleccionado)
+  onInverseSurface: Color(
+    0xFF424242,
+  ), // gris oscuro (texto/icono chip no seleccionado)
+
   error: Color(0xFFE53935),
   onError: Colors.white,
 );
@@ -53,6 +60,12 @@ final ColorScheme lightColorScheme = const ColorScheme(
   onSecondary: AppColorsLight.textPrimary,
   surface: AppColorsLight.surface,
   onSurface: AppColorsLight.textPrimary,
+  tertiary: AppColorsLight.tagGray,
+  onTertiary: Colors.white,
+  inverseSurface: Color(0xFFBDBDBD), // gris claro (fondo chip no seleccionado)
+  onInverseSurface: Color(0xFF424242),
+
+  // gris oscuro (texto/icono chip no seleccionado)
   error: Color(0xFFE53935),
   onError: Colors.white,
 );

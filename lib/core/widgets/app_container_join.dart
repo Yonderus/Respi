@@ -21,10 +21,15 @@ class app_container_join extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final colorScheme = theme.colorScheme;
+    final textTheme = theme.textTheme;
+
     return SizedBox(
       width: 400,
       height: 240,
       child: Card(
+        color: colorScheme.surface,
         child: Stack(
           fit: StackFit.expand,
           children: [
@@ -45,31 +50,25 @@ class app_container_join extends StatelessWidget {
                 top: 10,
                 left: 10,
                 child: buildTag(
-                  "Faltan $personasNecesarias persona",
-                  backgroundColor: const Color(0xFFDDF864),
+                  context,
+                  "Faltan $personasNecesarias persona${personasNecesarias == 1 ? '' : 's'}",
                 ),
               ),
             if (level != null)
-              Positioned(
-                top: 10,
-                right: 10,
-                child: buildTag(level!, backgroundColor: Colors.grey.shade300),
-              ),
+              Positioned(top: 10, right: 10, child: buildTag(context, level!)),
 
-            // Contenedor blanco en la parte inferior
+            // Contenedor inferior
             Positioned(
               left: 0,
               right: 0,
               bottom: 0,
               child: Container(
-                // height: 100,
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: colorScheme.surface.withValues(alpha: 0.95),
                   borderRadius: const BorderRadius.vertical(
                     bottom: Radius.circular(12),
                   ),
                 ),
-
                 padding: const EdgeInsets.symmetric(
                   horizontal: 16,
                   vertical: 10,
@@ -77,33 +76,34 @@ class app_container_join extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
+                    // Línea de información
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
-                      //Linea de Informacion
                       children: [
                         Text(
                           text,
-                          style: TextStyle(
+                          style: textTheme.bodyLarge?.copyWith(
                             fontWeight: FontWeight.bold,
                             fontSize: 19,
+                            color: colorScheme.onSurface,
                           ),
                         ),
-
                         Text(
                           "$pricePerson€\n/persona",
-                          style: TextStyle(
-                            color: const Color.fromARGB(255, 125, 125, 125),
-                            fontSize: 15,
+                          textAlign: TextAlign.right,
+                          style: textTheme.bodyMedium?.copyWith(
+                            color: colorScheme.onSurface.withValues(alpha: 0.7),
                             fontWeight: FontWeight.bold,
+                            fontSize: 15,
                           ),
                         ),
                       ],
                     ),
+
                     const SizedBox(height: 10),
 
-                    // Boton reservar
-                    AppButton(text: "Unirse"),
+                    // Botón Unirse
+                    Center(child: AppButton(text: "Unirse")),
                   ],
                 ),
               ),

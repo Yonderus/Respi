@@ -17,20 +17,17 @@ class _BookingPageState extends ConsumerState<BookingPage> {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
+    final cs = Theme.of(context).colorScheme;
 
-    // final List<CourtBooking> courtsList =
-    //     ref.watch(courtBookingProvider).value ?? [];
-
-    final asyncDatos = ref.watch(
-      courtBookingProvider,
-    ); // Cogue los datos de todas las pistas
+    final asyncDatos = ref.watch(courtBookingProvider);
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         // MENÚ DE DEPORTES
-        AppMenusports(),
+        const AppMenusports(),
         const SizedBox(height: 10),
+
         // TÍTULO
         Align(
           alignment: Alignment.centerLeft,
@@ -38,8 +35,8 @@ class _BookingPageState extends ConsumerState<BookingPage> {
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Text(
               '${l10n.selectcamp}:',
-              style: const TextStyle(
-                color: Colors.black,
+              style: TextStyle(
+                color: cs.onSurface,
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
               ),
@@ -57,10 +54,7 @@ class _BookingPageState extends ConsumerState<BookingPage> {
               data: (courtsList) => ListView.builder(
                 itemCount: courtsList.length,
                 shrinkWrap: true,
-                // physics: const NeverScrollableScrollPhysics(),
-                // El itemBuilder construye cada elemento de la lista, Context son los datos del widget y el index es la posición
                 itemBuilder: (context, index) {
-                  // Obtenemos la pista en la posición index
                   final pista = courtsList[index];
                   return app_container_info(
                     routeImg: pista.routeImg,
@@ -74,7 +68,14 @@ class _BookingPageState extends ConsumerState<BookingPage> {
               loading: () => Center(
                 child: Image.asset('lib/assets/images/animacionCarga.gif'),
               ),
-              error: (err, stack) => Center(child: Text('Error: $err')),
+              error: (err, stack) => Center(
+                child: Text(
+                  'Error: $err',
+                  style: TextStyle(
+                    color: cs.error,
+                  ), // 🎨 color del tema para errores
+                ),
+              ),
             ),
           ),
         ),
