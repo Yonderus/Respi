@@ -3,6 +3,7 @@ import 'package:respi/core/l10n/app_localizations.dart';
 import 'package:respi/core/widgets/app_text_field.dart';
 import 'package:respi/core/widgets/app_title_text.dart';
 import 'package:respi/features/auth/presentation/page/home_page.dart';
+import 'package:respi/features/auth/presentation/page/register_page.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -147,6 +148,35 @@ class LoginPage extends StatelessWidget {
                         child: Text(
                           l10n.signin,
                           /*"Sign In"*/
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ),
+
+                    const SizedBox(height: 12),
+
+                    //Botón de crear cuenta
+                    SizedBox(
+                      width: 270,
+                      height: 40,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => RegisterPage(),
+                            ),
+                          );
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: const Color(0xFFDDF864),
+                          foregroundColor: Colors.black,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                        ),
+                        child: const Text(
+                          "Create Account",
                           style: TextStyle(fontWeight: FontWeight.bold),
                         ),
                       ),
