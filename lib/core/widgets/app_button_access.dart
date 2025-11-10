@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:respi/core/theme/app_colors.dart';
 
 class AppButtonAccess extends StatelessWidget {
   final String text;
@@ -14,47 +15,47 @@ class AppButtonAccess extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final cs = theme.colorScheme;
+
     return Container(
       margin: const EdgeInsets.only(top: 20, bottom: 20),
       decoration: BoxDecoration(
-        gradient: const LinearGradient(
-          colors: [
-            Color.fromARGB(255, 80, 80, 80),
-            Color.fromARGB(255, 181, 182, 184),
-          ],
-          begin: Alignment.centerLeft,
-          end: Alignment.centerRight,
-        ),
+        gradient: theme.brightness == Brightness.dark
+            ? AppColorsDark.gradient
+            : AppColorsLight.gradient,
         borderRadius: BorderRadius.circular(20),
       ),
       child: SizedBox(
         width: 200,
         height: 125,
-        child: ElevatedButton(
-          onPressed: () {
-            function();
-          },
-          style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.transparent,
-            shadowColor: Colors.transparent,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20),
-            ),
-          ),
-          child: Column(
-            children: [
-              Padding(padding: EdgeInsets.only(top: 20)),
-              Icon(icon, size: 40, color: Colors.white),
-              Text(
-                text,
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
+        child: Material(
+          color: Colors.transparent,
+          child: ElevatedButton(
+            onPressed: function,
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors
+                  .transparent, // no es un color , simplemente deja este campo transparente
+              shadowColor: Colors.transparent,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
               ),
-            ],
+            ),
+            child: Column(
+              children: [
+                const Padding(padding: EdgeInsets.only(top: 20)),
+                Icon(icon, size: 40, color: cs.onSurface),
+                Text(
+                  text,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: cs.onSurface,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

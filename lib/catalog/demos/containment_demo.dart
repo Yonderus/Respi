@@ -11,18 +11,20 @@ class DemoContainment extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Access the current theme
+    final theme = Theme.of(context);
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
     return Scaffold(
       appBar: AppBarWidget(texto: "Contenedores", flecha: true),
 
       body: Container(
-        decoration: BoxDecoration(color: backgroundColor),
-
+        color: theme.scaffoldBackgroundColor,
         child: Center(
           child: SingleChildScrollView(
+            padding: const EdgeInsets.symmetric(vertical: 35),
             child: Column(
               children: [
-                //Primer contenedor
-                SizedBox(height: 35),
                 app_container_booking(
                   route: "lib/assets/images/basketball.png",
                   sport: "Baloncesto",
@@ -31,8 +33,8 @@ class DemoContainment extends StatelessWidget {
                   locate: "Pista 12",
                 ),
 
-                //Segundo contenedor
-                SizedBox(height: 35),
+                const SizedBox(height: 35),
+
                 app_container_info(
                   routeImg: 'lib/assets/images/fondo-basket.png',
                   text: 'Cancha de Baloncesto',
@@ -41,8 +43,8 @@ class DemoContainment extends StatelessWidget {
                   etiqueta2: 'Exterior',
                 ),
 
-                //Tercer Contenedor
-                SizedBox(height: 35),
+                const SizedBox(height: 35),
+
                 app_container_join(
                   personasNecesarias: 3,
                   text: 'Pista de Padel',
@@ -51,13 +53,48 @@ class DemoContainment extends StatelessWidget {
                   routeImage: 'lib/assets/images/fondo-padel.png',
                 ),
 
-                //Cuarto Contenedor
-                SizedBox(height: 35),
+                const SizedBox(height: 35),
+
                 app_container_review(
                   route: "lib/assets/images/tennis.png",
                   sport: "Tenis",
                   locate: "Pista 5",
                   stars: 4,
+                ),
+
+                const SizedBox(height: 50),
+
+                Container(
+                  decoration: BoxDecoration(
+                    gradient: isDark
+                        ? AppColorsDark.gradient
+                        : AppColorsLight.gradient,
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.transparent,
+                      shadowColor: Colors.transparent,
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 40,
+                        vertical: 16,
+                      ),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                    ),
+                    onPressed: () {},
+                    child: Text(
+                      'New Reservation',
+                      style: TextStyle(
+                        color: isDark
+                            ? AppColorsDark.textPrimary
+                            : AppColorsLight.textPrimary,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                    ),
+                  ),
                 ),
               ],
             ),

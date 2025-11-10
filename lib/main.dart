@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:respi/core/l10n/app_localizations.dart';
+import 'package:respi/core/theme/app_theme.dart';
 import 'package:respi/features/auth/presentation/page/login_page.dart';
 import 'package:respi/features/preferences/presentation/providers/preferences_provider.dart';
 
@@ -32,8 +33,8 @@ class MainApp extends ConsumerWidget {
         Locale('de'), // Aleman
       ],
       locale: language.locale,
-      theme: ThemeData.light(),
-      darkTheme: ThemeData.dark(),
+      theme: lightTheme,
+      darkTheme: darkTheme,
       themeMode: isDark ? ThemeMode.dark : ThemeMode.light,
       home: const LoginPage(),
 

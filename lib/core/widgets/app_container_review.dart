@@ -18,13 +18,16 @@ class app_container_review extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final cs = theme.colorScheme;
+
     return SizedBox(
       width: 420,
       height: 100,
       child: ElevatedButton(
         onPressed: () {},
         style: ElevatedButton.styleFrom(
-          backgroundColor: outerSpace,
+          backgroundColor: cs.surface,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20),
           ),
@@ -37,7 +40,7 @@ class app_container_review extends StatelessWidget {
               width: 75,
               height: 75,
               decoration: BoxDecoration(
-                color: const Color(0xFFDDF864),
+                color: cs.primary,
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Padding(
@@ -50,9 +53,7 @@ class app_container_review extends StatelessWidget {
                 ),
               ),
             ),
-
-            SizedBox(width: 22),
-
+            const SizedBox(width: 22),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -61,17 +62,16 @@ class app_container_review extends StatelessWidget {
                   sport,
                   style: TextStyle(
                     fontSize: 18,
-                    color: Color.fromRGBO(255, 255, 255, 1),
-                  ),
+                    color: cs.onSurface,
+                  ), // changed
                 ),
                 Text(
                   locate,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 14,
-                    color: Color.fromRGBO(255, 255, 255, 0.7),
+                    color: cs.onSurface.withOpacity(0.7), // changed
                   ),
                 ),
-
                 Row(
                   children: [
                     Row(
@@ -82,7 +82,7 @@ class app_container_review extends StatelessWidget {
                           child: Icon(
                             index < stars ? Icons.star : Icons.star_border,
                             size: 16,
-                            color: const Color(0xFFBFEA44),
+                            color: cs.primary,
                           ),
                         ),
                       ),
