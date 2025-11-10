@@ -76,4 +76,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get selectcamp => 'Selecionar Pista';
+
+  @override
+  String get joinParty => 'Unirse';
 }

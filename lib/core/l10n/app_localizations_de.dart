@@ -76,4 +76,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get selectcamp => 'Ausgewählter Platz';
+
+  @override
+  String get joinParty => 'Beitreten';
 }

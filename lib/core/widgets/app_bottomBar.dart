@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:respi/features/auth/presentation/page/booking_page.dart';
+import 'package:respi/features/bookings/presentation/pages/booking_page.dart';
 import 'package:respi/features/auth/presentation/page/home_page.dart';
-import 'package:respi/features/auth/presentation/page/join_page.dart';
+import 'package:respi/features/join/presentation/pages/join_page.dart';
 import 'package:respi/features/auth/presentation/page/profile_page.dart';
 import 'package:respi/providers/bottom_nav_provider.dart';
 

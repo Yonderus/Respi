@@ -3,7 +3,7 @@ import 'package:respi/core/l10n/app_localizations.dart';
 import 'package:respi/core/widgets/app_button_access.dart';
 import 'package:respi/core/widgets/app_container_booking.dart';
 import 'package:respi/core/widgets/app_container_review.dart';
-import 'package:respi/features/auth/presentation/page/booking_page.dart';
+import 'package:respi/features/bookings/presentation/pages/booking_page.dart';
 
 class InitPage extends StatelessWidget {
   const InitPage({super.key});

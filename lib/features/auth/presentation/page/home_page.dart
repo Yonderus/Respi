@@ -3,9 +3,9 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:respi/catalog/widgets/app_bar_widget.dart';
 import 'package:respi/core/l10n/app_localizations.dart';
-import 'package:respi/features/auth/presentation/page/booking_page.dart';
+import 'package:respi/features/bookings/presentation/pages/booking_page.dart';
 import 'package:respi/features/auth/presentation/page/init_page.dart';
-import 'package:respi/features/auth/presentation/page/join_page.dart';
+import 'package:respi/features/join/presentation/pages/join_page.dart';
 import 'package:respi/features/auth/presentation/page/profile_page.dart';
 
 //import 'package:respi/providers/bottom_nav_provider.dart';
@@ -39,7 +39,7 @@ class _HomePageState extends State<HomePage> {
     List<String> appBarText = <String>[
       l10n.welcomeRespi,
       l10n.reservations,
-      'Unirse a Partidas',
+      'Unirse',
       l10n.profile,
     ];
 

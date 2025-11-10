@@ -1,25 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_riverpod/legacy.dart';
+import 'package:respi/features/bookings/controllers/BookingController.dart';
 
-/// Provider global para el deporte seleccionado
-final selectedSportProvider = StateProvider<String>((ref) => 'Todos');
-
-class AppMenusports extends ConsumerWidget {
+class AppMenusports extends ConsumerStatefulWidget {
   const AppMenusports({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final selected = ref.watch(selectedSportProvider); // Deporte seleccionado
+  ConsumerState<AppMenusports> createState() => _AppMenusportsState();
+}
 
+class _AppMenusportsState extends ConsumerState<AppMenusports> {
+  String _selectedSport = 'Todos';
+
+  @override
+  Widget build(BuildContext context) {
     Widget buildFilterButton(String text, IconData icon) {
-      final isSelected = selected == text;
+      final isSelected = _selectedSport == text;
       return Container(
         margin: const EdgeInsets.only(right: 14),
         child: ElevatedButton.icon(
           onPressed: () {
             // Actualizamos el provider
-            ref.read(selectedSportProvider.notifier).state = text;
+            setState(() {
+              _selectedSport = text;
+            });
+
+            ref
+                .read(
+                  courtBookingProvider.notifier,
+                ) // Leemos los datos del notifier
+                .filterBySport(
+                  _selectedSport,
+                ); // Filtramos por el deporte seleccionado
           },
           icon: Icon(icon, color: isSelected ? Colors.black : Colors.grey[800]),
           label: Text(
@@ -29,6 +41,7 @@ class AppMenusports extends ConsumerWidget {
               fontWeight: FontWeight.w600,
             ),
           ),
+          // Selecionamos el color del botón según si está seleccionado o no
           style: ElevatedButton.styleFrom(
             backgroundColor: isSelected
                 ? const Color(0xFFDDF864)
