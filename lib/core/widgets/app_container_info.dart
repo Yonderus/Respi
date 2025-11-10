@@ -111,4 +111,24 @@ class app_container_info extends StatelessWidget {
       ),
     );
   }
+
+  Future<void> _dialogBuilder(BuildContext context) {
+    return showDialog<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Reservar Pista'),
+          content: const Text('Funcionalidad de reserva en desarrollo.'),
+          actions: <Widget>[
+            TextButton(
+              child: const Text('Cerrar'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
 }

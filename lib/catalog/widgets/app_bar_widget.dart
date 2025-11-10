@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:respi/providers/bottom_nav_provider.dart';
 
 class AppBarWidget extends ConsumerWidget implements PreferredSizeWidget {
   final String texto;
@@ -8,7 +9,7 @@ class AppBarWidget extends ConsumerWidget implements PreferredSizeWidget {
   const AppBarWidget({
     super.key,
     required this.texto,
-    this.flecha = true, // valor por defecto
+    this.flecha = false, // valor por defecto
   });
 
   @override
@@ -22,19 +23,18 @@ class AppBarWidget extends ConsumerWidget implements PreferredSizeWidget {
     return AppBar(
       automaticallyImplyLeading: false, // control manual del leading
       // Flecha de retroceso condicional
-
-      // leading: flecha
-      //     ? IconButton(
-      //         icon: const Icon(
-      //           Icons.arrow_back_ios_new,
-      //           color: Color.fromARGB(255, 0, 0, 0),
-      //         ),
-      //         onPressed: () {
-      //           ref.read(bottomNavIndexProvider.notifier).state = 0;
-      //           Navigator.maybePop(context);
-      //         },
-      //       )
-      //     : null,
+      leading: flecha
+          ? IconButton(
+              icon: const Icon(
+                Icons.arrow_back_ios_new,
+                color: Color.fromARGB(255, 0, 0, 0),
+              ),
+              onPressed: () {
+                ref.read(bottomNavIndexProvider.notifier).state = 0;
+                Navigator.maybePop(context);
+              },
+            )
+          : null,
       backgroundColor: cs.surface,
 
       title: Text(
