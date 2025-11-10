@@ -22,14 +22,14 @@ class app_container_join extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final colorScheme = theme.colorScheme;
+    final cs = theme.colorScheme;
     final textTheme = theme.textTheme;
 
     return SizedBox(
       width: 400,
       height: 240,
       child: Card(
-        color: colorScheme.surface,
+        color: cs.surface,
         child: Stack(
           fit: StackFit.expand,
           children: [
@@ -64,7 +64,7 @@ class app_container_join extends StatelessWidget {
               bottom: 0,
               child: Container(
                 decoration: BoxDecoration(
-                  color: colorScheme.surface.withValues(alpha: 0.95),
+                  color: cs.surface.withValues(alpha: 0.95),
                   borderRadius: const BorderRadius.vertical(
                     bottom: Radius.circular(12),
                   ),
@@ -85,14 +85,14 @@ class app_container_join extends StatelessWidget {
                           style: textTheme.bodyLarge?.copyWith(
                             fontWeight: FontWeight.bold,
                             fontSize: 19,
-                            color: colorScheme.onSurface,
+                            color: cs.onSurface,
                           ),
                         ),
                         Text(
                           "$pricePerson€\n/persona",
                           textAlign: TextAlign.right,
                           style: textTheme.bodyMedium?.copyWith(
-                            color: colorScheme.onSurface.withValues(alpha: 0.7),
+                            color: cs.onSurface.withValues(alpha: 0.7),
                             fontWeight: FontWeight.bold,
                             fontSize: 15,
                           ),
