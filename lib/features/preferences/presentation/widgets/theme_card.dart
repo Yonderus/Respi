@@ -29,7 +29,7 @@ class ThemeCard extends StatelessWidget {
         trailing: Switch(
           value: isDark,
           onChanged: (v) => ref.read(themeModeProvider.notifier).setTheme(v),
-          activeThumbColor: Colors.blue,
+          activeThumbColor: cs.primary,
         ),
       ),
     );

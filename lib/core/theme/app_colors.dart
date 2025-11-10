@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 // DARK THEME COLORS
 class AppColorsDark {
+  static const Color tagGray = Color(0xFF3A3A3A);
+
   // Backgrounds
   static const Color background = Color(0xFF191919); // main app background
   static const Color surface = Color(0xFF272727); // cards, panels, appbars
@@ -21,6 +23,8 @@ class AppColorsDark {
 
 // LIGHT THEME COLORS
 class AppColorsLight {
+  static const Color tagGray = Color(0xFF3A3A3A);
+
   // Backgrounds
   static const Color background = Color(0xFFE7E7E7); // main app background
   static const Color surface = Color(0xFFFFFFFF); // cards, panels, appbars

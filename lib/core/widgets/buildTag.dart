@@ -1,20 +1,23 @@
-// ignore_for_file: file_names
-
 import 'package:flutter/material.dart';
 
-Widget buildTag(
-  String text, {
-  Color backgroundColor = const Color.fromARGB(254, 224, 224, 225),
-}) {
+Widget buildTag(BuildContext context, String text, {Color? backgroundColor}) {
+  // Gris clarito que combina bien con ambos temas
+  final theme = Theme.of(context);
+  final cs = theme.colorScheme;
+
   return Container(
-    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
     decoration: BoxDecoration(
-      color: Colors.white,
+      color: cs.tertiary,
       borderRadius: BorderRadius.circular(12),
     ),
     child: Text(
       text,
-      style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 12),
+      style: TextStyle(
+        fontWeight: FontWeight.w500,
+        fontSize: 12,
+        color: cs.onTertiary,
+      ),
     ),
   );
 }

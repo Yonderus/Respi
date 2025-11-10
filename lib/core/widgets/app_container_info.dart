@@ -92,27 +92,16 @@ class app_container_info extends StatelessWidget {
                     // Etiquetas LED y Cristal
                     Row(
                       children: [
-                        buildTag(
-                          etiqueta1,
-                          backgroundColor: colorScheme.secondary.withValues(
-                            alpha: 0.3,
-                          ),
-                        ),
+                        buildTag(context, etiqueta1),
                         const SizedBox(width: 8),
-                        buildTag(
-                          etiqueta2,
-                          backgroundColor: colorScheme.secondary.withValues(
-                            alpha: 0.3,
-                          ),
-                        ),
+                        buildTag(context, etiqueta2),
                       ],
                     ),
 
                     const SizedBox(height: 10),
 
                     // Boton reservar
-                    Center(child: AppButton(text: "Reservas")),
-                    AppButton(text: "Reservas"),
+                    Center(child: AppButton(text: "Reservar")),
                   ],
                 ),
               ),

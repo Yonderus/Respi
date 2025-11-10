@@ -14,6 +14,9 @@ class _AppMenusportsState extends ConsumerState<AppMenusports> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final cs = theme.colorScheme;
+
     Widget buildFilterButton(String text, IconData icon) {
       final isSelected = _selectedSport == text;
       return Container(
@@ -33,19 +36,20 @@ class _AppMenusportsState extends ConsumerState<AppMenusports> {
                   _selectedSport,
                 ); // Filtramos por el deporte seleccionado
           },
-          icon: Icon(icon, color: isSelected ? Colors.black : Colors.grey[800]),
+          icon: Icon(
+            icon,
+            color: isSelected ? cs.onPrimary : cs.onInverseSurface,
+          ),
           label: Text(
             text,
             style: TextStyle(
-              color: isSelected ? Colors.black : Colors.grey[800],
+              color: isSelected ? cs.onPrimary : cs.onInverseSurface,
               fontWeight: FontWeight.w600,
             ),
           ),
           // Selecionamos el color del botón según si está seleccionado o no
           style: ElevatedButton.styleFrom(
-            backgroundColor: isSelected
-                ? const Color(0xFFDDF864)
-                : const Color(0xFFBDBDBD),
+            backgroundColor: isSelected ? cs.primary : cs.inverseSurface,
             elevation: 0,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(25),
