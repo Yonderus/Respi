@@ -14,10 +14,16 @@ class AppColorsDark {
   static const Color textSecondary = Color(0xFF929293); // sub text, icons
 
   //  gradient (for buttons)
-  static const Gradient gradient = LinearGradient(
+  static const Gradient gradientLeftToRight = LinearGradient(
     colors: [Color(0xFF585757), Color(0xFF292929)],
     begin: Alignment.centerLeft,
     end: Alignment.centerRight,
+  );
+
+  static const Gradient gradientRightToLeft = LinearGradient(
+    colors: [Color(0xFF585757), Color(0xFF292929)],
+    begin: Alignment.centerRight,
+    end: Alignment.centerLeft,
   );
 }
 
@@ -35,9 +41,15 @@ class AppColorsLight {
   static const Color textSecondary = Color(0xFF1E1E1E); // sub text
 
   //  gradient (for buttons)
-  static const Gradient gradient = LinearGradient(
+  static const Gradient gradientLeftToRight = LinearGradient(
     colors: [Color(0xFFFEFEFE), Color(0xFFE9E9E9)],
     begin: Alignment.centerLeft,
     end: Alignment.centerRight,
+  );
+
+  static const Gradient gradientRightToLeft = LinearGradient(
+    colors: [Color(0xFFFEFEFE), Color(0xFFE9E9E9)],
+    begin: Alignment.centerRight,
+    end: Alignment.centerLeft,
   );
 }

@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:respi/core/l10n/app_localizations.dart';
 import 'package:respi/core/widgets/app_container_join.dart';
 import 'package:respi/features/join/controllers/JoinController.dart';
-import 'package:respi/features/join/data/repositories/CourtJoin_Repository.dart';
 
 class JoinPage extends ConsumerStatefulWidget {
   const JoinPage({super.key});
@@ -16,6 +15,8 @@ class _JoinPageState extends ConsumerState<JoinPage> {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
+    final theme = Theme.of(context);
+    final cs = theme.colorScheme;
 
     final asyncDatos = ref.watch(courtJoinProvider);
 
@@ -23,15 +24,16 @@ class _JoinPageState extends ConsumerState<JoinPage> {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         const SizedBox(height: 20),
-        // TÍTULO
+
+        // Título
         Align(
           alignment: Alignment.centerLeft,
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Text(
               '${l10n.selectCourt}:',
-              style: const TextStyle(
-                color: Colors.black,
+              style: TextStyle(
+                color: cs.onSurface,
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
               ),
@@ -41,7 +43,7 @@ class _JoinPageState extends ConsumerState<JoinPage> {
 
         const SizedBox(height: 15),
 
-        // LISTA DE PARTIDAS
+        // Lista de partidas
         Expanded(
           child: Padding(
             padding: const EdgeInsets.all(20.0),
@@ -63,7 +65,9 @@ class _JoinPageState extends ConsumerState<JoinPage> {
               loading: () => Center(
                 child: Image.asset('lib/assets/images/animacionCarga.gif'),
               ),
-              error: (err, stack) => Center(child: Text('Error: $err')),
+              error: (err, stack) => Center(
+                child: Text('Error: $err', style: TextStyle(color: cs.error)),
+              ),
             ),
           ),
         ),
@@ -71,24 +75,3 @@ class _JoinPageState extends ConsumerState<JoinPage> {
     );
   }
 }
-
-
-// return SingleChildScrollView(
-//       child: Column(
-//         children: [
-//           SizedBox(height: 20),
-
-//           for (var partida in partidas)
-//             Padding(
-//               padding: const EdgeInsets.symmetric(vertical: 10.0),
-//               child: app_container_join(
-//                 text: partida['text'],
-//                 pricePerson: partida['pricePerson'],
-//                 routeImage: partida['routeImage'],
-//                 personasNecesarias: partida['personasNecesarias'],
-//                 level: partida['level'],
-//               ),
-//             ),
-//         ],
-//       ),
-//     );

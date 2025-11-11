@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:respi/features/bookings/controllers/BookingController.dart';
+import 'package:respi/providers/menuSport_provaider.dart';
 
 class AppMenusports extends ConsumerStatefulWidget {
   const AppMenusports({super.key});
@@ -10,31 +11,31 @@ class AppMenusports extends ConsumerStatefulWidget {
 }
 
 class _AppMenusportsState extends ConsumerState<AppMenusports> {
-  String _selectedSport = 'Todos';
+  //String _selectedSport = 'Todos';
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final cs = theme.colorScheme;
+    final selectedSport = ref.watch(selectedSportProvider);
 
     Widget buildFilterButton(String text, IconData icon) {
-      final isSelected = _selectedSport == text;
+      final isSelected = selectedSport == text;
       return Container(
         margin: const EdgeInsets.only(right: 14),
         child: ElevatedButton.icon(
           onPressed: () {
             // Actualizamos el provider
             setState(() {
-              _selectedSport = text;
+              // Leemos el estado actual y lo actualizamos
+              ref.read(selectedSportProvider.notifier).state = text;
             });
 
             ref
                 .read(
                   courtBookingProvider.notifier,
                 ) // Leemos los datos del notifier
-                .filterBySport(
-                  _selectedSport,
-                ); // Filtramos por el deporte seleccionado
+                .filterBySport(text); // Filtramos por el deporte seleccionado
           },
           icon: Icon(
             icon,

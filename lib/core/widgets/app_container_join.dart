@@ -52,10 +52,15 @@ class app_container_join extends StatelessWidget {
                 child: buildTag(
                   context,
                   "Faltan $personasNecesarias persona${personasNecesarias == 1 ? '' : 's'}",
+                  textColor: cs.primary,
                 ),
               ),
             if (level != null)
-              Positioned(top: 10, right: 10, child: buildTag(context, level!)),
+              Positioned(
+                top: 10,
+                right: 10,
+                child: buildTag(context, level!, textColor: cs.inverseSurface),
+              ),
 
             // Contenedor inferior
             Positioned(

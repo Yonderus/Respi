@@ -79,8 +79,8 @@ class DemoContainment extends StatelessWidget {
                 Container(
                   decoration: BoxDecoration(
                     gradient: isDark
-                        ? AppColorsDark.gradient
-                        : AppColorsLight.gradient,
+                        ? AppColorsDark.gradientLeftToRight
+                        : AppColorsLight.gradientLeftToRight,
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: ElevatedButton(
