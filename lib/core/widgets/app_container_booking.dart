@@ -21,9 +21,7 @@ class app_container_booking extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final cs = theme.colorScheme;
-    final screenWidth = MediaQuery.of(
-      context,
-    ).size.width; // ancho del dispositivo
+    final screenWidth = MediaQuery.of(context).size.width; // Ajuste de padding
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 8),

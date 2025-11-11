@@ -164,6 +164,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:respi/core/l10n/app_localizations.dart';
 import 'package:respi/core/widgets/app_button_access.dart';
 import 'package:respi/core/widgets/app_container_booking.dart';
+import 'package:respi/core/widgets/app_container_bookingAdd.dart';
 import 'package:respi/core/widgets/app_container_review.dart';
 import 'package:respi/providers/bottom_nav_provider.dart';
 
@@ -249,6 +250,8 @@ class InitPage extends ConsumerWidget {
             Column(
               children: [
                 const SizedBox(height: 10),
+                const AppContainerBookingAdd(),
+                const SizedBox(height: 10),
                 app_container_booking(
                   route: 'lib/assets/images/basketball-ball-variant.png',
                   sport: l10n.basketball,
@@ -303,7 +306,7 @@ class InitPage extends ConsumerWidget {
                   route: 'lib/assets/images/basketball-ball-variant.png',
                   sport: 'Baloncesto',
                   locate: 'Cancha 3',
-                  stars: 5,
+                  stars: 2,
                 ),
               ],
             ),

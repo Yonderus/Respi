@@ -32,9 +32,8 @@ class _AppMenusportsState extends ConsumerState<AppMenusports> {
             });
 
             ref
-                .read(
-                  courtBookingProvider.notifier,
-                ) // Leemos los datos del notifier
+                // Leemos los datos del notifier
+                .read(courtBookingProvider.notifier)
                 .filterBySport(text); // Filtramos por el deporte seleccionado
           },
           icon: Icon(
