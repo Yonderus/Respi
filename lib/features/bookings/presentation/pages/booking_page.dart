@@ -56,13 +56,7 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                 shrinkWrap: true,
                 itemBuilder: (context, index) {
                   final pista = courtsList[index];
-                  return app_container_info(
-                    routeImg: pista.routeImg,
-                    text: pista.text,
-                    price: pista.price,
-                    etiqueta1: pista.etiqueta1,
-                    etiqueta2: pista.etiqueta2,
-                  );
+                  return app_container_info(pista: pista);
                 },
               ),
               loading: () => Center(

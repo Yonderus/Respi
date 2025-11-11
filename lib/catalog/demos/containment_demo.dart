@@ -5,6 +5,7 @@ import 'package:respi/core/widgets/app_container_booking.dart';
 import 'package:respi/core/widgets/app_container_info.dart';
 import 'package:respi/core/widgets/app_container_join.dart';
 import 'package:respi/core/widgets/app_container_review.dart';
+import 'package:respi/features/bookings/data/models/CourtBooking.dart';
 
 class DemoContainment extends StatelessWidget {
   const DemoContainment({super.key});
@@ -36,11 +37,22 @@ class DemoContainment extends StatelessWidget {
                 const SizedBox(height: 35),
 
                 app_container_info(
-                  routeImg: 'lib/assets/images/fondo-basket.png',
-                  text: 'Cancha de Baloncesto',
-                  price: '27',
-                  etiqueta1: 'Concreto',
-                  etiqueta2: 'Exterior',
+                  pista: CourtBooking(
+                    text: 'Tenis',
+                    sport: 'Tenis',
+                    routeImg: 'lib/assets/images/tennis.png',
+                    price: '15',
+                    etiqueta1: 'Arcilla',
+                    etiqueta2: 'Exterior',
+                    location: 'Pista Exterior, Centro Deportivo Respi',
+                    capacity: '4 personas',
+                    caracteristics1: 'Superficie de arcilla profesional',
+                    caracteristics2: 'Red de alta resistencia',
+                    caracteristics3: '',
+                    caracteristics4: '',
+                    description:
+                        'Pista de tenis con superficie de arcilla profesional y red de alta resistencia.',
+                  ),
                 ),
 
                 const SizedBox(height: 35),
