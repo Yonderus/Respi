@@ -4,30 +4,164 @@
   "signinContinue": "Eiloggen, um fortzufahren",
   "welcomeRespi": "Willkommen bei ResPi",
   "continueGoogle": "Mit Google fortfahren",
-  "email": " email",
-  "password": " passwort",
+  "email": " E-mail",
+  "password": " Passwort",
   "or": "ODER",
   "signin": "Einloggen",
   "welcomeRespiExcl": "Willkommen bei ResPi!",
 
   "fastAcces": "Schneller Zugriff",
   "newReservation": "Neue Reservierung",
-  "joinin": "Spiel eitreten",
+  "joinin": "Spiel beitreten",
+
   "basketball": "Basketball",
   "football": "Fußball",
   "padel": "Padel",
+  "tennis": "Tennis",
+
+
   "upcomingReservations": "Bevorstehende Reservierungen",
   "preferences": "Einstellungen",
   "darkMode": "Dunkelmodus",
   "language": "Sprache",
 
   "home": "Start",
-  "reservations": "Reservierungen",
+  "reservations": "Buchungen",
   "profile": "Profil",
 
   "selectcamp": "Ausgewählter Platz",
 
   "joinParty": "Beitreten",
 
-  "selectCourt": "Wählen Sie ein Platz"
+  "selectCourt": "Wählen Sie ein Platz",
+
+  "enterCredentials": "Bitte Benutzer und Passwort eingeben.",
+
+  "loginFailed": "Anmeldung fehlgeschlagen",
+  "enterEmail": "Sie müssen eine E-mail Adresse eingeben",
+  "enterPassword": "Sie müssen einen Passwort eingeben",
+  "createAccount": "Konto erstellen",
+  "registerToContinue": "Registrieren , um fortzufahren",
+
+  "phone": "Telefon",
+  "name": "Vorname",
+  "surname": "Nachname",
+  "city": "Stadt",
+  "dateBirth": "Geburtsdatum",
+
+  "reservationReviews": "Buchungsbewertungen",
+  "basketBallCourt": "Basketballplatz",
+  "tennisCourt": "Tennisplatz",
+
+  "basketCourt": "Basketballplatz",
+  "basketCourtOutdoor": "Basketballplatz im Außenbereich",
+  "padelIndoorCourt": "Padelplatz (Indoor)",
+  "padelCourt": "Padelplatz",
+  "football11Field": "Fußballfeld 11",
+  "tennisCourt": "Tennisplatz",
+
+  
+
+  
+  "courtNameBasket": "Basketballplatz",
+  "courtNamePadelIndoor": "Padelplatz (Indoor)",
+  "courtNameFutbol": "Fußballfeld 11-gegen-11",
+  "courtNameTenis": "Tennisplatz",
+  "courtNamePadel": "Padelplatz",
+  "courtNameBasketExterior": "Basketballplatz im Freien",
+
+  "courtLocationExterior": "Außenplatz, Respi Sportzentrum",
+  "courtLocationIndoor": "Innenplatz, Respi Sportzentrum",
+  "courtLocationCampoExterior": "Außenfeld, Respi Sportzentrum",
+
+  "tagConcrete": "Beton",
+  "tagExterior": "Außen",
+  "tagIndoor": "Überdacht",
+  "tagLighted": "Beleuchtet",
+  "tagGrass": "Rasen",
+  "tagClay": "Sand",
+
+  "capacity10": "10 Personen",
+  "capacity4": "4 Personen",
+  "capacity22": "22 Personen",
+  "capacity3": "3 Personen",
+
+  "charLedLight": "LED-Beleuchtung",
+  "charParquet": "Rutschfester Parkettboden",
+  "charVentilation": "Fortschrittliches Belüftungssystem",
+
+  "charWindows": "Panoramafenster",
+  "charArtificialGrass": "Kunstrasenboden",
+  "charLedHigh": "Hocheffiziente LED-Beleuchtung",
+
+  "charPadelRackets": "Padelschläger verfügbar",
+
+  "charNaturalGrass": "Hochwertiger Naturrasen",
+  "charNightLight": "Nachtbeleuchtung",
+
+  "charClaySurface": "Professionelle Sandplatzfläche",
+  "charStrongNet": "Hochbelastbares Netz",
+
+  "charAdvancedVentilation": "Erweiterte Belüftung",
+  "charCorkFloor": "Rutschfester Korkboden",
+
+  "charWeatherResistantBoards": "Wetterbeständige Bretter",
+
+  "descBasket": "Basketballplatz mit LED-Beleuchtung, rutschfestem Parkettboden und fortschrittlichem Belüftungssystem.",
+  "descPadelIndoor": "Indoor-Padelplatz mit Panoramafenstern, Kunstrasenboden und hocheffizienter LED-Beleuchtung.",
+  "descFutbol": "11-gegen-11-Fußballfeld mit hochwertigem Naturrasen und Nachtbeleuchtung.",
+  "descTenis": "Tennisplatz mit professioneller Sandplatzfläche und hochbelastbarem Netz.",
+  "descPadel": "Überdachter Padelplatz mit erweiterter Belüftung und rutschfestem Korkboden.",
+  "descBasketExterior": "Basketballplatz im Freien mit LED-Beleuchtung und wetterbeständigen Brettern.",
+
+  "reserveNow": "Reservieren",
+  "courtInfo": "Platzinformationen",
+  "capacity": "Kapazität",
+  "characteristics": "Eigenschaften",
+  "description": "Beschreibung",
+  "close": "Schließen",
+
+  "join_basket_3v3": "3v3 Basketballfeld",
+  "join_padel_doble": "Doppel-Padelplatz",
+  "join_futbol7": "7er-Fußballfeld",
+  "join_tenis_individual": "Einzel-Tennisplatz",
+  "join_voley_2v2": "2v2 Beachvolleyballfeld",
+
+  "join_level_beginner": "Anfänger",
+  "join_level_intermediate": "Mittelstufe",
+
+  "selectCourt": "Wähle ein Spielfeld",
+
+  "join_missingPeople": "{count, plural, one {{count} Person fehlt} other {{count} Personen fehlen}}",
+  "@join_missingPeople": {
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "join_perPerson": "/Person",
+  "join_joinButton": "Beitreten",
+  "booking_perHour": "/stunde",
+
+  "filter_all": "Alle",
+  "filter_basket": "Basketball",
+  "filter_padel": "Padel",
+  "filter_futbol": "Fußball",
+  "filter_tennis": "Tennis",
+
+  "profileReservations": "Reservierungen",
+  "profileMyReservations": "Meine Reservierungen",
+  "profileMyReservationsSubtitle": "Siehe deine aktiven und vergangenen Reservierungen",
+  "profileAlerts": "Benachrichtigungen",
+  "profileAlertsSubtitle": "Verwalte Erinnerungen und Benachrichtigungen",
+  "profileLogout": "Abmelden"
+
+
+
+
+
+
+
+
+
+
 }

@@ -13,9 +13,13 @@
   "fastAcces": "Accès rapide",
   "newReservation": "Nouvelle réservation",
   "joinin": "Participer á une partie",
+
   "basketball": "Basket-ball",
   "football": "Football",
   "padel": "Padel",
+  "tennis": "Tennis",
+
+
   "upcomingReservations": "Prochaines resérvations",
   "preferences": "Préférences",
   "darkMode": "Mode sombre",
@@ -29,5 +33,131 @@
 
   "joinParty": "Rejoindre",
 
-    "selectCourt": "Sélectionnez une piste"
+  "selectCourt": "Sélectionnez une piste",
+
+  "enterCredentials": "S’il vous plaît, introduire utilisateur et mot de passe.",
+
+  "loginFailed": "Erreur de connexion",
+  "enterEmail": "Vous devez entrer une adresse e-mail",
+  "enterPassword": "Vous devez entrer un mot de passe",
+  "createAccount": "Créer un compte",
+  "registerToContinue": "S’inscrire pour continuer",
+
+  "phone": "Téléphone",
+  "name": "Prénom",
+  "surname": "nom",
+  "city": "Ville",
+  "dateBirth": "Date de naissance",
+
+  "reservationReviews": "Avis sur les réservations",
+  "basketBallCourt": "Terrain de basket",
+  "tennisCourt": "Piste de tennis",
+
+  "basketCourt": "Terrain de basket",
+  "basketCourtOutdoor": "Terrain de basket extérieur",
+  "padelIndoorCourt": "Terrain de padel intérieur",
+  "padelCourt": "Terrain de padel",
+  "football11Field": "Terrain de football 11",
+  "tennisCourt": "Court de tennis",
+
+
+  
+  "courtNameBasket": "Terrain de basket",
+  "courtNamePadelIndoor": "Terrain de padel intérieur",
+  "courtNameFutbol": "Terrain de football à 11",
+  "courtNameTenis": "Court de tennis",
+  "courtNamePadel": "Terrain de padel",
+  "courtNameBasketExterior": "Terrain de basket extérieur",
+
+  "courtLocationExterior": "Terrain extérieur, Centre sportif Respi",
+  "courtLocationIndoor": "Terrain intérieur, Centre sportif Respi",
+  "courtLocationCampoExterior": "Terrain extérieur, Centre sportif Respi",
+
+  "tagConcrete": "Béton",
+  "tagExterior": "Extérieur",
+  "tagIndoor": "Couvert",
+  "tagLighted": "Éclairé",
+  "tagGrass": "Gazon",
+  "tagClay": "Terre battue",
+
+  "capacity10": "10 personnes",
+  "capacity4": "4 personnes",
+  "capacity22": "22 personnes",
+  "capacity3": "3 personnes",
+
+  "charLedLight": "Éclairage LED",
+  "charParquet": "Sol en parquet antidérapant",
+  "charVentilation": "Système de ventilation avancé",
+
+  "charWindows": "Fenêtres panoramiques",
+  "charArtificialGrass": "Gazon artificiel",
+  "charLedHigh": "Éclairage LED haute efficacité",
+
+  "charPadelRackets": "Raquettes de padel disponibles",
+
+  "charNaturalGrass": "Gazon naturel de haute qualité",
+  "charNightLight": "Éclairage nocturne",
+
+  "charClaySurface": "Surface en terre battue professionnelle",
+  "charStrongNet": "Filet haute résistance",
+
+  "charAdvancedVentilation": "Ventilation avancée",
+  "charCorkFloor": "Sol en liège antidérapant",
+
+  "charWeatherResistantBoards": "Panneaux résistants aux intempéries",
+
+  "descBasket": "Terrain de basket avec éclairage LED, parquet antidérapant et système de ventilation avancé.",
+  "descPadelIndoor": "Terrain de padel intérieur avec fenêtres panoramiques, gazon artificiel et éclairage LED haute efficacité.",
+  "descFutbol": "Terrain de football à 11 avec gazon naturel de haute qualité et éclairage nocturne.",
+  "descTenis": "Court de tennis avec surface en terre battue professionnelle et filet haute résistance.",
+  "descPadel": "Terrain de padel couvert avec ventilation avancée et sol en liège antidérapant.",
+  "descBasketExterior": "Terrain de basket extérieur avec éclairage LED et panneaux résistants aux intempéries.",
+
+
+  "reserveNow": "Réserver",
+  "courtInfo": "Informations du terrain",
+  "capacity": "Capacité",
+  "characteristics": "Caractéristiques",
+  "description": "Description",
+  "close": "Fermer",
+
+  "join_basket_3v3": "Terrain de basket 3 contre 3",
+  "join_padel_doble": "Terrain de padel double",
+  "join_futbol7": "Terrain de football à 7",
+  "join_tenis_individual": "Court de tennis individuel",
+  "join_voley_2v2": "Terrain de volley plage 2 contre 2",
+
+  "join_level_beginner": "Débutant",
+  "join_level_intermediate": "Intermédiaire",
+
+  "selectCourt": "Choisissez un terrain",
+
+  "join_missingPeople": "{count, plural, one {Il manque {count} personne} other {Il manque {count} personnes}}",
+  "@join_missingPeople": {
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "join_perPerson": "/personne",
+  "join_joinButton": "Rejoindre",
+  "booking_perHour": "/heure",
+
+  "filter_all": "Tous",
+  "filter_basket": "Basket",
+  "filter_padel": "Padel",
+  "filter_futbol": "Football",
+  "filter_tennis": "Tennis",
+
+  "profileReservations": "Réservations",
+  "profileMyReservations": "Mes réservations",
+  "profileMyReservationsSubtitle": "Consultez vos réservations actives et passées",
+  "profileAlerts": "Alertes",
+  "profileAlertsSubtitle": "Gérez vos notifications et rappels",
+  "profileLogout": "Se déconnecter"
+
+
+
+
+
+
 }

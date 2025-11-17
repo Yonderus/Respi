@@ -25,7 +25,9 @@ class ProfilePage extends ConsumerWidget {
           end: Alignment.bottomCenter,
         ),
       ),
-      child: SafeArea(
+
+      child: Padding(
+        padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
         child: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 32),
           child: Column(
@@ -58,23 +60,26 @@ class ProfilePage extends ConsumerWidget {
                       //Nombre de usuario
                       Text(
                         'Respi User',
-                        style: textTheme.headlineSmall?.copyWith(
+                        style: TextStyle(
+                          fontSize: textTheme.headlineSmall?.fontSize,
                           fontWeight: FontWeight.bold,
+                          color: cs.onSurface, // THIS will work
                         ),
                       ),
+
                       const SizedBox(height: 4),
                       //correo
                       Text(
                         'usuario@respi.app',
                         style: textTheme.bodyMedium?.copyWith(
-                          color: cs.onSurfaceVariant,
+                          color: cs.onSurface.withValues(alpha: 0.7),
                         ),
                       ),
                       const SizedBox(height: 24),
                       Row(
                         children: [
                           ProfileStat(
-                            label: 'Reservas',
+                            label: l10n.profileReservations,
                             value: '12',
                             color: cs.primary,
                           ),
@@ -109,27 +114,21 @@ class ProfilePage extends ConsumerWidget {
 
               QuickActionTile(
                 icon: Icons.calendar_month,
-                title: 'Mis reservas',
-                subtitle: 'Consulta tus reservas activas y pasadas',
+                title: l10n.profileMyReservations,
+                subtitle: l10n.profileMyReservationsSubtitle,
                 color: cs.primary,
+                subtitleColor: cs.onSurface.withValues(alpha: 0.7),
                 onTap: () {},
               ),
 
-              // const SizedBox(height: 12),
-              // _QuickActionTile(
-              //   icon: Icons.favorite,
-              //   title: 'Favoritos',
-              //   subtitle: '',
-              //   color: cs.primary,
-              //   onTap: () {},
-              // ),
               const SizedBox(height: 12),
 
               QuickActionTile(
                 icon: Icons.notifications,
-                title: 'Alertas',
-                subtitle: 'Controla notificaciones y recordatorios',
+                title: l10n.profileAlerts,
+                subtitle: l10n.profileAlertsSubtitle,
                 color: cs.primary,
+                subtitleColor: cs.onSurface.withValues(alpha: 0.7),
                 onTap: () {},
               ),
 
@@ -155,7 +154,7 @@ class ProfilePage extends ConsumerWidget {
               //y outlined porque queremos que nos pinte solo el texto y el border
               OutlinedButton.icon(
                 icon: const Icon(Icons.logout),
-                label: const Text('Cerrar sesión'),
+                label: Text(l10n.profileLogout),
                 style: OutlinedButton.styleFrom(
                   padding: const EdgeInsets.symmetric(vertical: 16),
                   foregroundColor: cs.error,

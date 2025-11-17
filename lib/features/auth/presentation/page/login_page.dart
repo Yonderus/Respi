@@ -29,10 +29,14 @@ class _LoginPageState extends ConsumerState<LoginPage> {
   }
 
   Future<void> _submit() async {
+    final l10n = AppLocalizations.of(context)!;
+
     if (_userCtrl.text.trim().isEmpty || _passCtrl.text.trim().isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Por favor, introduce usuario y contraseña'),
+        SnackBar(
+          content: Text(
+            l10n.enterCredentials /*Por favor, introduce usuario y contraseña*/,
+          ),
         ),
       );
       return;
@@ -52,7 +56,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Login fallido: ${e.toString()}')),
+          SnackBar(content: Text('${l10n.loginFailed} : ${e.toString()}')),
         );
       }
     } finally {
@@ -171,7 +175,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                         controller: _userCtrl,
                         validator: (v) {
                           if (v == null || v.isEmpty) {
-                            return "Tienes que introducir un email";
+                            return l10n.enterEmail;
                           }
                           return null;
                         },
@@ -190,7 +194,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                         controller: _passCtrl,
                         validator: (v) {
                           if (v == null || v.isEmpty) {
-                            return "Tienes que introducir una contraseña";
+                            return l10n.enterPassword;
                           }
                           return null;
                         },
@@ -247,8 +251,8 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                               borderRadius: BorderRadius.circular(8),
                             ),
                           ),
-                          child: const Text(
-                            "Create Account",
+                          child: Text(
+                            l10n.createAccount,
                             style: TextStyle(fontWeight: FontWeight.bold),
                           ),
                         ),

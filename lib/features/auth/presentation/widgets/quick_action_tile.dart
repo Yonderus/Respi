@@ -7,6 +7,7 @@ class QuickActionTile extends StatelessWidget {
     required this.title,
     required this.subtitle,
     required this.color,
+    required this.subtitleColor,
     required this.onTap,
   });
 
@@ -14,6 +15,7 @@ class QuickActionTile extends StatelessWidget {
   final String title;
   final String subtitle;
   final Color color;
+  final Color subtitleColor;
   final VoidCallback onTap;
 
   @override
@@ -35,7 +37,7 @@ class QuickActionTile extends StatelessWidget {
           child: Icon(icon, color: color),
         ),
         title: Text(title, style: const TextStyle(fontWeight: FontWeight.w600)),
-        subtitle: Text(subtitle),
+        subtitle: Text(subtitle, style: TextStyle(color: subtitleColor)),
         trailing: Icon(Icons.chevron_right, color: cs.outline),
       ),
     );
