@@ -33,7 +33,7 @@ class AppButtonAccess extends StatelessWidget {
 
       // el gradiente y la sombra ahora se manejan dentro de Material
       child: Material(
-        elevation: 10,
+        elevation: 4,
         borderRadius: BorderRadius.circular(20),
         clipBehavior: Clip.antiAlias, // recorta los bordes redondeados
         child: Ink(

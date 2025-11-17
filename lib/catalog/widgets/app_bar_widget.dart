@@ -5,11 +5,13 @@ import 'package:respi/providers/bottom_nav_provider.dart';
 class AppBarWidget extends ConsumerWidget implements PreferredSizeWidget {
   final String texto;
   final bool flecha;
+  final int pagina;
 
   const AppBarWidget({
     super.key,
     required this.texto,
     this.flecha = false, // valor por defecto
+    this.pagina = 0,
   });
 
   @override
@@ -30,7 +32,7 @@ class AppBarWidget extends ConsumerWidget implements PreferredSizeWidget {
                 color: Color.fromARGB(255, 0, 0, 0),
               ),
               onPressed: () {
-                ref.read(bottomNavIndexProvider.notifier).state = 0;
+                ref.read(bottomNavIndexProvider.notifier).state = pagina;
                 Navigator.maybePop(context);
               },
             )

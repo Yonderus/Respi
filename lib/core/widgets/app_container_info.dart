@@ -84,14 +84,19 @@ class app_container_info extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
-                          pista.text,
-                          style: textTheme.bodyLarge?.copyWith(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 19,
-                            color: colorScheme.onSurface,
+                        Expanded(
+                          child: Text(
+                            pista.text,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: textTheme.bodyLarge?.copyWith(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 19,
+                              color: colorScheme.onSurface,
+                            ),
                           ),
                         ),
+                        SizedBox(width: 5),
                         Text(
                           "${pista.price}€\n/hora",
                           textAlign: TextAlign.right,

@@ -19,15 +19,13 @@ SizedBox app_text_field(
       controller: controller,
       obscureText: obscureText,
       validator: validator,
-      style: TextStyle(color: textColor ?? Colors.black), // color del texto
+      style: TextStyle(color: textColor), // color del texto
       decoration: InputDecoration(
         hintText: label,
-        hintStyle: TextStyle(
-          color: textColor?.withValues(alpha: 0.6) ?? Colors.grey,
-        ),
-        prefixIcon: Icon(icon, color: iconColor ?? Colors.grey),
+        hintStyle: TextStyle(color: textColor?.withValues(alpha: 0.6)),
+        prefixIcon: Icon(icon, color: iconColor),
         filled: true,
-        fillColor: fillColor ?? Colors.white,
+        fillColor: fillColor,
         enabledBorder: OutlineInputBorder(
           // borde normal
           borderRadius: BorderRadius.circular(8),
@@ -39,10 +37,7 @@ SizedBox app_text_field(
         focusedBorder: OutlineInputBorder(
           // borde cuando el campo esta enfocado
           borderRadius: BorderRadius.circular(8),
-          borderSide: BorderSide(
-            color: borderColor ?? Colors.blueAccent,
-            width: 2,
-          ),
+          borderSide: BorderSide(color: borderColor ?? Colors.red, width: 2),
         ),
       ),
     ),

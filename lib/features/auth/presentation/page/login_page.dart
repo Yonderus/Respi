@@ -93,7 +93,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
 
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withValues(alpha: 0.5),
+                      color: cs.onPrimary.withValues(alpha: 0.5),
                       blurRadius: 10,
                       offset: const Offset(0, 5),
                     ),
@@ -123,8 +123,8 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                         child: ElevatedButton(
                           onPressed: () {},
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.white,
-                            foregroundColor: Colors.black,
+                            backgroundColor: cs.onTertiary,
+                            foregroundColor: cs.onPrimary,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(40),
                             ),
@@ -159,7 +159,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                       // Separador
                       Text(
                         "--------------- ${l10n.or} ---------------",
-                        style: TextStyle(fontSize: 14, color: Colors.white),
+                        style: TextStyle(fontSize: 14, color: cs.onSecondary),
                       ),
                       const SizedBox(height: 15),
 
@@ -175,7 +175,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                           }
                           return null;
                         },
-                        fillColor: cs.surfaceVariant, // fondo de la caja
+                        fillColor: cs.secondary, // fondo de la caja
                         iconColor: cs.primary, // color del icono
                         textColor: cs.onSurface, // color del texto
                         borderColor: cs.inverseSurface, // color del borde
@@ -194,7 +194,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                           }
                           return null;
                         },
-                        fillColor: cs.surfaceVariant, // fondo de la caja
+                        fillColor: cs.secondary, // fondo de la caja
                         iconColor: cs.primary, // color del icono
                         textColor: cs.onSurface, // color del texto
                         borderColor: cs.inverseSurface, // color del borde

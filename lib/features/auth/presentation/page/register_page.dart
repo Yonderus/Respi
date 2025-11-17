@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:respi/core/l10n/app_localizations.dart';
 import 'package:respi/core/widgets/app_text_field.dart';
 import 'package:respi/core/widgets/app_title_text.dart';
 import 'package:intl/intl.dart';
@@ -12,22 +13,13 @@ class RegisterPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final cs = theme.colorScheme;
+    final l10n = AppLocalizations.of(context)!;
 
     final TextEditingController dateController = TextEditingController();
 
     return Scaffold(
+      backgroundColor: theme.scaffoldBackgroundColor,
       body: Container(
-        decoration: const BoxDecoration(
-          gradient: SweepGradient(
-            center: Alignment.topLeft,
-            startAngle: -7.0,
-            colors: [
-              Color.fromARGB(255, 255, 255, 255),
-              Color.fromARGB(255, 91, 91, 91),
-            ],
-          ),
-        ),
-
         child: Center(
           child: SingleChildScrollView(
             child: Column(
@@ -47,11 +39,11 @@ class RegisterPage extends StatelessWidget {
                   padding: const EdgeInsets.all(40),
                   width: 340,
                   decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 72, 72, 72),
+                    color: cs.secondary,
                     borderRadius: BorderRadius.circular(16),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withOpacity(0.5),
+                        color: cs.onPrimary.withValues(alpha: 0.5),
                         blurRadius: 10,
                         offset: const Offset(0, 5),
                       ),
@@ -62,15 +54,29 @@ class RegisterPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      const AppTitleText(text: "Bienvenido a ResPi"),
+                      AppTitleText(
+                        text: l10n.welcomeRespi,
+                        color: cs.onSecondary,
+                      ),
                       const SizedBox(height: 6),
-                      const Text(
+                      Text(
                         "Register to continue",
-                        style: TextStyle(fontSize: 14, color: Colors.white),
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: cs.onSurface.withValues(alpha: 0.8),
+                        ),
                       ),
                       const SizedBox(height: 20),
 
-                      app_text_field(' Email', Icons.email, false),
+                      app_text_field(
+                        ' Email',
+                        Icons.email,
+                        false,
+                        fillColor: cs.secondary,
+                        iconColor: cs.primary,
+                        textColor: cs.onSurface,
+                        borderColor: cs.inverseSurface,
+                      ),
 
                       const SizedBox(height: 12),
 
@@ -78,6 +84,10 @@ class RegisterPage extends StatelessWidget {
                         'Name',
                         Icons.supervised_user_circle,
                         false,
+                        fillColor: cs.secondary,
+                        iconColor: cs.primary,
+                        textColor: cs.onSurface,
+                        borderColor: cs.inverseSurface,
                       ),
 
                       const SizedBox(height: 12),
@@ -86,6 +96,10 @@ class RegisterPage extends StatelessWidget {
                         'Surname',
                         Icons.supervised_user_circle_outlined,
                         false,
+                        fillColor: cs.secondary,
+                        iconColor: cs.primary,
+                        textColor: cs.onSurface,
+                        borderColor: cs.inverseSurface,
                       ),
 
                       const SizedBox(height: 12),
@@ -94,6 +108,10 @@ class RegisterPage extends StatelessWidget {
                         'Locality',
                         Icons.location_on_outlined,
                         false,
+                        fillColor: cs.secondary,
+                        iconColor: cs.primary,
+                        textColor: cs.onSurface,
+                        borderColor: cs.inverseSurface,
                       ),
 
                       const SizedBox(height: 12),
@@ -136,11 +154,27 @@ class RegisterPage extends StatelessWidget {
 
                       const SizedBox(height: 12),
 
-                      app_text_field('Phone', Icons.phone, false),
+                      app_text_field(
+                        'Phone',
+                        Icons.phone,
+                        false,
+                        fillColor: cs.secondary,
+                        iconColor: cs.primary,
+                        textColor: cs.onSurface,
+                        borderColor: cs.inverseSurface,
+                      ),
 
                       const SizedBox(height: 12),
 
-                      app_text_field(' Password', Icons.lock, true),
+                      app_text_field(
+                        ' Password',
+                        Icons.lock,
+                        true,
+                        fillColor: cs.secondary,
+                        iconColor: cs.primary,
+                        textColor: cs.onSurface,
+                        borderColor: cs.inverseSurface,
+                      ),
 
                       const SizedBox(height: 25),
 

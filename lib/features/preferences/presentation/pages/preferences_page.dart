@@ -16,7 +16,9 @@ class PreferencesPage extends ConsumerWidget {
     final language = ref.watch(languageProvider);
 
     return Scaffold(
-      appBar: AppBarWidget(texto: l10n.preferences, flecha: true),
+      //Pagina 3 es para que te lleva a la pagina tres del bottomnavbar
+      //que seria la poagina del perfil
+      appBar: AppBarWidget(texto: l10n.preferences, flecha: true, pagina: 3),
 
       body: Center(
         child: Column(
