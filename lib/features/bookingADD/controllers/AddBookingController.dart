@@ -1,0 +1,25 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:respi/features/bookingADD/data/models/bookingAdd.dart';
+import 'package:respi/features/bookingADD/data/repositories/BookingAdd_Repository.dart';
+
+class AddBookingController extends AsyncNotifier<List<BookingAdd>> {
+  late final BookingAddRepository _repo;
+
+  @override
+  Future<List<BookingAdd>> build() async {
+    _repo = BookingAddRepository();
+    return _repo.fetchAll();
+  }
+
+  Future<void> addNewBooking(BookingAdd booking) async {
+    state = const AsyncLoading();
+    await _repo.addBooking(booking);
+    state = AsyncValue.data(await _repo.fetchAll());
+  }
+}
+
+// Provider para usar el controller en cualquier widget
+final bookingAddProvider =
+    AsyncNotifierProvider<AddBookingController, List<BookingAdd>>(
+      () => AddBookingController(),
+    );

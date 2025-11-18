@@ -108,7 +108,7 @@ class app_container_join extends StatelessWidget {
                     const SizedBox(height: 10),
 
                     // Botón Unirse
-                    Center(child: AppButton(text: "Unirse")),
+                    Center(child: AppButton(text: "Unirse", radius: 16.0)),
                   ],
                 ),
               ),

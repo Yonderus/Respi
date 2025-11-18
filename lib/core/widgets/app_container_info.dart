@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:respi/core/widgets/app_button.dart';
+import 'package:respi/features/bookingADD/presentation/pages/addBooking_page.dart';
+import 'package:respi/providers/selected_booking_provider.dart';
+import 'package:respi/providers/menuSport_provaider.dart';
 import 'package:respi/features/bookings/data/models/CourtBooking.dart';
 import 'buildTag.dart';
 
 // ignore: camel_case_types
-class app_container_info extends StatelessWidget {
+class app_container_info extends ConsumerWidget {
   // final String routeImg;
   // final String text;
   // final String price;
@@ -22,7 +26,7 @@ class app_container_info extends StatelessWidget {
   const app_container_info({super.key, required this.pista});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
     final textTheme = theme.textTheme;
@@ -123,7 +127,26 @@ class app_container_info extends StatelessWidget {
                     const SizedBox(height: 10),
 
                     // Boton reservar
-                    Center(child: AppButton(text: "Reservar")),
+                    Center(
+                      child: AppButton(
+                        text: "Reservar",
+                        radius: 16.0,
+                        onPressed: () {
+                          // Guarda la pista seleccionada en el provider y el deporte
+                          ref.read(selectedBookingProvider.notifier).state =
+                              pista;
+                          ref.read(selectedSportProvider.notifier).state =
+                              pista.sport;
+
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const AddbookingPage(),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
                   ],
                 ),
               ),
