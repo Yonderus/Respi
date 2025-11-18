@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:respi/core/widgets/app_button.dart';
 import 'package:respi/core/widgets/buildTag.dart';
+import 'package:respi/core/l10n/app_localizations.dart';
 
 // ignore: camel_case_types
 class app_container_join extends StatelessWidget {
@@ -24,6 +25,7 @@ class app_container_join extends StatelessWidget {
     final theme = Theme.of(context);
     final cs = theme.colorScheme;
     final textTheme = theme.textTheme;
+    final t = AppLocalizations.of(context)!;
 
     return SizedBox(
       width: 400,
@@ -33,7 +35,7 @@ class app_container_join extends StatelessWidget {
         child: Stack(
           fit: StackFit.expand,
           children: [
-            // Fondo con imagen
+            // Imagen de fondo
             Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12),
@@ -44,17 +46,19 @@ class app_container_join extends StatelessWidget {
               ),
             ),
 
-            // Etiquetas arriba de la imagen
+            // Faltan X personas (traducido)
             if (personasNecesarias != null)
               Positioned(
                 top: 10,
                 left: 10,
                 child: buildTag(
                   context,
-                  "Faltan $personasNecesarias persona${personasNecesarias == 1 ? '' : 's'}",
+                  t.join_missingPeople(personasNecesarias!),
                   textColor: cs.primary,
                 ),
               ),
+
+            // Nivel (Principiante / Intermedio...)
             if (level != null)
               Positioned(
                 top: 10,
@@ -79,22 +83,29 @@ class app_container_join extends StatelessWidget {
                   vertical: 10,
                 ),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    // Línea de información
+                    // Nombre y precio
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
-                          text,
-                          style: textTheme.bodyLarge?.copyWith(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 19,
-                            color: cs.onSurface,
+                        //Expanded con maxlines 2 para que haga un
+                        //salto de linea que queda mejor que los 3 puntos que
+                        //habian antes
+                        Expanded(
+                          child: Text(
+                            text,
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                            style: textTheme.bodyLarge?.copyWith(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 19,
+                              color: cs.onSurface,
+                            ),
                           ),
                         ),
+
                         Text(
-                          "$pricePerson€\n/persona",
+                          "$pricePerson€\n${t.join_perPerson}",
                           textAlign: TextAlign.right,
                           style: textTheme.bodyMedium?.copyWith(
                             color: cs.onSurface.withValues(alpha: 0.7),
@@ -107,8 +118,10 @@ class app_container_join extends StatelessWidget {
 
                     const SizedBox(height: 10),
 
-                    // Botón Unirse
-                    Center(child: AppButton(text: "Unirse", radius: 16.0)),
+                    // Botón de Unirse (traducido)
+                    Center(
+                      child: AppButton(text: t.join_joinButton, radius: 16.0),
+                    ),
                   ],
                 ),
               ),

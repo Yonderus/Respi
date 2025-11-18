@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:respi/core/l10n/app_localizations.dart';
+import 'package:respi/core/l10n/join_translations.dart';
 import 'package:respi/core/widgets/app_container_join.dart';
 import 'package:respi/features/join/controllers/JoinController.dart';
 
@@ -14,7 +15,7 @@ class JoinPage extends ConsumerStatefulWidget {
 class _JoinPageState extends ConsumerState<JoinPage> {
   @override
   Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context)!;
+    final t = AppLocalizations.of(context)!;
     final theme = Theme.of(context);
     final cs = theme.colorScheme;
 
@@ -31,7 +32,7 @@ class _JoinPageState extends ConsumerState<JoinPage> {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Text(
-              '${l10n.selectCourt}:',
+              '${t.selectCourt}:',
               style: TextStyle(
                 color: cs.onSurface,
                 fontSize: 24,
@@ -53,12 +54,13 @@ class _JoinPageState extends ConsumerState<JoinPage> {
                 shrinkWrap: true,
                 itemBuilder: (context, index) {
                   final partida = partidasList[index];
+
                   return app_container_join(
-                    text: partida.text,
+                    text: t.joinName(partida.text),
                     pricePerson: partida.pricePerson,
                     routeImage: partida.routeImage,
                     personasNecesarias: partida.personasNecesarias,
-                    level: partida.level,
+                    level: t.joinLevel(partida.level),
                   );
                 },
               ),

@@ -27,7 +27,7 @@ class InitPage extends ConsumerWidget {
           children: [
             // --- TEXTO DE ACCESO RÁPIDO ---
             Padding(
-              padding: const EdgeInsets.only(left: 40, top: 20),
+              padding: const EdgeInsets.only(left: 10, top: 20),
               child: Text(
                 l10n.fastAcces,
                 style: TextStyle(
@@ -77,7 +77,7 @@ class InitPage extends ConsumerWidget {
 
             // --- TEXTO DE PRÓXIMAS RESERVAS ---
             Padding(
-              padding: const EdgeInsets.only(left: 40, top: 20),
+              padding: const EdgeInsets.only(left: 10, top: 20),
               child: Text(
                 l10n.upcomingReservations,
                 style: TextStyle(
@@ -148,9 +148,9 @@ class InitPage extends ConsumerWidget {
 
             // --- TEXTO DE RESEÑAS ---
             Padding(
-              padding: const EdgeInsets.only(left: 40, top: 20),
+              padding: const EdgeInsets.only(left: 10, top: 20),
               child: Text(
-                'Reseñas de Reservas',
+                l10n.reservationReviews,
                 style: TextStyle(
                   color: cs.onSurface,
                   fontSize: 24,
@@ -165,15 +165,15 @@ class InitPage extends ConsumerWidget {
                 const SizedBox(height: 10),
                 app_container_review(
                   route: 'lib/assets/images/tennis.png',
-                  sport: 'Tenis',
-                  locate: 'Pista 12',
+                  sport: l10n.tennis,
+                  locate: '${l10n.tennisCourt} 12',
                   stars: 4,
                 ),
                 const SizedBox(height: 10),
                 app_container_review(
                   route: 'lib/assets/images/basketball-ball-variant.png',
-                  sport: 'Baloncesto',
-                  locate: 'Cancha 3',
+                  sport: l10n.basketball,
+                  locate: '${l10n.basketBallCourt} 3',
                   stars: 2,
                 ),
               ],

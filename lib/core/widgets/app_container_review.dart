@@ -24,7 +24,7 @@ class app_container_review extends StatelessWidget {
     ).size.width; // ancho del dispositivo
 
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 8),
       child: SizedBox(
         width: screenWidth, // ocupa todo el ancho del dispositivo
         height: 100,

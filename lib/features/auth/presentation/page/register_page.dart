@@ -60,7 +60,7 @@ class RegisterPage extends StatelessWidget {
                       ),
                       const SizedBox(height: 6),
                       Text(
-                        "Register to continue",
+                        l10n.registerToContinue,
                         style: TextStyle(
                           fontSize: 14,
                           color: cs.onSurface.withValues(alpha: 0.8),
@@ -69,7 +69,7 @@ class RegisterPage extends StatelessWidget {
                       const SizedBox(height: 20),
 
                       app_text_field(
-                        ' Email',
+                        l10n.email,
                         Icons.email,
                         false,
                         fillColor: cs.secondary,
@@ -81,7 +81,7 @@ class RegisterPage extends StatelessWidget {
                       const SizedBox(height: 12),
 
                       app_text_field(
-                        'Name',
+                        l10n.name,
                         Icons.supervised_user_circle,
                         false,
                         fillColor: cs.secondary,
@@ -93,7 +93,7 @@ class RegisterPage extends StatelessWidget {
                       const SizedBox(height: 12),
 
                       app_text_field(
-                        'Surname',
+                        l10n.surname,
                         Icons.supervised_user_circle_outlined,
                         false,
                         fillColor: cs.secondary,
@@ -105,7 +105,7 @@ class RegisterPage extends StatelessWidget {
                       const SizedBox(height: 12),
 
                       app_text_field(
-                        'Locality',
+                        l10n.city,
                         Icons.location_on_outlined,
                         false,
                         fillColor: cs.secondary,
@@ -121,20 +121,20 @@ class RegisterPage extends StatelessWidget {
                         controller: dateController,
                         readOnly: true,
                         decoration: InputDecoration(
-                          labelText: 'Date of Birth',
-                          labelStyle: const TextStyle(color: Colors.white),
-                          prefixIcon: const Icon(
+                          labelText: l10n.dateBirth,
+                          labelStyle: TextStyle(color: cs.onTertiary),
+                          prefixIcon: Icon(
                             Icons.calendar_today,
-                            color: Colors.white,
+                            color: cs.onTertiary,
                           ),
                           filled: true,
-                          fillColor: const Color.fromARGB(255, 91, 91, 91),
+                          fillColor: cs.tertiary,
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8),
                             borderSide: BorderSide.none,
                           ),
                         ),
-                        style: const TextStyle(color: Colors.white),
+                        style: TextStyle(color: cs.onTertiary),
                         onTap: () async {
                           final DateTime? pickedDate = await showDatePicker(
                             context: context,
@@ -155,7 +155,7 @@ class RegisterPage extends StatelessWidget {
                       const SizedBox(height: 12),
 
                       app_text_field(
-                        'Phone',
+                        l10n.phone,
                         Icons.phone,
                         false,
                         fillColor: cs.secondary,
@@ -167,7 +167,7 @@ class RegisterPage extends StatelessWidget {
                       const SizedBox(height: 12),
 
                       app_text_field(
-                        ' Password',
+                        l10n.password,
                         Icons.lock,
                         true,
                         fillColor: cs.secondary,
@@ -192,14 +192,14 @@ class RegisterPage extends StatelessWidget {
                             );
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color(0xFFDDF864),
-                            foregroundColor: Colors.black,
+                            backgroundColor: cs.primary,
+                            foregroundColor: cs.onPrimary,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(8),
                             ),
                           ),
-                          child: const Text(
-                            "Create Account",
+                          child: Text(
+                            l10n.createAccount,
                             style: TextStyle(fontWeight: FontWeight.bold),
                           ),
                         ),

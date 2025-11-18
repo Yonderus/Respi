@@ -4,18 +4,22 @@
   "signinContinue": "Sign in to continue",
   "welcomeRespi": "Welcome to ResPi",
   "continueGoogle": "Continue with Google",
-  "email": " email",
-  "password": " password",
+  "email": " Email",
+  "password": " Password",
   "or": "OR",
   "signin": "Sign In",
   "welcomeRespiExcl": "Welcome to ResPi!",
 
   "fastAcces": "Fast Acces",
   "newReservation": "New reservation",
-  "joinin": "Join In a game",
+  "joinin": "Join a game",
+
   "basketball": "Basketball",
   "football": "Football",
   "padel": "Padel",
+  "tennis": "Tennis",
+
+
   "upcomingReservations": "Upcoming Reservations",
   "preferences": "Preferences",
   "darkMode": "Dark Mode",
@@ -29,5 +33,127 @@
 
   "joinParty": "Join",
 
-  "selectCourt": "Select a court"
+  "selectCourt": "Select a court",
+
+  "enterCredentials": "Please , enter user and password",
+
+  "loginFailed": "Login failed",
+  "enterEmail": "You have to enter an email",
+  "enterPassword": "You have to enter a password",
+  "createAccount": "Create account",
+  "registerToContinue": "Register to continue",
+
+  "phone": "Phone",
+  "name": "Name",
+  "surname": "Surname",
+  "city": "City",
+  "dateBirth": "Date of Birth",
+
+  "reservationReviews": "Booking reviews",
+  "basketBallCourt": "Basketball Court",
+  "tennisCourt": "Tennis court",
+
+  "basketCourt": "Basketball Court",
+  "basketCourtOutdoor": "Outdoor Basketball Court",
+  "padelIndoorCourt": "Indoor Padel Court",
+  "padelCourt": "Padel Court",
+  "football11Field": "Football 11 Field",
+  "tennisCourt": "Tennis Court",
+
+
+  
+  "courtNameBasket": "Basketball Court",
+  "courtNamePadelIndoor": "Indoor Padel Court",
+  "courtNameFutbol": "11-a-Side Football Field",
+  "courtNameTenis": "Tennis Court",
+  "courtNamePadel": "Padel Court",
+  "courtNameBasketExterior": "Outdoor Basketball Court",
+
+  "courtLocationExterior": "Outdoor Court, Respi Sports Center",
+  "courtLocationIndoor": "Indoor Court, Respi Sports Center",
+  "courtLocationCampoExterior": "Outdoor Field, Respi Sports Center",
+
+  "tagConcrete": "Concrete",
+  "tagExterior": "Outdoor",
+  "tagIndoor": "Covered",
+  "tagLighted": "Lighted",
+  "tagGrass": "Grass",
+  "tagClay": "Clay",
+
+  "capacity10": "10 people",
+  "capacity4": "4 people",
+  "capacity22": "22 people",
+  "capacity3": "3 people",
+
+  "charLedLight": "LED lighting",
+  "charParquet": "Non-slip parquet floor",
+  "charVentilation": "Advanced ventilation system",
+
+  "charWindows": "Panoramic windows",
+  "charArtificialGrass": "Artificial grass floor",
+  "charLedHigh": "High-efficiency LED lighting",
+
+  "charPadelRackets": "Padel rackets available",
+
+  "charNaturalGrass": "High-quality natural grass",
+  "charNightLight": "Night lighting",
+
+  "charClaySurface": "Professional clay surface",
+  "charStrongNet": "High-resistance net",
+
+  "charAdvancedVentilation": "Advanced ventilation",
+  "charCorkFloor": "Non-slip cork floor",
+
+  "charWeatherResistantBoards": "Weather-resistant backboards",
+
+  "descBasket": "Basketball court with LED lighting, non-slip parquet floor and advanced ventilation system.",
+  "descPadelIndoor": "Indoor padel court with panoramic windows, artificial grass floor and high-efficiency LED lighting.",
+  "descFutbol": "11-a-side football field with high-quality natural grass and night lighting.",
+  "descTenis": "Tennis court with professional clay surface and high-resistance net.",
+  "descPadel": "Covered padel court with advanced ventilation and non-slip cork floor.",
+  "descBasketExterior": "Outdoor basketball court with LED lighting and weather-resistant backboards.",
+
+  "reserveNow": "Reserve",
+  "courtInfo": "Court Information",
+  "capacity": "Capacity",
+  "characteristics": "Characteristics",
+  "description": "Description",
+  "close": "Close",
+
+  "join_basket_3v3": "3v3 Basketball Court",
+  "join_padel_doble": "Double Padel Court",
+  "join_futbol7": "7-a-side Football Field",
+  "join_tenis_individual": "Single Tennis Court",
+  "join_voley_2v2": "2v2 Beach Volleyball Court",
+
+  "join_level_beginner": "Beginner",
+  "join_level_intermediate": "Intermediate",
+
+  "selectCourt": "Select a court",
+
+  "join_missingPeople": "{count, plural, one {{count} person needed} other {{count} people needed}}",
+  "@join_missingPeople": {
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "join_perPerson": "/person",
+  "join_joinButton": "Join",
+  "booking_perHour": "/hour",
+
+  "filter_all": "All",
+  "filter_basket": "Basketball",
+  "filter_padel": "Padel",
+  "filter_futbol": "Football",
+  "filter_tennis": "Tennis",
+
+  "profileReservations": "Bookings",
+  "profileMyReservations": "My bookings",
+  "profileMyReservationsSubtitle": "View your active and past bookings",
+  "profileAlerts": "Alerts",
+  "profileAlertsSubtitle": "Manage notifications and reminders",
+  "profileLogout": "Log out"
+
+
+
 }

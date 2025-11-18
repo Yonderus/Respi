@@ -10,12 +10,12 @@
 
   "continueGoogle": "Seguir con Google",
 
-  "email": " correo",
+  "email": " Correo electrónico",
    "@email": {
     "description": "Texto que aparece en la cajita donde se introduce el email"
   },
 
-  "password": " contraseña",
+  "password": " Contraseña",
   "@password": {
     "description": "Texto que aparece en la cajita donde se introduce la contraseña"
   },
@@ -42,12 +42,15 @@
   "basketball": "Baloncesto",
   "football": "Fútbol",
   "padel": "Pádel",
+  "tennis": "Tenis",
 
   "upcomingReservations": "Proximas Reservas",
+
   "preferences": "Ajustes",
   "@preferences": {
     "description": "titulo appbar de pagina de ajustes"
   },
+
   "darkMode": "Modo Oscuro",
   "language": "Idioma",
 
@@ -59,5 +62,135 @@
 
   "joinParty": "Unirse",
 
-  "selectCourt": "Selecione una partida"
+  "selectCourt": "Selecione una partida",
+
+  "enterCredentials": "Por favor, introduce usuario y contraseña",
+  "@enterCredentials": {
+    "description": "Mensaje que salta cuando se hace login sin rellenar campos"
+  },
+
+  "loginFailed": "Login fallido",
+  "enterEmail": "Tienes que introducir un email",
+  "enterPassword": "Tienes que introducir una contraseña",
+  "createAccount": "Crear cuenta",
+  "registerToContinue": "Registrarse para continuar",
+
+  "phone": "Teléfono",
+  "name": "Nombre",
+  "surname": "Apellido",
+  "city": "Localidad",
+  "dateBirth": "Fecha de nacimiento",
+
+  "reservationReviews": "Reseñas de Reservas",
+  "basketBallCourt": "Cancha",
+  "tennisCourt": "Pista de Tennis",
+
+  "basketCourt": "Cancha de Baloncesto",
+  "basketCourtOutdoor": "Cancha de Baloncesto Exterior",
+  "padelIndoorCourt": "Pista de Pádel Indoor",
+  "padelCourt": "Pista de Pádel",
+  "football11Field": "Campo de Fútbol 11",
+  "tennisCourt": "Pista de Tenis",
+
+
+  "courtNameBasket": "Cancha de Baloncesto",
+  "courtNamePadelIndoor": "Pista de Pádel Indoor",
+  "courtNameFutbol": "Campo de Fútbol 11",
+  "courtNameTenis": "Pista de Tenis",
+  "courtNamePadel": "Pista de Pádel",
+  "courtNameBasketExterior": "Cancha de Baloncesto Exterior",
+
+  "courtLocationExterior": "Pista Exterior, Centro Deportivo Respi",
+  "courtLocationIndoor": "Pista Indoor, Centro Deportivo Respi",
+  "courtLocationCampoExterior": "Campo Exterior, Centro Deportivo Respi",
+
+  "tagConcrete": "Concreto",
+  "tagExterior": "Exterior",
+  "tagIndoor": "Cubierta",
+  "tagLighted": "Iluminada",
+  "tagGrass": "Césped",
+  "tagClay": "Arcilla",
+
+  "capacity10": "10 personas",
+  "capacity4": "4 personas",
+  "capacity22": "22 personas",
+  "capacity3": "3 personas",
+
+  "charLedLight": "Iluminación LED",
+  "charParquet": "Suelo de parquet antideslizante",
+  "charVentilation": "Sistema de ventilación avanzado",
+
+  "charWindows": "Ventanales panorámicos",
+  "charArtificialGrass": "Suelo de césped artificial",
+  "charLedHigh": "Iluminación LED de alta eficiencia",
+
+  "charPadelRackets": "Palas de pádel disponibles",
+
+  "charNaturalGrass": "Césped natural de alta calidad",
+  "charNightLight": "Iluminación nocturna",
+
+  "charClaySurface": "Superficie de arcilla profesional",
+  "charStrongNet": "Red de alta resistencia",
+
+  "charAdvancedVentilation": "Ventilación avanzada",
+  "charCorkFloor": "Suelo de corcho antideslizante",
+
+  "charWeatherResistantBoards": "Tableros resistentes a la intemperie",
+
+  "descBasket": "Cancha de baloncesto con iluminación LED, suelo de parquet antideslizante y sistema de ventilación avanzado.",
+  "descPadelIndoor": "Pista de pádel indoor con ventanales panorámicos, suelo de césped artificial e iluminación LED de alta eficiencia.",
+  "descFutbol": "Campo de fútbol 11 con césped natural de alta calidad e iluminación nocturna.",
+  "descTenis": "Pista de tenis con superficie de arcilla profesional y red de alta resistencia.",
+  "descPadel": "Pista de pádel cubierta con ventilación avanzada y suelo de corcho antideslizante.",
+  "descBasketExterior": "Cancha de baloncesto con iluminación LED y tableros resistentes a la intemperie.",
+
+  "reserveNow": "Reservar",
+  "courtInfo": "Información de Pista",
+  "capacity": "Capacidad",
+  "characteristics": "Características",
+  "description": "Descripción",
+  "close": "Cerrar",
+
+  "join_basket_3v3": "Cancha de Basket 3 vs 3",
+  "join_padel_doble": "Pista de Pádel Doble",
+  "join_futbol7": "Campo de Fútbol 7",
+  "join_tenis_individual": "Cancha de Tenis Individual",
+  "join_voley_2v2": "Cancha de Vóley Playa 2 vs 2",
+
+  "join_level_beginner": "Principiante",
+  "join_level_intermediate": "Intermedio",
+
+  "selectCourt": "Selecciona una pista",
+
+  "join_missingPeople": "{count, plural, one {Falta {count} persona} other {Faltan {count} personas}}",
+  "@join_missingPeople": {
+    "placeholders": {
+      "count": {}
+    }
+  },
+
+  "join_perPerson": "/persona",
+  "join_joinButton": "Unirse",
+  "booking_perHour": "/hora",
+
+  "filter_all": "Todos",
+  "filter_basket": "Basket",
+  "filter_padel": "Pádel",
+  "filter_futbol": "Fútbol",
+  "filter_tennis": "Tenis",
+
+  "profileReservations": "Reservas",
+  "profileMyReservations": "Mis reservas",
+  "profileMyReservationsSubtitle": "Consulta tus reservas activas y pasadas",
+  "profileAlerts": "Alertas",
+  "profileAlertsSubtitle": "Controla notificaciones y recordatorios",
+  "profileLogout": "Cerrar sesión"
+
+
+
+
+
+
+
+
 }
