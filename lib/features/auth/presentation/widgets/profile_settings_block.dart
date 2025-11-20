@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:respi/features/auth/presentation/page/login_page.dart';
+import 'package:respi/features/Users/presentation/page/login_page.dart';
 import 'package:respi/features/preferences/presentation/pages/preferences_page.dart';
 
 class ProfileSettingsBlock extends StatelessWidget {

@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:respi/core/utils/app_services.dart';
 import 'package:respi/core/utils/constants.dart';
-import 'package:respi/features/auth/data/models/user.dart';
+import 'package:respi/features/Users/data/models/Users.dart';
 
 class AuthRepository {
   Future<Map<String, dynamic>> login({
@@ -29,10 +29,10 @@ class AuthRepository {
     return data;
   }
 
-  Future<User> getLoggedUserData() async {
-    final response = await AppServices.dio.get('/auth/me');
-    return User.fromMap(response.data as Map<String, dynamic>);
-  }
+  // Future<User> getLoggedUserData() async {
+  //   final response = await AppServices.dio.get('/auth/me');
+  //   // return User.fromMap(response.data as Map<String, dynamic>);
+  // }
 
   Future<void> logout() async {
     await AppServices.storage.delete(key: tokenKey);
