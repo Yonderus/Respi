@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:respi/core/widgets/app_button.dart';
 import 'package:respi/core/widgets/buildTag.dart';
 import 'package:respi/core/l10n/app_localizations.dart';
+import 'package:respi/features/bookingADD/presentation/pages/addBooking_page.dart';
 
 // ignore: camel_case_types
 class app_container_join extends StatelessWidget {
@@ -120,7 +121,18 @@ class app_container_join extends StatelessWidget {
 
                     // Botón de Unirse (traducido)
                     Center(
-                      child: AppButton(text: t.join_joinButton, radius: 16.0),
+                      child: AppButton(
+                        text: t.join_joinButton,
+                        radius: 16.0,
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const AddbookingPage(),
+                            ),
+                          );
+                        },
+                      ),
                     ),
                   ],
                 ),

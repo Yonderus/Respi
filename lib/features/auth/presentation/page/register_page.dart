@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:respi/core/l10n/app_localizations.dart';
 import 'package:respi/core/widgets/app_text_field.dart';
 import 'package:respi/core/widgets/app_title_text.dart';
@@ -68,50 +67,34 @@ class RegisterPage extends StatelessWidget {
                       ),
                       const SizedBox(height: 20),
 
-                      app_text_field(
-                        l10n.email,
-                        Icons.email,
-                        false,
-                        fillColor: cs.secondary,
-                        iconColor: cs.primary,
-                        textColor: cs.onSurface,
-                        borderColor: cs.inverseSurface,
+                      AppTextField(
+                        label: l10n.email,
+                        icon: Icons.email,
+                        obscureText: false,
                       ),
 
                       const SizedBox(height: 12),
 
-                      app_text_field(
-                        l10n.name,
-                        Icons.supervised_user_circle,
-                        false,
-                        fillColor: cs.secondary,
-                        iconColor: cs.primary,
-                        textColor: cs.onSurface,
-                        borderColor: cs.inverseSurface,
+                      AppTextField(
+                        label: l10n.name,
+                        icon: Icons.supervised_user_circle,
+                        obscureText: false,
                       ),
 
                       const SizedBox(height: 12),
 
-                      app_text_field(
-                        l10n.surname,
-                        Icons.supervised_user_circle_outlined,
-                        false,
-                        fillColor: cs.secondary,
-                        iconColor: cs.primary,
-                        textColor: cs.onSurface,
-                        borderColor: cs.inverseSurface,
+                      AppTextField(
+                        label: l10n.surname,
+                        icon: Icons.supervised_user_circle_outlined,
+                        obscureText: false,
                       ),
 
                       const SizedBox(height: 12),
 
-                      app_text_field(
-                        l10n.city,
-                        Icons.location_on_outlined,
-                        false,
-                        fillColor: cs.secondary,
-                        iconColor: cs.primary,
-                        textColor: cs.onSurface,
-                        borderColor: cs.inverseSurface,
+                      AppTextField(
+                        label: l10n.city,
+                        icon: Icons.location_on_outlined,
+                        obscureText: false,
                       ),
 
                       const SizedBox(height: 12),
@@ -154,26 +137,18 @@ class RegisterPage extends StatelessWidget {
 
                       const SizedBox(height: 12),
 
-                      app_text_field(
-                        l10n.phone,
-                        Icons.phone,
-                        false,
-                        fillColor: cs.secondary,
-                        iconColor: cs.primary,
-                        textColor: cs.onSurface,
-                        borderColor: cs.inverseSurface,
+                      AppTextField(
+                        label: l10n.phone,
+                        icon: Icons.phone,
+                        obscureText: false,
                       ),
 
                       const SizedBox(height: 12),
 
-                      app_text_field(
-                        l10n.password,
-                        Icons.lock,
-                        true,
-                        fillColor: cs.secondary,
-                        iconColor: cs.primary,
-                        textColor: cs.onSurface,
-                        borderColor: cs.inverseSurface,
+                      AppTextField(
+                        label: l10n.password,
+                        icon: Icons.lock,
+                        obscureText: true,
                       ),
 
                       const SizedBox(height: 25),
