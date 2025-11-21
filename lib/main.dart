@@ -6,7 +6,11 @@ import 'package:respi/core/theme/app_theme.dart';
 import 'package:respi/features/Users/presentation/page/login_page.dart';
 import 'package:respi/features/preferences/presentation/providers/preferences_provider.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // Inicializamos notificaciones
+
   runApp(const ProviderScope(child: MainApp()));
 }
 

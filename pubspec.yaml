@@ -7,6 +7,8 @@ environment:
   sdk: ^3.9.2
 
 dependencies:
+  flutter_local_notifications: ^17.0.0
+
   dio: ^5.9.0
 
   flutter:
@@ -20,6 +22,7 @@ dependencies:
   shared_preferences: ^2.5.3
   dotted_border: ^3.1.0
   table_calendar: ^3.0.9
+  flutter_launcher_icons: ^0.14.4
 
 dev_dependencies:
   flutter_test:
@@ -34,7 +37,6 @@ flutter:
   assets:
     - lib/assets/images/
 
-flutter_icons:
-  android: true
+flutter_launcher_icons:
   ios: true
-  image_path: "/assets/Respi_Image_1.png"
+  image_path: "assets/icono.png"
