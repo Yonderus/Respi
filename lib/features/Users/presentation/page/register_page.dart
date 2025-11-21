@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:respi/core/l10n/app_localizations.dart';
+import 'package:respi/core/widgets/app_return_button_register.dart';
 import 'package:respi/core/widgets/app_text_field.dart';
 import 'package:respi/core/widgets/app_title_text.dart';
 import 'package:respi/features/Users/data/models/Users.dart';
@@ -273,6 +274,9 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                           ),
                         ),
                       ),
+
+                      const SizedBox(height: 25),
+                      AppReturnButtonRegister(),
                     ],
                   ),
                 ),

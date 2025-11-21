@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:respi/core/l10n/app_localizations.dart';
 import 'package:respi/features/Users/presentation/page/login_page.dart';
+import 'package:respi/features/Users/presentation/page/update_page.dart';
 import 'package:respi/features/Users/providers/auth_providers.dart';
 import 'package:respi/features/auth/presentation/widgets/profile_stats_box.dart';
 import 'package:respi/features/auth/presentation/widgets/quick_action_tile.dart';
@@ -46,19 +47,37 @@ class ProfilePage extends ConsumerWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          IconButton(
+                            onPressed: () {
+                              Navigator.pop(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => UpdatePage(),
+                                ),
+                              );
+                            },
+                            icon: Icon(Icons.edit),
+                          ),
+                        ],
+                      ),
                       //Foto de perfil (ahora RS)
                       CircleAvatar(
                         radius: 42,
                         backgroundColor: cs.primary,
                         child: Text(
-                          '+',
+                          '.  v  .',
                           style: textTheme.headlineSmall?.copyWith(
                             color: cs.onPrimary,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
                       ),
+
                       const SizedBox(height: 16),
+
                       //Nombre de usuario
                       Text(
                         user?.name ?? 'name',
