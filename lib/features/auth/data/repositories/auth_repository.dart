@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'package:respi/core/utils/app_services.dart';
 import 'package:respi/core/utils/constants.dart';
-import 'package:respi/features/Users/data/models/Users.dart';
 
 class AuthRepository {
   Future<Map<String, dynamic>> login({

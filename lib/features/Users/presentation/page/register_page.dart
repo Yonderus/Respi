@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
+import 'package:respi/core/l10n/app_localizations.dart';
 import 'package:respi/core/widgets/app_text_field.dart';
 import 'package:respi/core/widgets/app_title_text.dart';
 import 'package:respi/features/Users/data/models/Users.dart';
 import 'package:respi/features/Users/providers/auth_providers.dart';
+import 'package:respi/features/auth/presentation/page/home_page.dart';
 
 class RegisterPage extends ConsumerStatefulWidget {
   const RegisterPage({super.key});
@@ -107,23 +109,20 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final cs = theme.colorScheme;
+    final l10n = AppLocalizations.of(context)!;
+
+    final TextEditingController dateController = TextEditingController();
 
     return Scaffold(
+      backgroundColor: theme.scaffoldBackgroundColor,
       body: Container(
-        decoration: const BoxDecoration(
-          gradient: SweepGradient(
-            center: Alignment.topLeft,
-            startAngle: -7.0,
-            colors: [
-              Color.fromARGB(255, 255, 255, 255),
-              Color.fromARGB(255, 91, 91, 91),
-            ],
-          ),
-        ),
         child: Center(
           child: SingleChildScrollView(
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
+                // Logo superior
                 Image.asset(
                   'lib/assets/images/Respi_Image_1.png',
                   width: 120,
@@ -131,85 +130,95 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                 ),
                 const SizedBox(height: 30),
 
+                // Contenedor principal
                 Container(
                   padding: const EdgeInsets.all(40),
                   width: 340,
                   decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 72, 72, 72),
+                    color: cs.secondary,
                     borderRadius: BorderRadius.circular(16),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withOpacity(0.5),
+                        color: cs.onPrimary.withValues(alpha: 0.5),
                         blurRadius: 10,
                         offset: const Offset(0, 5),
                       ),
                     ],
                   ),
-
+                  // Contenido del login
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      const AppTitleText(text: "Bienvenido a ResPi"),
+                      AppTitleText(
+                        text: l10n.welcomeRespi,
+                        color: cs.onSecondary,
+                      ),
                       const SizedBox(height: 6),
-                      const Text(
-                        "Register to continue",
-                        style: TextStyle(fontSize: 14, color: Colors.white),
+                      Text(
+                        l10n.registerToContinue,
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: cs.onSurface.withValues(alpha: 0.8),
+                        ),
                       ),
                       const SizedBox(height: 20),
 
-                      app_text_field(
-                        "Email",
-                        Icons.email,
-                        false,
+                      AppTextField(
                         controller: _emailCtrl,
+                        label: l10n.email,
+                        icon: Icons.email,
+                        obscureText: false,
                       ),
 
                       const SizedBox(height: 12),
 
-                      app_text_field(
-                        "Name",
-                        Icons.person,
-                        false,
+                      AppTextField(
                         controller: _nameCtrl,
+                        label: l10n.name,
+                        icon: Icons.supervised_user_circle,
+                        obscureText: false,
                       ),
 
                       const SizedBox(height: 12),
 
-                      app_text_field(
-                        "Surname",
-                        Icons.person_outline,
-                        false,
+                      AppTextField(
                         controller: _surnameCtrl,
+                        label: l10n.surname,
+                        icon: Icons.supervised_user_circle_outlined,
+                        obscureText: false,
                       ),
 
                       const SizedBox(height: 12),
 
-                      app_text_field(
-                        "Locality",
-                        Icons.location_city,
-                        false,
+                      AppTextField(
                         controller: _localityCtrl,
+                        label: l10n.city,
+                        icon: Icons.location_on_outlined,
+                        obscureText: false,
                       ),
 
                       const SizedBox(height: 12),
 
+                      // Campo de fecha de nacimiento
                       TextField(
                         controller: _birthCtrl,
                         readOnly: true,
                         decoration: InputDecoration(
-                          labelText: 'Date of Birth',
-                          labelStyle: const TextStyle(color: Colors.white),
-                          prefixIcon: const Icon(
+                          labelText: l10n.dateBirth,
+                          labelStyle: TextStyle(color: cs.onTertiary),
+                          prefixIcon: Icon(
                             Icons.calendar_today,
-                            color: Colors.white,
+                            color: cs.onTertiary,
                           ),
                           filled: true,
-                          fillColor: const Color.fromARGB(255, 91, 91, 91),
+                          fillColor: cs.tertiary,
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8),
                             borderSide: BorderSide.none,
                           ),
                         ),
-                        style: const TextStyle(color: Colors.white),
+                        style: TextStyle(color: cs.onTertiary),
                         onTap: () async {
                           final pickedDate = await showDatePicker(
                             context: context,
@@ -217,7 +226,6 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                             firstDate: DateTime(1930),
                             lastDate: DateTime.now(),
                           );
-
                           if (pickedDate != null) {
                             _birthCtrl.text = DateFormat(
                               'dd/MM/yyyy',
@@ -228,38 +236,39 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
 
                       const SizedBox(height: 12),
 
-                      app_text_field(
-                        "Phone",
-                        Icons.phone,
-                        false,
+                      AppTextField(
                         controller: _phoneCtrl,
+                        label: l10n.phone,
+                        icon: Icons.phone,
+                        obscureText: false,
                       ),
 
                       const SizedBox(height: 12),
 
-                      app_text_field(
-                        "Password",
-                        Icons.lock,
-                        true,
+                      AppTextField(
                         controller: _passCtrl,
+                        label: l10n.password,
+                        icon: Icons.lock,
+                        obscureText: true,
                       ),
 
                       const SizedBox(height: 25),
 
+                      //Botón de crear cuenta
                       SizedBox(
                         width: 270,
                         height: 40,
                         child: ElevatedButton(
                           onPressed: _register,
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color(0xFFDDF864),
-                            foregroundColor: Colors.black,
+                            backgroundColor: cs.primary,
+                            foregroundColor: cs.onPrimary,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(8),
                             ),
                           ),
-                          child: const Text(
-                            "Create Account",
+                          child: Text(
+                            l10n.createAccount,
                             style: TextStyle(fontWeight: FontWeight.bold),
                           ),
                         ),

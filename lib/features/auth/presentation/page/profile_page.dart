@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:respi/core/l10n/app_localizations.dart';
 import 'package:respi/features/Users/presentation/page/login_page.dart';
+import 'package:respi/features/Users/providers/auth_providers.dart';
 import 'package:respi/features/auth/presentation/widgets/profile_stats_box.dart';
 import 'package:respi/features/auth/presentation/widgets/quick_action_tile.dart';
 import 'package:respi/features/preferences/presentation/pages/preferences_page.dart';
@@ -15,6 +16,7 @@ class ProfilePage extends ConsumerWidget {
     final cs = theme.colorScheme;
     final textTheme = theme.textTheme;
     final l10n = AppLocalizations.of(context)!;
+    final user = ref.watch(currentUserProvider);
 
     return Container(
       decoration: BoxDecoration(
@@ -49,7 +51,7 @@ class ProfilePage extends ConsumerWidget {
                         radius: 42,
                         backgroundColor: cs.primary,
                         child: Text(
-                          'RS',
+                          '+',
                           style: textTheme.headlineSmall?.copyWith(
                             color: cs.onPrimary,
                             fontWeight: FontWeight.bold,
@@ -59,7 +61,7 @@ class ProfilePage extends ConsumerWidget {
                       const SizedBox(height: 16),
                       //Nombre de usuario
                       Text(
-                        'Respi User',
+                        user?.name ?? 'name',
                         style: TextStyle(
                           fontSize: textTheme.headlineSmall?.fontSize,
                           fontWeight: FontWeight.bold,
@@ -70,7 +72,7 @@ class ProfilePage extends ConsumerWidget {
                       const SizedBox(height: 4),
                       //correo
                       Text(
-                        'usuario@respi.app',
+                        user?.email ?? 'email',
                         style: textTheme.bodyMedium?.copyWith(
                           color: cs.onSurface.withValues(alpha: 0.7),
                         ),

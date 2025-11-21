@@ -120,7 +120,11 @@ class app_container_join extends StatelessWidget {
 
                     // Botón de Unirse (traducido)
                     Center(
-                      child: AppButton(text: t.join_joinButton, radius: 16.0),
+                      child: AppButton(
+                        text: t.join_joinButton,
+                        radius: 16.0,
+                        onPressed: () {},
+                      ),
                     ),
                   ],
                 ),
