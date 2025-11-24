@@ -6,6 +6,7 @@ import 'package:respi/core/widgets/app_container_review.dart';
 import 'package:respi/core/widgets/listarReservas.dart';
 import 'package:respi/features/Users/providers/auth_providers.dart';
 import 'package:respi/features/bookings/presentation/pages/booking_page.dart';
+import 'package:respi/features/auth/presentation/widgets/swipe_card.dart';
 import 'package:respi/providers/bottom_nav_provider.dart';
 import 'package:respi/features/bookingADD/controllers/AddBookingController.dart';
 
@@ -31,7 +32,9 @@ class InitPage extends ConsumerWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            SizedBox(height: 10),
             // --- TEXTO DE ACCESO RÁPIDO ---
+            SwipeCard(),
             Padding(
               padding: const EdgeInsets.only(left: 10, top: 20),
               child: Text(
