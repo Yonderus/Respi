@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:respi/core/l10n/app_localizations.dart';
 import 'package:respi/core/widgets/app_button_access.dart';
-import 'package:respi/core/widgets/app_container_booking.dart';
-import 'package:respi/core/widgets/app_container_bookingAdd.dart';
 import 'package:respi/core/widgets/app_container_review.dart';
+import 'package:respi/core/widgets/listarReservas.dart';
+import 'package:respi/features/Users/providers/auth_providers.dart';
+import 'package:respi/features/bookings/presentation/pages/booking_page.dart';
 import 'package:respi/providers/bottom_nav_provider.dart';
 import 'package:respi/features/bookingADD/controllers/AddBookingController.dart';
 
@@ -17,6 +18,11 @@ class InitPage extends ConsumerWidget {
     final theme = Theme.of(context);
     final cs = theme.colorScheme;
 
+    // Usuario logueado
+    final user = ref.watch(currentUserProvider);
+    final String? userEmail = user?.email;
+
+    // Reservas añadidas (provider)
     final bookingAddAsync = ref.watch(bookingAddProvider);
 
     return Container(
@@ -51,8 +57,12 @@ class InitPage extends ConsumerWidget {
                         icon: Icons.calendar_today,
                         izquierda: false,
                         function: () {
-                          // Cambia la pestaña activa del BottomNavigationBar
-                          ref.read(bottomNavIndexProvider.notifier).state = 1;
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => BookingPage(),
+                            ),
+                          );
                         },
                       ),
                     ),
@@ -65,7 +75,6 @@ class InitPage extends ConsumerWidget {
                         icon: Icons.visibility,
                         izquierda: true,
                         function: () {
-                          // Cambia a la pestaña de "Unirse"
                           ref.read(bottomNavIndexProvider.notifier).state = 2;
                         },
                       ),
@@ -93,51 +102,28 @@ class InitPage extends ConsumerWidget {
               children: [
                 bookingAddAsync.when(
                   data: (reservas) {
-                    if (reservas.isEmpty) {
-                      return Center(child: AppContainerBookingAdd());
-                    } else {
-                      return Column(
-                        children: reservas.map((reserva) {
-                          // Elegir la imagen según el deporte
-                          String imagePath;
-                          switch (reserva.sport.toLowerCase()) {
-                            case 'basket':
-                              imagePath =
-                                  'lib/assets/images/basketball-ball-variant.png';
-                              break;
-                            case 'futbol':
-                              imagePath = 'lib/assets/images/football.png';
-                              break;
-                            case 'pádel':
-                              imagePath =
-                                  'lib/assets/images/raqueta-de-padel.png';
-                              break;
-                            case 'tenis':
-                              imagePath =
-                                  'lib/assets/images/pelota-de-tenis.png';
-                              break;
-                            case 'voley':
-                              imagePath = 'lib/assets/images/juego.png';
-                              break;
-                            default:
-                              imagePath = 'lib/assets/images/default-sport.png';
-                          }
-
-                          return Column(
-                            children: [
-                              app_container_booking(
-                                route: imagePath,
-                                sport: reserva.sport,
-                                data: reserva.day,
-                                time: reserva.timeIni,
-                                locate: reserva.location,
-                              ),
-                              const SizedBox(height: 10),
-                            ],
-                          );
-                        }).toList(),
+                    if (userEmail == null) {
+                      return const Center(
+                        child: Text("No hay usuario logueado"),
                       );
                     }
+
+                    // Filtrar SOLO reservas del usuario logueado
+                    final userReservas = reservas
+                        .where(
+                          (r) =>
+                              r.userEmail.toLowerCase() ==
+                              userEmail.toLowerCase(),
+                        )
+                        .toList();
+
+                    if (userReservas.isEmpty) {
+                      return const Center(
+                        child: Text("No hay reservas próximas"),
+                      );
+                    }
+
+                    return listarReservas(userReservas);
                   },
                   loading: () =>
                       const Center(child: CircularProgressIndicator()),

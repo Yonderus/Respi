@@ -5,7 +5,8 @@ class app_container_booking extends StatelessWidget {
   final String route;
   final String sport;
   final String data;
-  final String time;
+  final String timeIni;
+  final String timeFin;
   final String locate;
 
   const app_container_booking({
@@ -13,7 +14,8 @@ class app_container_booking extends StatelessWidget {
     required this.route,
     required this.sport,
     required this.data,
-    required this.time,
+    required this.timeIni,
+    required this.timeFin,
     required this.locate,
   });
 
@@ -114,7 +116,7 @@ class app_container_booking extends StatelessWidget {
                             ),
                             const SizedBox(width: 4),
                             Text(
-                              time,
+                              '$timeIni - $timeFin',
                               style: TextStyle(
                                 color: cs.onSurface.withValues(alpha: 0.7),
                                 fontSize: 14,

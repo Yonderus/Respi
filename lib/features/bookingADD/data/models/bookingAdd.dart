@@ -8,6 +8,7 @@ class BookingAdd {
   final String location;
   final int numberOfPlayers;
   final bool isPrivate;
+  final String userEmail;
 
   BookingAdd({
     required this.sport,
@@ -17,6 +18,7 @@ class BookingAdd {
     required this.location,
     required this.numberOfPlayers,
     required this.isPrivate,
+    required this.userEmail,
   });
 
   factory BookingAdd.fromJson(Map<String, dynamic> json) {
@@ -28,6 +30,7 @@ class BookingAdd {
       location: json['location'] ?? '',
       numberOfPlayers: json['numberOfPlayers'] ?? 0,
       isPrivate: json['isPrivate'] ?? false,
+      userEmail: json['userEmail'] ?? '',
     );
   }
 
@@ -39,6 +42,8 @@ class BookingAdd {
       'timeFin': timeFin,
       'location': location,
       'numberOfPlayers': numberOfPlayers,
+      'isPrivate': isPrivate,
+      'userEmail': userEmail,
     };
   }
 }

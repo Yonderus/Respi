@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:respi/features/bookingADD/data/models/bookingAdd.dart';
-import 'package:respi/features/bookingADD/data/repositories/BookingAdd_Repository.dart';
+import 'package:respi/features/bookingADD/controllers/AddBookingController.dart';
 
-final bookingAddRepositoryProvider = Provider<BookingAddRepository>((ref) {
-  return BookingAddRepository();
-});
+// final bookingAddRepositoryProvider = Provider<BookingAddRepository>((ref) {
+//   return BookingAddRepository();
+// });
 
 class ConfirmBookingPage extends ConsumerWidget {
   final BookingAdd booking;
@@ -125,8 +125,8 @@ class ConfirmBookingPage extends ConsumerWidget {
                   ),
                   ElevatedButton.icon(
                     onPressed: () async {
-                      final repo = ref.read(bookingAddRepositoryProvider);
-                      await repo.addBooking(booking);
+                      final repo = ref.read(bookingAddProvider.notifier);
+                      await repo.addNewBooking(booking);
 
                       Navigator.pop(context); // cerrar confirmación
                       Navigator.pop(context); // cerrar AddBookingPage

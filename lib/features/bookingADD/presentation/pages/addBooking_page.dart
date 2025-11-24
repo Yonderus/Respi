@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:respi/core/widgets/app_button.dart';
+import 'package:respi/features/Users/providers/auth_providers.dart';
 import 'package:respi/features/bookingADD/data/models/bookingAdd.dart';
 import 'package:respi/features/bookingADD/data/repositories/BookingAdd_Repository.dart';
 import 'package:respi/features/bookingADD/presentation/pages/confirmBooking_page.dart';
@@ -36,6 +37,8 @@ class _AddbookingPageState extends ConsumerState<AddbookingPage> {
   Widget build(BuildContext context) {
     // Lee el booking seleccionado desde Riverpod (o similar).
     final booking = ref.watch(selectedBookingProvider);
+    //Lee el archivo de usuario actual
+    final user = ref.watch(currentUserProvider);
 
     // Tema actual de la app y su esquema de colores para estilos coherentes.
     final theme = Theme.of(context);
@@ -377,6 +380,7 @@ class _AddbookingPageState extends ConsumerState<AddbookingPage> {
                       location: booking.location,
                       numberOfPlayers: _selectedPeople,
                       isPrivate: isPrivate,
+                      userEmail: user?.email ?? '',
                     );
 
                     // Ir a pantalla de confirmación

@@ -21,54 +21,57 @@ class _BookingPageState extends ConsumerState<BookingPage> {
 
     final asyncDatos = ref.watch(courtBookingProvider);
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        // MENÚ DE DEPORTES
-        const AppMenusports(),
-        const SizedBox(height: 10),
+    return Scaffold(
+      appBar: AppBar(title: Text('Nueva Reserva')),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          // MENÚ DE DEPORTES
+          const AppMenusports(),
+          const SizedBox(height: 10),
 
-        // TÍTULO
-        Align(
-          alignment: Alignment.centerLeft,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Text(
-              '${l10n.selectcamp}:',
-              style: TextStyle(
-                color: cs.onSurface,
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
+          // TÍTULO
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Text(
+                '${l10n.selectcamp}:',
+                style: TextStyle(
+                  color: cs.onSurface,
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
           ),
-        ),
 
-        const SizedBox(height: 15),
+          const SizedBox(height: 15),
 
-        // LISTA DE PISTAS
-        Expanded(
-          child: Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: asyncDatos.when(
-              data: (courtsList) => ListView.builder(
-                itemCount: courtsList.length,
-                shrinkWrap: true,
-                itemBuilder: (context, index) {
-                  final pista = courtsList[index];
-                  return app_container_info(pista: pista);
-                },
-              ),
-              loading: () => Center(
-                child: Image.asset('lib/assets/images/animacionCarga.gif'),
-              ),
-              error: (err, stack) => Center(
-                child: Text('Error: $err', style: TextStyle(color: cs.error)),
+          // LISTA DE PISTAS
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: asyncDatos.when(
+                data: (courtsList) => ListView.builder(
+                  itemCount: courtsList.length,
+                  shrinkWrap: true,
+                  itemBuilder: (context, index) {
+                    final pista = courtsList[index];
+                    return app_container_info(pista: pista);
+                  },
+                ),
+                loading: () => Center(
+                  child: Image.asset('lib/assets/images/animacionCarga.gif'),
+                ),
+                error: (err, stack) => Center(
+                  child: Text('Error: $err', style: TextStyle(color: cs.error)),
+                ),
               ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

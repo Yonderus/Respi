@@ -30,7 +30,8 @@ class DemoContainment extends StatelessWidget {
                   route: "lib/assets/images/basketball.png",
                   sport: "Baloncesto",
                   data: "20/10/2025",
-                  time: "12:00",
+                  timeIni: "12:00",
+                  timeFin: "13:00",
                   locate: "Pista 12",
                 ),
 

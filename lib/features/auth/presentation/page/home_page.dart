@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:respi/catalog/widgets/app_bar_widget.dart';
 import 'package:respi/core/l10n/app_localizations.dart';
 import 'package:respi/features/bookingADD/presentation/pages/addBooking_page.dart';
+import 'package:respi/features/bookingADD/presentation/pages/listBooking_page.dart';
 import 'package:respi/features/bookings/presentation/pages/booking_page.dart';
 import 'package:respi/features/auth/presentation/page/init_page.dart';
 import 'package:respi/features/join/presentation/pages/join_page.dart';
@@ -19,14 +20,15 @@ class HomePage extends ConsumerWidget {
     final theme = Theme.of(context);
     final cs = theme.colorScheme;
     final selectedIndex = ref.watch(bottomNavIndexProvider);
-    final selectedPage = ref.watch(pagesNavProvider);
+    //final selectedPage = ref.watch(pagesNavProvider);
 
     final pages = const [
       InitPage(),
-      BookingPage(),
+      ListbookingPage(),
       JoinPage(),
       ProfilePage(),
       AddbookingPage(),
+      BookingPage(),
     ];
 
     final appBarText = [
