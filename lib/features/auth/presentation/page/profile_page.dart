@@ -2,11 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:respi/core/l10n/app_localizations.dart';
 import 'package:respi/features/Users/presentation/page/login_page.dart';
-import 'package:respi/features/Users/presentation/page/update_page.dart';
 import 'package:respi/features/Users/providers/auth_providers.dart';
 import 'package:respi/features/auth/presentation/widgets/profile_stats_box.dart';
 import 'package:respi/features/auth/presentation/widgets/quick_action_tile.dart';
+import 'package:respi/features/bookingADD/presentation/pages/addBooking_page.dart';
+import 'package:respi/features/bookingADD/presentation/pages/listBooking_page.dart';
+import 'package:respi/features/bookings/presentation/pages/booking_page.dart';
 import 'package:respi/features/preferences/presentation/pages/preferences_page.dart';
+import 'package:respi/providers/bottom_nav_provider.dart';
+import 'package:respi/providers/pages_nav_provider.dart';
 
 class ProfilePage extends ConsumerWidget {
   const ProfilePage({super.key});
@@ -52,12 +56,10 @@ class ProfilePage extends ConsumerWidget {
                         children: [
                           IconButton(
                             onPressed: () {
-                              Navigator.pop(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => UpdatePage(),
-                                ),
-                              );
+                              // showDialog(
+                              //   context: context,
+                              // builder: (context) => UpdateDialog(),
+                              // );
                             },
                             icon: Icon(Icons.edit),
                           ),
@@ -139,7 +141,11 @@ class ProfilePage extends ConsumerWidget {
                 subtitle: l10n.profileMyReservationsSubtitle,
                 color: cs.primary,
                 subtitleColor: cs.onSurface.withValues(alpha: 0.7),
-                onTap: () {},
+
+                onTap: () {
+                  ref.read(bottomNavIndexProvider.notifier).state = 1;
+                  ref.read(pagesNavProvider.notifier).state = 1;
+                },
               ),
 
               const SizedBox(height: 12),

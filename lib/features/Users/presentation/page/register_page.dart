@@ -7,7 +7,6 @@ import 'package:respi/core/widgets/app_text_field.dart';
 import 'package:respi/core/widgets/app_title_text.dart';
 import 'package:respi/features/Users/data/models/Users.dart';
 import 'package:respi/features/Users/providers/auth_providers.dart';
-import 'package:respi/features/auth/presentation/page/home_page.dart';
 
 class RegisterPage extends ConsumerStatefulWidget {
   const RegisterPage({super.key});

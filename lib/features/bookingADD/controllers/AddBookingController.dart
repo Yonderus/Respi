@@ -1,13 +1,14 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:respi/features/bookingADD/data/models/bookingAdd.dart';
 import 'package:respi/features/bookingADD/data/repositories/BookingAdd_Repository.dart';
+import 'package:respi/providers/booking_repo_provider.dart';
 
 class AddBookingController extends AsyncNotifier<List<BookingAdd>> {
   late final BookingAddRepository _repo;
 
   @override
   Future<List<BookingAdd>> build() async {
-    _repo = BookingAddRepository();
+    _repo = ref.read(bookingRepoProvider);
     return _repo.fetchAll();
   }
 
