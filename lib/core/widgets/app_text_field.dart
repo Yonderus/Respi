@@ -65,7 +65,7 @@ class AppTextField extends StatelessWidget {
 
     return SizedBox(
       width: 270,
-      height: 40,
+      height: 45,
       child: TextFormField(
         controller: controller,
         obscureText: obscureText,
