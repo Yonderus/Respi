@@ -43,6 +43,21 @@ class AuthNotifier extends AsyncNotifier<User?> {
       return "La contraseña debe ser de al menos 8 caractéres.";
     }
 
+    //Explicación del formato: (Ni de coña ho faig sense buscar)
+    /*
+    | Parte       | Significado                                                    |
+    | ----------- | -------------------------------------------------------------- |
+    | `^[\w\.-]+` | nombre antes del @ (letras, números, punto, guion, guion bajo) |
+    | `@`         | símbolo obligatorio                                            |
+    | `[\w\.-]+`  | dominio (gmail, outlook, etc.)                                 |
+    | `\.`        | punto antes del TLD                                            |
+    | `\w+$`      | TLD (com, es, io, org…)                                        |
+
+     */
+    if (!RegExp(r'^[\w\.-]+@[\w\.-]+\.\w+$').hasMatch(user.email)) {
+      return "Tiene que tener un formato email correcto";
+    }
+
     await _repo.registerUser(user);
 
     return null;
@@ -50,5 +65,33 @@ class AuthNotifier extends AsyncNotifier<User?> {
 
   void logout() {
     state = const AsyncData(null);
+  }
+
+  Future<String?> userUpdate(
+    User user,
+    String name,
+    String password,
+    String newPassword,
+  ) async {
+    // Validar contraseña actual
+    if (user.password != password) {
+      return "La contraseña actual es incorrecta";
+    }
+
+    if (password == newPassword) {
+      return "No puedes cambiar la contraseña a la misma que tienes";
+    }
+
+    if (name.isEmpty) {
+      name = user.name;
+    } else {
+      user.name = name;
+    }
+
+    user.password = newPassword;
+
+    state = AsyncData(user);
+
+    return "Actualizado correctamente";
   }
 }

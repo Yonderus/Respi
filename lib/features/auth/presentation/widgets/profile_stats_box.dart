@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:respi/features/Users/providers/current_user_provider.dart';
-import 'package:respi/features/bookingADD/controllers/AddBookingController.dart';
-import 'package:respi/features/bookingADD/data/repositories/BookingAdd_Repository.dart';
 import 'package:respi/providers/booking_repo_provider.dart';
 
 class ProfileStat extends ConsumerWidget {
@@ -27,7 +25,10 @@ class ProfileStat extends ConsumerWidget {
 
     return FutureBuilder(
       future: repo.fetchAll(),
+
+      //El snapshot es un objeto que comprueba el estado actual del future, si ha terminado, si tiene datos...
       builder: (context, snapshot) {
+        //El hasData es el que contiene el contenido, si ha terminado con éxito el es el que contiene el el resultado
         if (!snapshot.hasData) {
           return const Expanded(
             child: Center(child: CircularProgressIndicator()),
@@ -37,7 +38,7 @@ class ProfileStat extends ConsumerWidget {
         final lista = snapshot.data!;
         final email = user?.email;
 
-        // Contar reservas del usuario
+        // Aquí contamos las reservas del usuario
         final count = lista.where((r) => r.userEmail == email).length;
 
         return Expanded(

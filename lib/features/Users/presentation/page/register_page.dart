@@ -111,8 +111,6 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
     final cs = theme.colorScheme;
     final l10n = AppLocalizations.of(context)!;
 
-    final TextEditingController dateController = TextEditingController();
-
     return Scaffold(
       backgroundColor: theme.scaffoldBackgroundColor,
       body: Container(

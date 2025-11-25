@@ -1,64 +1,81 @@
-// import 'package:flutter/material.dart';
-// import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:respi/features/Users/providers/auth_providers.dart';
+import 'package:respi/features/Users/providers/controllers_providers.dart';
 
-// class UpdateDialog extends ConsumerStatefulWidget {
-//   const UpdateDialog({super.key});
+class UpdatePage extends ConsumerWidget {
+  const UpdatePage({super.key});
 
-//   @override
-//   ConsumerState<UpdateDialog> createState() => _UpdateDialogState();
-// }
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final user = ref.watch(currentUserProvider);
+    final usernameCtrl = ref.watch(usernamectrlProvider);
+    final passwordCtrl = ref.watch(passwordctrlProvider);
+    final newPasswordCtrl = ref.watch(newPasswordctrlProvider);
+    return AlertDialog(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+      title: const Text("Editar información"),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          TextField(
+            controller: usernameCtrl,
+            decoration: const InputDecoration(
+              labelText: "Nombre",
+              prefixIcon: Icon(Icons.person),
+            ),
+          ),
+          const SizedBox(height: 12),
+          Text('Introduce tu contraseña actual:'),
 
-// class _UpdateDialogState extends ConsumerState<UpdateDialog> {
-//   final _emailCtrl = TextEditingController();
-//   final _usernameCtrl = TextEditingController();
+          TextField(
+            controller: passwordCtrl,
+            obscureText: true,
+            decoration: const InputDecoration(
+              labelText: "Contraseña",
+              prefixIcon: Icon(Icons.lock),
+            ),
+          ),
+          Text('Introduce la nueva contraseña:'),
+          TextField(
+            controller: newPasswordCtrl,
+            obscureText: true,
+            decoration: const InputDecoration(
+              labelText: "Contraseña nueva",
+              prefixIcon: Icon(Icons.lock),
+            ),
+          ),
+        ],
+      ),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.pop(context),
+          child: const Text("Cancelar"),
+        ),
+        FilledButton(
+          onPressed: () async {
+            if (user == null) {
+              return;
+            }
+            final result = await ref
+                .read(authProvider.notifier)
+                .userUpdate(
+                  user,
+                  usernameCtrl.text,
+                  passwordCtrl.text,
+                  newPasswordCtrl.text,
+                );
+            newPasswordCtrl.clear();
+            usernameCtrl.clear();
+            passwordCtrl.clear();
+            ScaffoldMessenger.of(
+              context,
+            ).showSnackBar(SnackBar(content: Text(result ?? "Actualizado")));
+          },
 
-//   @override
-//   void dispose() {
-//     _emailCtrl.dispose();
-//     _usernameCtrl.dispose();
-//     super.dispose();
-//   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     final cs = Theme.of(context).colorScheme;
-
-//     return AlertDialog(
-//       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-//       title: const Text("Editar información"),
-//       content: Column(
-//         mainAxisSize: MainAxisSize.min,
-//         children: [
-//           TextField(
-//             controller: _usernameCtrl,
-//             decoration: const InputDecoration(
-//               labelText: "Nombre",
-//               prefixIcon: Icon(Icons.person),
-//             ),
-//           ),
-//           const SizedBox(height: 12),
-//           TextField(
-//             controller: _emailCtrl,
-//             decoration: const InputDecoration(
-//               labelText: "Email",
-//               prefixIcon: Icon(Icons.email),
-//             ),
-//           ),
-//         ],
-//       ),
-//       actions: [
-//         TextButton(
-//           onPressed: () => Navigator.pop(context),
-//           child: const Text("Cancelar"),
-//         ),
-//         FilledButton(
-//           onPressed: () {
-//             // Aquí guardas los cambios si quieres
-//             Navigator.pop(context);
-//           },
-//           child: const Text("Guardar"),
-//         ),
-//       ],
-//     );
-//   }
-// }
+          child: const Text("Guardar"),
+        ),
+      ],
+    );
+  }
+}
