@@ -64,170 +64,169 @@ class _LoginPageState extends ConsumerState<LoginPage> {
 
     return Scaffold(
       backgroundColor: theme.scaffoldBackgroundColor,
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            // Logo superior
-            Image.asset(
-              'lib/assets/images/Respi_Image_1.png',
-              width: 120,
-              height: 120,
-            ),
-            const SizedBox(height: 30),
+      resizeToAvoidBottomInset:
+          true, //Mueve el contenido hacia arriba cuando aparece el teclado (evita overflow)
+      body: SafeArea(
+        child: SingleChildScrollView(
+          // Permite desplazar el contenido y evita overflow cuando aparece el teclado
+          padding: const EdgeInsets.only(bottom: 20),
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                // Logo superior
+                Image.asset(
+                  'lib/assets/images/Respi_Image_1.png',
+                  width: 120,
+                  height: 120,
+                ),
+                const SizedBox(height: 30),
 
-            // Contenedor principal
-            Container(
-              padding: const EdgeInsets.all(40),
-              width: 340,
-
-              decoration: BoxDecoration(
-                color: cs.surface,
-                borderRadius: BorderRadius.circular(16),
-
-                boxShadow: [
-                  BoxShadow(
-                    color: cs.onPrimary.withValues(alpha: 0.5),
-                    blurRadius: 10,
-                    offset: const Offset(0, 5),
+                // Contenedor principal
+                Container(
+                  padding: const EdgeInsets.all(40),
+                  width: 340,
+                  decoration: BoxDecoration(
+                    color: cs.surface,
+                    borderRadius: BorderRadius.circular(16),
+                    boxShadow: [
+                      BoxShadow(
+                        color: cs.onPrimary.withValues(alpha: 0.5),
+                        blurRadius: 10,
+                        offset: const Offset(0, 5),
+                      ),
+                    ],
                   ),
-                ],
-              ),
-              child: Form(
-                key: _formKey,
-                // Contenido del login
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    AppTitleText(
-                      color: cs.primary,
-                      text: l10n.welcomeRespi /*"Bienvenido a ResPi"*/,
-                    ),
-                    const SizedBox(height: 6),
-                    Text(
-                      l10n.signinContinue,
-                      style: TextStyle(fontSize: 14, color: cs.onSurface),
-                    ),
-                    const SizedBox(height: 20),
-
-                    // Botón Google
-                    SizedBox(
-                      width: double.infinity,
-                      child: ElevatedButton(
-                        onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: cs.onTertiary,
-                          foregroundColor: cs.onPrimary,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(40),
-                          ),
-                          elevation: 3,
+                  child: Form(
+                    key: _formKey,
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min, // 👈 IMPORTANTE
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        AppTitleText(
+                          color: cs.primary,
+                          text: l10n.welcomeRespi,
                         ),
-                        child: Stack(
-                          children: [
-                            Align(
-                              alignment: Alignment.centerLeft,
-                              child: Image.asset(
-                                'lib/assets/images/logoGoogle.png',
-                                width: 20,
-                                height: 20,
+                        const SizedBox(height: 6),
+                        Text(
+                          l10n.signinContinue,
+                          style: TextStyle(fontSize: 14, color: cs.onSurface),
+                        ),
+                        const SizedBox(height: 20),
+
+                        // Botón Google
+                        SizedBox(
+                          width: double.infinity,
+                          child: ElevatedButton(
+                            onPressed: () {},
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: cs.onTertiary,
+                              foregroundColor: cs.onPrimary,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(40),
                               ),
+                              elevation: 3,
                             ),
-                            Align(
-                              alignment: Alignment.center,
-                              child: Text(
-                                l10n.continueGoogle,
-                                /*"Continue with Google"*/
-                                style: const TextStyle(
-                                  fontWeight: FontWeight.w600,
+                            child: Stack(
+                              children: [
+                                Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: Image.asset(
+                                    'lib/assets/images/logoGoogle.png',
+                                    width: 20,
+                                    height: 20,
+                                  ),
                                 ),
+                                Align(
+                                  alignment: Alignment.center,
+                                  child: Text(
+                                    l10n.continueGoogle,
+                                    style: const TextStyle(
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 15),
+
+                        Row(
+                          children: [
+                            Expanded(child: Divider()),
+                            const SizedBox(width: 5),
+                            Text(
+                              l10n.or,
+                              style: TextStyle(
+                                fontSize: 14,
+                                color: cs.onSecondary,
                               ),
                             ),
+                            const SizedBox(width: 5),
+                            Expanded(child: Divider()),
                           ],
                         ),
-                      ),
-                    ),
-                    const SizedBox(height: 15),
 
-                    // Separador
-                    Row(
-                      children: [
-                        Expanded(child: Divider()),
-                        const SizedBox(width: 5),
-                        Text(
-                          l10n.or,
-                          style: TextStyle(fontSize: 14, color: cs.onSecondary),
+                        const SizedBox(height: 15),
+
+                        AppTextField(
+                          label: l10n.email,
+                          icon: Icons.email,
+                          obscureText: false,
+                          controller: _emailCtrl,
+                          validator: (v) {
+                            if (v == null || v.isEmpty) return l10n.enterEmail;
+                            return null;
+                          },
                         ),
-                        const SizedBox(width: 5),
-                        Expanded(child: Divider()),
+
+                        const SizedBox(height: 12),
+
+                        AppTextField(
+                          label: l10n.password,
+                          icon: Icons.lock,
+                          obscureText: true,
+                          controller: _passCtrl,
+                          validator: (v) {
+                            if (v == null || v.isEmpty)
+                              return l10n.enterPassword;
+                            return null;
+                          },
+                        ),
+
+                        const SizedBox(height: 25),
+
+                        AppButton(
+                          text: l10n.signin,
+                          textVariant: AppButtonTextVariant.primaryBold,
+                          radius: 8,
+                          height: 40,
+                          onPressed: _loading ? null : _submit,
+                        ),
+
+                        const SizedBox(height: 12),
+
+                        AppButton(
+                          text: l10n.createAccount,
+                          textVariant: AppButtonTextVariant.primaryBold,
+                          radius: 8,
+                          height: 40,
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (_) => RegisterPage()),
+                            );
+                          },
+                        ),
                       ],
                     ),
-
-                    const SizedBox(height: 15),
-
-                    // Campos de texto
-                    AppTextField(
-                      label: l10n.email,
-                      icon: Icons.email,
-                      obscureText: false,
-                      controller: _emailCtrl,
-                      validator: (v) {
-                        if (v == null || v.isEmpty) {
-                          return l10n.enterEmail;
-                        }
-                        return null;
-                      },
-                    ),
-
-                    const SizedBox(height: 12),
-
-                    AppTextField(
-                      label: l10n.password,
-                      icon: Icons.lock,
-                      obscureText: true,
-                      controller: _passCtrl,
-                      validator: (v) {
-                        if (v == null || v.isEmpty) {
-                          return l10n.enterPassword;
-                        }
-                        return null;
-                      },
-                    ),
-
-                    const SizedBox(height: 25),
-
-                    AppButton(
-                      text: l10n.signin,
-                      textVariant: AppButtonTextVariant.primaryBold,
-                      radius: 8,
-                      height: 40,
-                      onPressed: _loading ? null : _submit,
-                    ),
-
-                    const SizedBox(height: 12),
-
-                    //Botón de crear cuenta
-                    AppButton(
-                      text: l10n.createAccount,
-                      textVariant: AppButtonTextVariant.primaryBold,
-                      radius: 8,
-                      height: 40,
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => RegisterPage(),
-                          ),
-                        );
-                      },
-                    ),
-                  ],
+                  ),
                 ),
-              ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );
