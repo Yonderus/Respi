@@ -120,13 +120,38 @@ class InitPage extends ConsumerWidget {
                         )
                         .toList();
 
-                    if (userReservas.isEmpty) {
+                    // Función para obtener DateTime de la reserva
+                    DateTime parseReservaDate(String day, String time) {
+                      final date = DateTime.parse(day);
+                      final parts = time.split(':');
+                      return DateTime(
+                        date.year,
+                        date.month,
+                        date.day,
+                        // Hora de inicio
+                        int.parse(parts[0]),
+                        // Minuto de inicio
+                        int.parse(parts[1]),
+                      );
+                    }
+
+                    final now = DateTime.now();
+
+                    // PRÓXIMAS RESERVAS
+                    // Aqui realizamos el filtrado de las reservas dependiendo
+                    // si son futuras o pasadas
+                    final reservasProximas = userReservas.where((r) {
+                      final fecha = parseReservaDate(r.day, r.timeIni);
+                      return fecha.isAfter(now);
+                    }).toList();
+
+                    if (reservasProximas.isEmpty) {
                       return const Center(
                         child: Text("No hay reservas próximas"),
                       );
                     }
 
-                    return listarReservas(userReservas);
+                    return listarReservas(reservasProximas, ref, true);
                   },
                   loading: () =>
                       const Center(child: CircularProgressIndicator()),

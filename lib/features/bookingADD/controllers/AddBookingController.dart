@@ -17,6 +17,12 @@ class AddBookingController extends AsyncNotifier<List<BookingAdd>> {
     await _repo.addBooking(booking);
     state = AsyncValue.data(await _repo.fetchAll());
   }
+
+  Future<void> updateBooking(BookingAdd booking) async {
+    state = const AsyncLoading();
+    await _repo.updateBooking(booking);
+    state = AsyncValue.data(await _repo.fetchAll());
+  }
 }
 
 // Provider para usar el controller en cualquier widget
