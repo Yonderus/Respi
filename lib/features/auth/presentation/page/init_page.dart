@@ -147,7 +147,10 @@ class InitPage extends ConsumerWidget {
 
                     if (reservasProximas.isEmpty) {
                       return const Center(
-                        child: Text("No hay reservas próximas"),
+                        child: Text(
+                          "No hay reservas próximas",
+                          style: TextStyle(color: Colors.grey),
+                        ),
                       );
                     }
 

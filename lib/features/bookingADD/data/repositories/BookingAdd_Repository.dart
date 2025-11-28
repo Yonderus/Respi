@@ -18,6 +18,12 @@ class BookingAddRepository {
     }
   }
 
+  Future<void> deleteBooking(BookingAdd booking) async {
+    // Simula una operación asíncrona
+    await Future.delayed(const Duration(milliseconds: 500));
+    _bookingList.removeWhere((b) => b.id == booking.id);
+  }
+
   // Simula la obtención de todas las pistas reservadas
   Future<List<BookingAdd>> fetchAll() async {
     // Simula una operación asíncrona

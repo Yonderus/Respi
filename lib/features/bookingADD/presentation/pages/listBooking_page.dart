@@ -125,7 +125,7 @@ class ListbookingPage extends ConsumerWidget {
                         if (reservasPasadas.isEmpty)
                           const Padding(
                             padding: EdgeInsets.all(20),
-                            child: Text("No tienes reservas pasadas"),
+                            child: Text("No tienes reservas realizadas"),
                           )
                         else
                           listarReservas(

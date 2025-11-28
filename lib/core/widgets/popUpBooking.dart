@@ -86,10 +86,16 @@ class _PopupbookingState extends ConsumerState<Popupbooking> {
         ),
       ),
       actions: [
+        // BOTON DE BORRAR
         TextButton(
-          onPressed: () => Navigator.pop(context),
-          child: const Text("Cancelar"),
+          onPressed: () {
+            ref.read(bookingAddProvider.notifier).deleteBooking(widget.booking);
+            Navigator.pop(context);
+          },
+          style: TextButton.styleFrom(foregroundColor: Colors.red),
+          child: const Text("Borrar  reserva"),
         ),
+        // BOTON DE EDITAR / GUARDAR
         FilledButton(
           onPressed: () async {
             if (!isEditing) {
@@ -112,6 +118,7 @@ class _PopupbookingState extends ConsumerState<Popupbooking> {
             await ref
                 .read(bookingAddProvider.notifier)
                 .updateBooking(updatedBooking);
+            // ignore: use_build_context_synchronously
             Navigator.pop(context);
           },
           child: Text(isEditing ? "Guardar" : "Editar"),
@@ -138,6 +145,7 @@ class _PopupbookingState extends ConsumerState<Popupbooking> {
           labelText: label,
           labelStyle: TextStyle(
             color: Colors.grey[700], // Label siempre gris
+            fontWeight: FontWeight.bold,
           ),
           filled: true,
           fillColor: isEditing
