@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:respi/features/auth/presentation/widgets/caroussel_card.dart';
 
 class SwipeCard extends StatefulWidget {
   const SwipeCard({super.key});
@@ -48,119 +49,20 @@ class _SwipeCardState extends State<SwipeCard> {
     final cs = theme.colorScheme;
 
     final List<Widget> cards = [
-      Card(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-        clipBehavior: Clip.antiAlias,
-        child: Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: [cs.primary, Colors.white],
-            ),
-          ),
-          child: const Center(
-            child: Text("Card 1", style: TextStyle(fontSize: 24)),
-          ),
-        ),
+      CarousselCard(
+        title: "Reserva tus pistas al momento",
+        subText: "Encuentra disponibilidad y juega cuando quieras",
+        image: "lib/assets/images/Personas_padel.png",
       ),
-
-      Card(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-        clipBehavior: Clip.antiAlias,
-        child: Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: [cs.primary, Colors.white],
-            ),
-          ),
-          child: const Center(
-            child: Text("Card 2", style: TextStyle(fontSize: 24)),
-          ),
-        ),
+      CarousselCard(
+        title: "Únete a partidos cerca de ti",
+        subText: "Descubre jugadores y forma equipos fácilmente",
+        image: "lib/assets/images/personas_unirse.png",
       ),
-      Card(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
-        clipBehavior: Clip.antiAlias,
-        child: Container(
-          height: 180,
-          padding: const EdgeInsets.all(20),
-          decoration: BoxDecoration(),
-          child: Stack(
-            children: [
-              // ==========================
-              //   TEXTO IZQUIERDA
-              // ==========================
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "Bienvenido a ResPi",
-                    style: TextStyle(
-                      color: cs.onTertiary,
-                      fontSize: 26,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  const SizedBox(height: 10),
-                  const Text(
-                    "Reserva pistas deportivas y\núnete a partidos",
-                    style: TextStyle(color: Colors.white70, fontSize: 16),
-                  ),
-                ],
-              ),
-
-              // ==========================
-              //   IMÁGENES SUPERPUESTAS
-              // ==========================
-              Positioned(
-                top: 0,
-                right: 0,
-                child: SizedBox(
-                  width: 150,
-                  height: 150,
-                  child: Stack(
-                    clipBehavior: Clip.none,
-                    children: [
-                      // Raqueta atrás
-                      Positioned(
-                        top: -10,
-                        right: -5,
-                        child: Image.asset(
-                          "lib/assets/images/raqueta-de-padel.png",
-                          height: 110,
-                        ),
-                      ),
-
-                      // Pelota futbol
-                      Positioned(
-                        top: 92,
-                        right: 55,
-                        child: Image.asset(
-                          "lib/assets/images/football.png",
-                          height: 45,
-                        ),
-                      ),
-
-                      // Balón basket adelante
-                      Positioned(
-                        top: 60,
-                        right: -10,
-                        child: Image.asset(
-                          "lib/assets/images/basketball-ball-variant.png",
-                          height: 70,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
+      CarousselCard(
+        title: "Gestiona tus reservas en un toque",
+        subText: "Historial, próximos partidos y recordatorios",
+        image: "lib/assets/images/gestionar_carusel.png",
       ),
     ];
 

@@ -5,7 +5,7 @@ import 'package:respi/core/widgets/app_button.dart';
 import 'package:respi/core/widgets/app_text_field.dart';
 import 'package:respi/core/widgets/app_title_text.dart';
 import 'package:respi/features/Users/providers/auth_providers.dart';
-import 'package:respi/features/auth/presentation/page/home_page.dart';
+import 'package:respi/features/auth/presentation/page/main_scaffold.dart';
 import 'package:respi/features/Users/presentation/page/register_page.dart';
 
 class LoginPage extends ConsumerStatefulWidget {
