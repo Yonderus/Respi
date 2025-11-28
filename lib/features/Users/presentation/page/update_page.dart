@@ -14,14 +14,14 @@ class UpdatePage extends ConsumerWidget {
     final newPasswordCtrl = ref.watch(newPasswordctrlProvider);
     return AlertDialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-      title: const Text("Editar información"),
+      title: const Text("Editar Perfil"),
       content: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           TextField(
             controller: usernameCtrl,
             decoration: const InputDecoration(
-              labelText: "Nombre",
+              labelText: "Nuevo Nombre",
               prefixIcon: Icon(Icons.person),
             ),
           ),
@@ -68,9 +68,11 @@ class UpdatePage extends ConsumerWidget {
             newPasswordCtrl.clear();
             usernameCtrl.clear();
             passwordCtrl.clear();
+
             ScaffoldMessenger.of(
               context,
             ).showSnackBar(SnackBar(content: Text(result ?? "Actualizado")));
+            Navigator.pop(context);
           },
 
           child: const Text("Guardar"),

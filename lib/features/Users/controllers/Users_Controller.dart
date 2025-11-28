@@ -73,22 +73,24 @@ class AuthNotifier extends AsyncNotifier<User?> {
     String password,
     String newPassword,
   ) async {
-    // Validar contraseña actual
-    if (user.password != password) {
-      return "La contraseña actual es incorrecta";
+    // Validar contraseña actual solo si se quiere cambiar la contraseña
+    if (newPassword.isNotEmpty) {
+      if (user.password != password) {
+        return "La contraseña actual es incorrecta";
+      }
+
+      if (password == newPassword) {
+        return "No puedes cambiar la contraseña a la misma que tienes";
+      }
+
+      // Actualizar contraseña
+      user.password = newPassword;
     }
 
-    if (password == newPassword) {
-      return "No puedes cambiar la contraseña a la misma que tienes";
-    }
-
-    if (name.isEmpty) {
-      name = user.name;
-    } else {
+    // Actualizar nombre solo si se indica uno nuevo
+    if (name.isNotEmpty) {
       user.name = name;
     }
-
-    user.password = newPassword;
 
     state = AsyncData(user);
 

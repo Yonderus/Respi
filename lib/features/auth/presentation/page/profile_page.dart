@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:respi/core/l10n/app_localizations.dart';
-import 'package:respi/features/Users/data/models/Users.dart';
 import 'package:respi/features/Users/presentation/page/login_page.dart';
 import 'package:respi/features/Users/presentation/page/update_page.dart';
 import 'package:respi/features/Users/providers/auth_providers.dart';
