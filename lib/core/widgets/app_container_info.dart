@@ -120,7 +120,7 @@ class app_container_info extends ConsumerWidget {
                           // Guarda la pista seleccionada en el provider y el deporte
                           ref.read(selectedBookingProvider.notifier).state =
                               pista;
-                          ref.read(selectedSportProvider.notifier).state =
+                          ref.read(selectSportBookingProvider.notifier).state =
                               pista.sport;
 
                           Navigator.push(

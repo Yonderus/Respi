@@ -1,6 +1,10 @@
 // ignore_for_file: file_names
 
 class BookingAdd {
+  static int _idCounter = 0;
+  static int _nextId() => ++_idCounter;
+
+  final int id; // ID único
   final String sport;
   final String day;
   final String timeIni;
@@ -11,6 +15,7 @@ class BookingAdd {
   final String userEmail;
 
   BookingAdd({
+    int? id,
     required this.sport,
     required this.day,
     required this.timeIni,
@@ -19,10 +24,11 @@ class BookingAdd {
     required this.numberOfPlayers,
     required this.isPrivate,
     required this.userEmail,
-  });
+  }) : id = id ?? _nextId();
 
   factory BookingAdd.fromJson(Map<String, dynamic> json) {
     return BookingAdd(
+      id: json['id'], // si viene del backend
       sport: json['sport'] ?? '',
       day: json['day'] ?? '',
       timeIni: json['timeIni'] ?? '',
@@ -36,6 +42,7 @@ class BookingAdd {
 
   Map<String, dynamic> toJson() {
     return {
+      'id': id,
       'sport': sport,
       'day': day,
       'timeIni': timeIni,

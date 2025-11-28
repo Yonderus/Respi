@@ -1,37 +1,38 @@
 import 'package:flutter/material.dart';
+import 'package:respi/features/bookingADD/data/models/bookingAdd.dart';
+import 'package:respi/core/widgets/popUpBooking.dart';
 
-// ignore: camel_case_types
 class app_container_booking extends StatelessWidget {
   final String route;
-  final String sport;
-  final String data;
-  final String timeIni;
-  final String timeFin;
-  final String locate;
+  final BookingAdd booking;
+  final bool showPopup;
 
   const app_container_booking({
     super.key,
     required this.route,
-    required this.sport,
-    required this.data,
-    required this.timeIni,
-    required this.timeFin,
-    required this.locate,
+    required this.booking,
+    this.showPopup = true,
   });
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final cs = theme.colorScheme;
-    final screenWidth = MediaQuery.of(context).size.width; // Ajuste de padding
+    final screenWidth = MediaQuery.of(context).size.width;
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 8),
       child: SizedBox(
-        width: screenWidth, // ocupa todo el ancho disponible
-        height: 100, //height lo dejamos igual
+        width: screenWidth,
+        height: 100,
         child: ElevatedButton(
-          onPressed: () {},
+          onPressed: () async {
+            if (!showPopup) return; // <-- No hace nada si es false
+            await showDialog(
+              context: context,
+              builder: (_) => Popupbooking(booking: booking),
+            );
+          },
           style: ElevatedButton.styleFrom(
             backgroundColor: cs.surface,
             shape: RoundedRectangleBorder(
@@ -43,7 +44,6 @@ class app_container_booking extends StatelessWidget {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              // Icono o imagen del deporte
               Container(
                 width: 75,
                 height: 75,
@@ -61,29 +61,23 @@ class app_container_booking extends StatelessWidget {
                   ),
                 ),
               ),
-
               const SizedBox(width: 20),
-
-              // Información del deporte
               Expanded(
-                // hace que el contenido se ajuste al ancho q queda
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      sport,
+                      booking.sport,
                       style: TextStyle(
                         fontSize: 18,
                         color: cs.onSurface,
                         fontWeight: FontWeight.w600,
                       ),
-                      overflow:
-                          TextOverflow.ellipsis, // el overflow evita q desporde
+                      overflow: TextOverflow.ellipsis,
                     ),
                     const SizedBox(height: 8),
                     Wrap(
-                      // deja que el texto salte de linea si no cabe
                       crossAxisAlignment: WrapCrossAlignment.center,
                       spacing: 10,
                       runSpacing: 4,
@@ -94,13 +88,13 @@ class app_container_booking extends StatelessWidget {
                             Icon(
                               Icons.calendar_today,
                               size: 14,
-                              color: cs.onSurface.withValues(alpha: 0.7),
+                              color: cs.onSurface.withAlpha(180),
                             ),
                             const SizedBox(width: 4),
                             Text(
-                              data,
+                              booking.day,
                               style: TextStyle(
-                                color: cs.onSurface.withValues(alpha: 0.7),
+                                color: cs.onSurface.withAlpha(180),
                                 fontSize: 14,
                               ),
                             ),
@@ -112,13 +106,13 @@ class app_container_booking extends StatelessWidget {
                             Icon(
                               Icons.access_time,
                               size: 14,
-                              color: cs.onSurface.withValues(alpha: 0.7),
+                              color: cs.onSurface.withAlpha(180),
                             ),
                             const SizedBox(width: 4),
                             Text(
-                              '$timeIni - $timeFin',
+                              '${booking.timeIni} - ${booking.timeFin}',
                               style: TextStyle(
-                                color: cs.onSurface.withValues(alpha: 0.7),
+                                color: cs.onSurface.withAlpha(180),
                                 fontSize: 14,
                               ),
                             ),
@@ -130,13 +124,13 @@ class app_container_booking extends StatelessWidget {
                             Icon(
                               Icons.location_on,
                               size: 14,
-                              color: cs.onSurface.withValues(alpha: 0.7),
+                              color: cs.onSurface.withAlpha(180),
                             ),
                             const SizedBox(width: 4),
                             Text(
-                              locate,
+                              booking.location,
                               style: TextStyle(
-                                color: cs.onSurface.withValues(alpha: 0.7),
+                                color: cs.onSurface.withAlpha(180),
                                 fontSize: 14,
                               ),
                             ),

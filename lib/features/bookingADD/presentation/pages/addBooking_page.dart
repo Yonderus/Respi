@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:respi/core/widgets/app_button.dart';
+import 'package:respi/core/widgets/app_selectorCourt_booking.dart';
 import 'package:respi/features/Users/providers/auth_providers.dart';
 import 'package:respi/features/bookingADD/data/models/bookingAdd.dart';
 import 'package:respi/features/bookingADD/data/repositories/BookingAdd_Repository.dart';
@@ -118,7 +119,7 @@ class _AddbookingPageState extends ConsumerState<AddbookingPage> {
                     ),
                     weekendTextStyle: TextStyle(color: cs.error),
                     defaultTextStyle: TextStyle(color: cs.onSurface),
-                    outsideDaysVisible: false, // No mostrar días fuera del mes.
+                    outsideDaysVisible: true,
                   ),
                   headerStyle: HeaderStyle(
                     formatButtonVisible: false,
@@ -246,6 +247,10 @@ class _AddbookingPageState extends ConsumerState<AddbookingPage> {
                   }).toList(),
                 ),
               ),
+              const SizedBox(height: 40),
+
+              // --- Selector de ubicación/pista ---
+              AppSelectorcourtBooking(cs: cs),
 
               const SizedBox(height: 40),
 

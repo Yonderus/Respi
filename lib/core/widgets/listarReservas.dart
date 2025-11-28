@@ -1,12 +1,13 @@
-/*
-      FUNCIÓN PARA LISTAR RESERVAS
-      Para evitar repetir código
-*/
-
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:respi/core/widgets/app_container_booking.dart';
+import 'package:respi/features/bookingADD/data/models/bookingAdd.dart';
 
-Widget listarReservas(List reservas) {
+Widget listarReservas(
+  List<BookingAdd> reservas,
+  WidgetRef ref,
+  bool showPopup,
+) {
   return Column(
     children: reservas.map((reserva) {
       String imagePath;
@@ -34,11 +35,8 @@ Widget listarReservas(List reservas) {
         children: [
           app_container_booking(
             route: imagePath,
-            sport: reserva.sport,
-            data: reserva.day,
-            timeIni: reserva.timeIni,
-            timeFin: reserva.timeFin,
-            locate: reserva.location,
+            booking: reserva,
+            showPopup: showPopup,
           ),
           const SizedBox(height: 10),
         ],

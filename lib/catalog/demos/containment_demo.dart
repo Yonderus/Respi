@@ -5,6 +5,7 @@ import 'package:respi/core/widgets/app_container_booking.dart';
 import 'package:respi/core/widgets/app_container_info.dart';
 import 'package:respi/core/widgets/app_container_join.dart';
 import 'package:respi/core/widgets/app_container_review.dart';
+import 'package:respi/features/bookingADD/data/models/bookingAdd.dart';
 import 'package:respi/features/bookings/data/models/CourtBooking.dart';
 
 class DemoContainment extends StatelessWidget {
@@ -27,12 +28,18 @@ class DemoContainment extends StatelessWidget {
             child: Column(
               children: [
                 app_container_booking(
-                  route: "lib/assets/images/basketball.png",
-                  sport: "Baloncesto",
-                  data: "20/10/2025",
-                  timeIni: "12:00",
-                  timeFin: "13:00",
-                  locate: "Pista 12",
+                  booking: BookingAdd(
+                    id: 1,
+                    sport: 'Tenis',
+                    day: '2024-07-15',
+                    timeIni: '10:00',
+                    timeFin: '11:00',
+                    location: 'Pista 1',
+                    numberOfPlayers: 2,
+                    isPrivate: true,
+                    userEmail: '',
+                  ),
+                  route: 'lib/assets/images/tennis.png',
                 ),
 
                 const SizedBox(height: 35),

@@ -103,8 +103,11 @@ class ListbookingPage extends ConsumerWidget {
                             child: Text("No tienes reservas próximas"),
                           )
                         else
-                          listarReservas(reservasProximas),
-
+                          listarReservas(
+                            reservasProximas,
+                            ref,
+                            true,
+                          ), // Popup activado
                         // ---------------------------
                         //   RESERVAS PASADAS
                         // ---------------------------
@@ -122,10 +125,14 @@ class ListbookingPage extends ConsumerWidget {
                         if (reservasPasadas.isEmpty)
                           const Padding(
                             padding: EdgeInsets.all(20),
-                            child: Text("No tienes reservas pasadas"),
+                            child: Text("No tienes reservas realizadas"),
                           )
                         else
-                          listarReservas(reservasPasadas),
+                          listarReservas(
+                            reservasPasadas,
+                            ref,
+                            false,
+                          ), // No popup
                       ],
                     );
                   },
