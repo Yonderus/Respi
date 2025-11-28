@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:respi/core/l10n/app_localizations.dart';
 import 'package:respi/core/widgets/app_button.dart';
 import 'package:respi/core/widgets/app_selectorCourt_booking.dart';
 import 'package:respi/features/Users/providers/auth_providers.dart';
@@ -36,6 +37,7 @@ class _AddbookingPageState extends ConsumerState<AddbookingPage> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     // Lee el booking seleccionado desde Riverpod (o similar).
     final booking = ref.watch(selectedBookingProvider);
     //Lee el archivo de usuario actual
@@ -50,15 +52,12 @@ class _AddbookingPageState extends ConsumerState<AddbookingPage> {
       return Scaffold(
         appBar: AppBar(title: const Text('Nueva Reserva')),
         body: Center(
-          child: Text(
-            'No hay pista seleccionada',
-            style: TextStyle(color: cs.onSurface),
-          ),
+          child: Text(l10n.noCourtSel, style: TextStyle(color: cs.onSurface)),
         ),
       );
     }
 
-    // Si sí hay booking, construye la UI completa de creación de reserva.
+    // Si hay booking, construye la UI completa de creación de reserva.
     return Scaffold(
       appBar: AppBar(title: Text('${booking.sport}  --  Nueva Reserva')),
       body: SingleChildScrollView(

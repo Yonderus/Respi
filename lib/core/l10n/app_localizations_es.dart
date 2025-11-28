@@ -360,4 +360,13 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get profileLogout => 'Cerrar sesión';
+
+  @override
+  String get noNextReservations => 'No hay reservas próximas';
+
+  @override
+  String get noUserLoggedIn => 'no hay usuario registrado';
+
+  @override
+  String get noCourtSel => 'Ninguna pista seleccionada';
 }

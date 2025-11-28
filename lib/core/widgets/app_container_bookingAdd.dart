@@ -23,7 +23,11 @@ class AppContainerBookingAdd extends ConsumerWidget {
             strokeWidth: 5,
             dashPattern: const [45, 15],
             radius: const Radius.circular(15),
-            color: cs.primary,
+            gradient: LinearGradient(
+              colors: [cs.primary, cs.onTertiary],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
           ),
           child: InkWell(
             borderRadius: BorderRadius.circular(15),

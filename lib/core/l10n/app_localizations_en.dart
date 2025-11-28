@@ -358,4 +358,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get profileLogout => 'Log out';
+
+  @override
+  String get noNextReservations => 'No upcoming reservations';
+
+  @override
+  String get noUserLoggedIn => 'You aren\'t logged in';
+
+  @override
+  String get noCourtSel => 'No court selected';
 }

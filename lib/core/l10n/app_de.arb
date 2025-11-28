@@ -153,13 +153,10 @@
   "profileMyReservationsSubtitle": "Siehe deine aktiven und vergangenen Reservierungen",
   "profileAlerts": "Benachrichtigungen",
   "profileAlertsSubtitle": "Verwalte Erinnerungen und Benachrichtigungen",
-  "profileLogout": "Abmelden"
-
-
-
-
-
-
+  "profileLogout": "Abmelden",
+  "noNextReservations": "Es gibt keine nächsten Reservierungen",
+  "noUserLoggedIn": "Kein Benutzer Angemeldet",
+  "noCourtSel": "Kein Feld ausgewählt"
 
 
 

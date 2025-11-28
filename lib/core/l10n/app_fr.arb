@@ -153,7 +153,13 @@
   "profileMyReservationsSubtitle": "Consultez vos réservations actives et passées",
   "profileAlerts": "Alertes",
   "profileAlertsSubtitle": "Gérez vos notifications et rappels",
-  "profileLogout": "Se déconnecter"
+  "profileLogout": "Se déconnecter",
+  "noNextReservations": "Il n'y a pas de prochaines réservations",
+  "noUserLoggedIn": "Vous n'êtes pas enregistré",
+  "noCourtSel": "Aucune piste seleccionée"
+
+
+
 
 
 

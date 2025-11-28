@@ -184,7 +184,10 @@
   "profileMyReservationsSubtitle": "Consulta tus reservas activas y pasadas",
   "profileAlerts": "Alertas",
   "profileAlertsSubtitle": "Controla notificaciones y recordatorios",
-  "profileLogout": "Cerrar sesión"
+  "profileLogout": "Cerrar sesión",
+  "noNextReservations": "No hay reservas próximas",
+  "noUserLoggedIn": "no hay usuario registrado",
+  "noCourtSel": "Ninguna pista seleccionada"
 
 
 

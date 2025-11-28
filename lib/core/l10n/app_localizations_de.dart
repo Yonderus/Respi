@@ -359,4 +359,13 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get profileLogout => 'Abmelden';
+
+  @override
+  String get noNextReservations => 'Es gibt keine nächsten Reservierungen';
+
+  @override
+  String get noUserLoggedIn => 'Kein Benutzer Angemeldet';
+
+  @override
+  String get noCourtSel => 'Kein Feld ausgewählt';
 }

@@ -361,4 +361,13 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get profileLogout => 'Se déconnecter';
+
+  @override
+  String get noNextReservations => 'Il n\'y a pas de prochaines réservations';
+
+  @override
+  String get noUserLoggedIn => 'Vous n\'êtes pas enregistré';
+
+  @override
+  String get noCourtSel => 'Aucune piste seleccionée';
 }

@@ -46,7 +46,11 @@ class app_container_review extends StatelessWidget {
                 width: 75,
                 height: 75,
                 decoration: BoxDecoration(
-                  color: cs.primary,
+                  gradient: LinearGradient(
+                    colors: [cs.primary, cs.onTertiary],
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                  ),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Padding(

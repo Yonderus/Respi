@@ -152,7 +152,12 @@
   "profileMyReservationsSubtitle": "View your active and past bookings",
   "profileAlerts": "Alerts",
   "profileAlertsSubtitle": "Manage notifications and reminders",
-  "profileLogout": "Log out"
+  "profileLogout": "Log out",
+  "noNextReservations": "No upcoming reservations",
+  "noUserLoggedIn": "You aren't logged in",
+  "noCourtSel": "No court selected"
+
+
 
 
 

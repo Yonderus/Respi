@@ -773,6 +773,24 @@ abstract class AppLocalizations {
   /// In es, this message translates to:
   /// **'Cerrar sesión'**
   String get profileLogout;
+
+  /// No description provided for @noNextReservations.
+  ///
+  /// In es, this message translates to:
+  /// **'No hay reservas próximas'**
+  String get noNextReservations;
+
+  /// No description provided for @noUserLoggedIn.
+  ///
+  /// In es, this message translates to:
+  /// **'no hay usuario registrado'**
+  String get noUserLoggedIn;
+
+  /// No description provided for @noCourtSel.
+  ///
+  /// In es, this message translates to:
+  /// **'Ninguna pista seleccionada'**
+  String get noCourtSel;
 }
 
 class _AppLocalizationsDelegate

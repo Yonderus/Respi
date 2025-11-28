@@ -13,6 +13,13 @@ class AppColorsDark {
   static const Color textPrimary = Color(0xFFFFFFFF); // main text
   static const Color textSecondary = Color(0xFF929293); // sub text, icons
 
+  //gradiente naranja osea color de marca
+  static const Gradient gradientBrand = LinearGradient(
+    colors: [brand, textSecondary],
+    begin: Alignment.centerLeft,
+    end: Alignment.centerRight,
+  );
+
   //  gradient (for buttons)
   static const Gradient gradientLeftToRight = LinearGradient(
     colors: [Color(0xFF585757), Color(0xFF292929)],
@@ -39,6 +46,13 @@ class AppColorsLight {
   // Text
   static const Color textPrimary = Color(0xFF000000); // main text
   static const Color textSecondary = Color(0xFF1E1E1E); // sub text
+
+  //gradiente naranja osea color de marca
+  static const Gradient gradientBrand = LinearGradient(
+    colors: [brand, textSecondary],
+    begin: Alignment.centerLeft,
+    end: Alignment.centerRight,
+  );
 
   //  gradient (for buttons)
   static const Gradient gradientLeftToRight = LinearGradient(

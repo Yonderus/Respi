@@ -6,7 +6,7 @@ import 'package:respi/core/widgets/app_container_review.dart';
 import 'package:respi/core/widgets/listarReservas.dart';
 import 'package:respi/features/Users/providers/auth_providers.dart';
 import 'package:respi/features/bookings/presentation/pages/booking_page.dart';
-import 'package:respi/features/auth/presentation/widgets/swipe_card.dart';
+import 'package:respi/features/auth/presentation/widgets/caroussel.dart';
 import 'package:respi/providers/bottom_nav_provider.dart';
 import 'package:respi/features/bookingADD/controllers/AddBookingController.dart';
 
@@ -106,9 +106,7 @@ class InitPage extends ConsumerWidget {
                 bookingAddAsync.when(
                   data: (reservas) {
                     if (userEmail == null) {
-                      return const Center(
-                        child: Text("No hay usuario logueado"),
-                      );
+                      return Center(child: Text(l10n.noUserLoggedIn));
                     }
 
                     // Filtrar SOLO reservas del usuario logueado
@@ -152,6 +150,10 @@ class InitPage extends ConsumerWidget {
                           style: TextStyle(color: Colors.grey),
                         ),
                       );
+                    }
+
+                    if (userReservas.isEmpty) {
+                      return Center(child: Text(l10n.noNextReservations));
                     }
 
                     return listarReservas(reservasProximas, ref, true);

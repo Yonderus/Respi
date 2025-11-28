@@ -22,7 +22,7 @@ class _BookingPageState extends ConsumerState<BookingPage> {
     final asyncDatos = ref.watch(courtBookingProvider);
 
     return Scaffold(
-      appBar: AppBar(title: Text('Nueva Reserva')),
+      appBar: AppBar(title: Text(l10n.newReservation)),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
