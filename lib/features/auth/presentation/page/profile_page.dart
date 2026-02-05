@@ -186,14 +186,10 @@ class ProfilePage extends ConsumerWidget {
                   side: BorderSide(color: cs.error),
                   textStyle: const TextStyle(fontSize: 16),
                 ),
-                onPressed: () async {
-                  await ref.read(authProvider.notifier).logout();
-                  if (!context.mounted) return;
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(builder: (context) => const LoginPage()),
-                  );
-                },
+                onPressed: () => Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const LoginPage()),
+                ),
               ),
             ],
           ),

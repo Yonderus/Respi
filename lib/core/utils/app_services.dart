@@ -1,11 +1,14 @@
 // app_services.dart
 import 'package:dio/dio.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'constants.dart';
-import 'token_storage.dart';
 
 class AppServices {
   // Una única instancia para toda la app
-  static final TokenStorage storage = TokenStorage();
+  static final FlutterSecureStorage storage = const FlutterSecureStorage(
+    aOptions: AndroidOptions(encryptedSharedPreferences: true),
+    iOptions: IOSOptions(accessibility: KeychainAccessibility.first_unlock),
+  );
 
   static final Dio dio = _buildDio();
 

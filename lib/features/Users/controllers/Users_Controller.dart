@@ -14,17 +14,31 @@ class AuthNotifier extends AsyncNotifier<User?> {
   Future<String?> login(String email, String password) async {
     state = const AsyncLoading();
 
-    try {
-      final user = await _repo.login(email: email, password: password);
-      state = AsyncData(user);
-      return null;
-    } catch (e) {
+    final user = await _repo.getUserByEmail(email);
+
+    if (user == null) {
       state = const AsyncData(null);
-      return e.toString().replaceFirst('Exception: ', '');
+      return "No existe ninguna cuenta con este email";
     }
+
+    if (user.password != password) {
+      state = const AsyncData(null);
+      return "La contraseña es incorrecta";
+    }
+
+    user.fechaUltimoLogin = DateTime.now();
+
+    state = AsyncData(user);
+    return null;
   }
 
   Future<String?> register(User user) async {
+    final existe = await _repo.getUserByEmail(user.email);
+
+    if (existe != null) {
+      return "Este email ya está registrado";
+    }
+
     if (user.password.length < 8) {
       return "La contraseña debe ser de al menos 8 caractéres.";
     }
@@ -44,16 +58,12 @@ class AuthNotifier extends AsyncNotifier<User?> {
       return "Tiene que tener un formato email correcto";
     }
 
-    try {
-      await _repo.registerUser(user);
-      return null;
-    } catch (e) {
-      return e.toString().replaceFirst('Exception: ', '');
-    }
+    await _repo.registerUser(user);
+
+    return null;
   }
 
-  Future<void> logout() async {
-    await _repo.clearSession();
+  void logout() {
     state = const AsyncData(null);
   }
 

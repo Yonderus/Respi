@@ -50,7 +50,7 @@ class User {
         (r) => r.toString().split('.').last == json['role'],
         orElse: () => UserRole.CLIENTE,
       ),
-      isActive: json['isActive'] ?? json['is_active'] ?? true,
+      isActive: json['isActive'] ?? true,
       fechaRegistro:
           DateTime.tryParse(json['fecha_registro'] ?? '') ?? DateTime.now(),
       fechaUltimoLogin:
